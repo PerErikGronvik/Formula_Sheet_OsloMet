@@ -1,0 +1,272 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec} % To customize section title size and spacing
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\columnsep}{1cm} % Set spacing between columns
+
+% Adjust section title font size and spacing
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries} % Set section title font to small and bold
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm} % Adjust space before and after section
+
+\begin{document}
+\title{L6 - Introduction to Quantum Mechanics}
+\author{}
+\date{}
+\maketitle
+\begin{multicols}{2}
+
+\section*{Wave-Particle Duality}
+Quantum mechanics introduces the concept of wave-particle duality, where particles like electrons and photons exhibit both wave-like and particle-like properties:
+\begin{itemize}
+    \item \textbf{Wave-like:} Interference, diffraction.
+    \item \textbf{Particle-like:} Momentum, collisions.
+\end{itemize}
+
+For example:
+\begin{itemize}
+    \item Light behaves as a wave (diffraction) and as particles (photoelectric effect).
+    \item Electrons exhibit wave-like behavior (interference patterns).
+\end{itemize}
+
+\section*{The Failure of Classical Mechanics}
+Classical mechanics cannot explain:
+\begin{itemize}
+    \item Atomic stability: Atoms in classical mechanics would collapse as electrons radiate energy continuously.
+    \item Discrete energy levels: Classical theory predicts a continuous spectrum of energies.
+\end{itemize}
+Quantum mechanics resolves this with quantized energy states, ensuring stability.
+
+\section*{Planck’s Constant and Photon Energy}
+The energy of a photon is given by:
+\[
+E = hf = \frac{hc}{\lambda},
+\]
+where:
+\begin{itemize}
+    \item $h = 6.626 \times 10^{-34} \, \mathrm{Js}$ (Planck’s constant),
+    \item $f$ = frequency,
+    \item $\lambda$ = wavelength,
+    \item $c = 3 \times 10^8 \, \mathrm{m/s}$ (speed of light).
+\end{itemize}
+
+The momentum of a photon is:
+\[
+p = \frac{h}{\lambda}.
+\]
+
+\section*{The Photoelectric Effect}
+The photoelectric effect demonstrates the particle nature of light:
+\begin{align*}
+K_\text{max} &= \frac{1}{2} mv_\text{max}^2 = eU_0, \\
+hf &= \phi + K_\text{max},
+\end{align*}
+where:
+\begin{itemize}
+    \item $K_\text{max}$ = maximum kinetic energy of ejected electrons,
+    \item $\phi$ = work function (energy needed to eject an electron),
+    \item $U_0$ = stopping potential.
+\end{itemize}
+Rewriting, we find:
+\[
+eU_0 = hf - \phi.
+\]
+
+The slope of the graph of $U_0$ vs. $f$ is $\frac{h}{e}$.
+
+\section*{The Schrödinger Equation}
+Quantum systems are described by a wavefunction $\psi(x,t)$, which satisfies the Schrödinger equation:
+\[
+i\hbar \frac{\partial \psi(x,t)}{\partial t} = \hat{H} \psi(x,t),
+\]
+where:
+\begin{itemize}
+    \item $\hbar = \frac{h}{2\pi}$ is the reduced Planck constant,
+    \item $\hat{H}$ is the Hamiltonian operator, representing the total energy:
+    \[
+    \hat{H} = \hat{T} + \hat{U},
+    \]
+    with $\hat{T}$ the kinetic energy operator and $\hat{U}$ the potential energy operator.
+\end{itemize}
+
+\section*{Kinetic and Potential Energy Operators}
+\begin{itemize}
+    \item Kinetic energy operator:
+    \[
+    \hat{T} = -\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2}.
+    \]
+    \item Potential energy operator:
+    \[
+    \hat{U} = U(x),
+    \]
+    which acts as a multiplication operator.
+\end{itemize}
+
+Thus, the Hamiltonian becomes:
+\[
+\hat{H} = -\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} + U(x).
+\]
+
+\section*{Time-Independent Schrödinger Equation}
+For stationary states, $\psi(x,t)$ can be separated:
+\[
+\psi(x,t) = \psi(x)\phi(t).
+\]
+Substituting into the time-dependent equation, we find:
+\[
+i\hbar \frac{\phi'(t)}{\phi(t)} = -\frac{\hbar^2}{2m} \frac{\psi''(x)}{\psi(x)} + U(x).
+\]
+
+As the left-hand side depends only on $t$ and the right-hand side only on $x$, both must equal a constant $E$. This gives:
+\begin{align*}
+\text{(A)} & \quad i\hbar \frac{\phi'(t)}{\phi(t)} = E, \quad \phi(t) = Ce^{-\frac{iEt}{\hbar}}, \\
+\text{(B)} & \quad -\frac{\hbar^2}{2m} \psi''(x) + U(x)\psi(x) = E\psi(x).
+\end{align*}
+
+Equation (B) is the time-independent Schrödinger equation.
+
+\section*{Expectation Values}
+In quantum mechanics, physical quantities correspond to operators. The expectation value of an operator $\hat{A}$ is:
+\[
+\langle A \rangle = \int_{-\infty}^\infty \psi^*(x) \hat{A} \psi(x) \, dx,
+\]
+where $\psi^*(x)$ is the complex conjugate of $\psi(x)$.
+
+\section*{Examples of Expectation Values}
+\begin{itemize}
+    \item Position:
+    \[
+    \langle x \rangle = \int_{-\infty}^\infty x |\psi(x)|^2 \, dx.
+    \]
+    \item Momentum:
+    \[
+    \langle p \rangle = \int_{-\infty}^\infty \psi^*(x) \left(-i\hbar \frac{\partial}{\partial x}\right) \psi(x) \, dx.
+    \]
+    \item Energy:
+    \[
+    \langle E \rangle = \int_{-\infty}^\infty \psi^*(x) \hat{H} \psi(x) \, dx.
+    \]
+\end{itemize}
+
+\section*{Normalization Condition}
+The wavefunction $\psi(x)$ must satisfy:
+\[
+\int_{-\infty}^\infty |\psi(x)|^2 \, dx = 1,
+\]
+ensuring the total probability is 1.
+
+\section*{Divergence of the Integral for a Monotonic Wavefunction}
+Consider a wavefunction $\psi(x)$ defined on the real line, where $\psi(x)$ is:
+\begin{itemize}
+    \item Monotonic (not oscillating) and continuous for $x > x_0 > 0$, and
+    \item Does not approach zero as $x \to +\infty$.
+\end{itemize}
+
+We aim to show:
+\[
+\int_{-\infty}^\infty |\psi(x)|^2 dx = \infty.
+\]
+
+\subsection*{Step-by-step Solution}
+Since $\psi(x)$ is monotonic and does not approach zero as $x \to +\infty$, there exists a constant $\epsilon > 0$ such that $|\psi(x)|^2 > \epsilon$ for all $x > x_0$. This gives:
+\[
+\int_{x_0}^\infty |\psi(x)|^2 dx \geq \int_{x_0}^\infty \epsilon \, dx.
+\]
+
+Calculating the right-hand integral:
+\[
+\int_{x_0}^\infty \epsilon \, dx = \epsilon \int_{x_0}^\infty 1 \, dx = \epsilon \left[ x \right]_{x_0}^\infty = \epsilon (\infty - x_0) = \infty.
+\]
+
+Thus:
+\[
+\int_{-\infty}^\infty |\psi(x)|^2 dx = \infty,
+\]
+proving the result. This condition implies $\psi(x)$ cannot represent a physically normalized wavefunction.
+
+\section*{Photoelectric Effect on Silver Surface}
+In a photoelectric effect experiment, ultraviolet light with frequency $f = 1.1 \times 10^{15} \, \mathrm{Hz}$ is shone on a silver surface. The stopping potential is $U_0 = 1.5 \, \mathrm{V}$.
+
+\subsection*{Objective}
+\begin{enumerate}
+    \item Calculate the energy of the incident photons in electron volts (eV).
+    \item Determine the work function of silver.
+    \item Verify that the work function corresponds to known values for silver.
+\end{enumerate}
+
+\subsection*{Constants}
+\begin{itemize}
+    \item Planck's constant: $h = 6.63 \times 10^{-34} \, \mathrm{J \cdot s}$,
+    \item Elementary charge: $e = 1.6 \times 10^{-19} \, \mathrm{C}$,
+    \item Speed of light: $c = 3.0 \times 10^8 \, \mathrm{m/s}$.
+\end{itemize}
+
+\subsection*{Solution}
+\subsubsection*{(a) Energy of Incident Photons}
+The energy of a photon is given by:
+\[
+E = hf.
+\]
+
+Substituting the known values:
+\[
+E = (6.63 \times 10^{-34} \, \mathrm{J \cdot s})(1.1 \times 10^{15} \, \mathrm{Hz}) = 7.293 \times 10^{-19} \, \mathrm{J}.
+\]
+
+Convert to eV:
+\[
+E = \frac{7.293 \times 10^{-19} \, \mathrm{J}}{1.6 \times 10^{-19} \, \mathrm{J/eV}} = 4.56 \, \mathrm{eV}.
+\]
+
+\subsubsection*{(b) Determining the Work Function}
+The kinetic energy of the ejected electrons is related to the stopping potential $U_0$ by:
+\[
+K = eU_0.
+\]
+
+Substituting values:
+\[
+K = (1.6 \times 10^{-19} \, \mathrm{C})(1.5 \, \mathrm{V}) = 2.4 \times 10^{-19} \, \mathrm{J}.
+\]
+
+Convert to eV:
+\[
+K = \frac{2.4 \times 10^{-19} \, \mathrm{J}}{1.6 \times 10^{-19} \, \mathrm{J/eV}} = 1.5 \, \mathrm{eV}.
+\]
+
+The work function $\phi$ is then given by:
+\[
+\phi = E - K.
+\]
+
+Substituting values:
+\[
+\phi = 4.56 \, \mathrm{eV} - 1.5 \, \mathrm{eV} = 4.2 \, \mathrm{eV}.
+\]
+
+\subsubsection*{(c) Identifying the Material}
+The calculated work function $\phi = 4.2 \, \mathrm{eV}$ matches the known work function of silver. Therefore, the material is confirmed to be silver.
+
+\section*{Key Equations Recap}
+\begin{itemize}
+    \item Photon energy: 
+    \[
+    E = hf = \frac{hc}{\lambda}.
+    \]
+    \item Kinetic energy of ejected electrons:
+    \[
+    K = eU_0.
+    \]
+    \item Work function:
+    \[
+    \phi = E - K.
+    \]
+\end{itemize}
+
+\end{multicols}
+\end{document}

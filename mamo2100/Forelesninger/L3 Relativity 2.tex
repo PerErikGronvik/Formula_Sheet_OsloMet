@@ -1,0 +1,202 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{titlesec} % To customize section title size and spacing
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\columnsep}{1cm} % Set spacing between columns
+
+% Adjust section title font size and spacing
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries} % Set section title font to small and bold
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm} % Adjust space before and after section
+
+\begin{document}
+
+\title{L3 - Lorentz Velocity Transformation}
+\author{}
+\date{}
+\maketitle
+
+\begin{multicols}{2}
+
+\section*{Example: Spaceship and Probe}
+A spaceship moving away from Earth at $0.9c$ fires a probe at $0.7c$ relative to the spaceship. What is the probe's velocity relative to Earth?
+
+\textbf{Solution:}
+
+The reference frames are defined as follows:
+\begin{itemize}
+  \item $S$: Earth as the reference frame.
+  \item $S'$: Spaceship as the reference frame.
+\end{itemize}
+
+Given:
+
+\begin{itemize}
+  \item $u = 0.9c$ (velocity of the spaceship relative to Earth)
+  \item $v'_x = 0.7c$ (velocity of the probe relative to the spaceship)
+\end{itemize}
+
+
+We use the Lorentz velocity transformation formula:
+\begin{equation}
+  v_x = \frac{v'_x + u}{1 + \frac{u v'_x}{c^2}}
+\end{equation}
+
+Substituting the values:
+\begin{align*}
+  v_x &= \frac{0.7c + 0.9c}{1 + \frac{0.9c \cdot 0.7c}{c^2}} \\
+      &= \frac{1.6c}{1 + 0.63} \\
+      &= \frac{1.6c}{1.63} \\
+      &= 0.98c
+\end{align*}
+
+\textbf{Comment:} Note that $v_x < c$, consistent with the relativistic principle that no object can exceed the speed of light.
+
+\section*{Galilean Transformation Comparison}
+If we incorrectly use the Galilean velocity transformation, we get:
+\begin{equation}
+  v_x = v'_x + u = 0.7c + 0.9c = 1.6c
+\end{equation}
+This result contradicts the relativistic principle, as it suggests $v_x > c$.
+
+\section*{Deriving the Lorentz Velocity Transformation}
+Consider the Lorentz velocity transformation:
+\begin{equation}
+  v'_x = \frac{v_x - u}{1 - \frac{u v_x}{c^2}}
+\end{equation}
+Solving for $v_x$ algebraically yields:
+\begin{equation}
+  v_x = \frac{v'_x + u}{1 + \frac{u v'_x}{c^2}}
+\end{equation}
+This formula is used in the previous example to determine the velocity of the probe relative to Earth.
+
+\textbf{Interpretation:} The result is consistent with swapping $v_x \leftrightarrow v'_x$ and reversing the sign of $u$, as expected due to the symmetry of Lorentz transformations.
+
+\section*{Summary: Lorentz Velocity Transformation}
+The Lorentz velocity transformation is given by:
+\begin{equation}
+  v'_x = \frac{v_x - u}{1 - \frac{u v_x}{c^2}}
+\end{equation}
+
+\textbf{Limiting Cases:}
+\begin{enumerate}
+  \item \textbf{Low Velocities ($u \ll c$, $v_x \ll c$):}
+  \begin{align*}
+    1 - \frac{u v_x}{c^2} &\approx 1 \\
+    v'_x &\approx v_x - u \quad \text{(Galilean approximation)}
+  \end{align*}
+
+  \item \textbf{$v_x = c$:}
+  \begin{align*}
+    v'_x &= \frac{c - u}{1 - \frac{u c}{c^2}} = \frac{c - u}{\frac{c - u}{c}} = c
+  \end{align*}
+  In this case, $v'_x = v_x = c$, which is consistent with Einstein's postulate that the speed of light is the same in all inertial frames of reference.
+\end{enumerate}
+
+\section*{Derivation of the Lorentz Transformation}
+To derive the Lorentz velocity transformation, we start by recalling the Galilean velocity transformation:
+\begin{equation}
+  x = x' + u t
+\end{equation}
+Differentiating with respect to time gives:
+\begin{equation}
+  v_x = v'_x + u
+\end{equation}
+This relation, however, is inconsistent with special relativity for high velocities.
+
+The Lorentz transformation is given by:
+\begin{align*}
+  x' &= \gamma (x - ut) \\
+  t' &= \gamma \left( t - \frac{ux}{c^2} \right)
+\end{align*}
+where $\gamma = \frac{1}{\sqrt{1 - \frac{u^2}{c^2}}}$.
+
+Using the chain rule for differentiation:
+\begin{align*}
+  \frac{dx'}{dt'} &= \frac{\partial x'}{\partial x} \cdot \frac{dx}{dt} + \frac{\partial x'}{\partial t} \cdot \frac{dt}{dt} \\
+                   &= \gamma \left( \frac{dx}{dt} - u \right)
+\end{align*}
+Dividing by $\frac{dt'}{dt}$ yields:
+\begin{equation}
+  v'_x = \frac{v_x - u}{1 - \frac{u v_x}{c^2}}
+\end{equation}
+
+\section*{Matrix Form of Lorentz Transformation}
+We can also express the Lorentz transformation in matrix form. Let:
+\begin{align*}
+  y_1 &= a x_1 + b x_2 \\
+  y_2 &= c x_1 + d x_2
+\end{align*}
+In matrix form:
+\begin{equation}
+  \begin{pmatrix} y_1 \\ y_2 \end{pmatrix} = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+\end{equation}
+For the Lorentz transformation:
+\begin{equation}
+  \begin{pmatrix} x' \\ t' \end{pmatrix} = \begin{pmatrix} \gamma & -\gamma u \\ -\frac{\gamma u}{c^2} & \gamma \end{pmatrix} \begin{pmatrix} x \\ t \end{pmatrix}
+\end{equation}
+
+\section*{Summary: Lorentz Transformation}
+The Lorentz transformations for space and time are:
+\begin{align*}
+  x' &= \gamma (x - ut) \\
+  t' &= \gamma \left( t - \frac{ux}{c^2} \right)
+\end{align*}
+These equations are the relativistic generalizations of the Galilean transformations:
+\begin{align*}
+  x &= x' + ut \\
+  t &= t'
+\end{align*}
+Space and time have become intertwined, and we can no longer say that length and time have absolute meanings independent of the frame of reference.
+
+\section*{Differential Formula Application}
+Let $a, b$ be constants. By using the differential formula for a function of two variables $f(x, t) = ax + bt$:
+\begin{equation}
+  df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial t} dt,
+\end{equation}
+show that this leads to:
+\begin{equation}
+  df = a dx + b dt.
+\end{equation}
+
+\textbf{Solution:} Since
+\begin{align*}
+  \frac{\partial f}{\partial x} &= a, \quad \frac{\partial f}{\partial t} = b
+\end{align*}
+we get the desired result directly.
+
+\section*{Relative Velocity Between Spaceships}
+Consider two spaceships, A and B, moving in opposite directions towards each other. An observer on Earth measures the speed of A to be $0.75c$ and that of B to be $0.85c$. Find the velocity of B with respect to A.
+
+\textbf{Hint:} Let $S'$ be the frame attached to spaceship A, so that $u = 0.75c$ is the relative motion to an observer on Earth ($S$ frame). Think carefully about the sign of $v_x$ being the velocity of spaceship B in the $S$ frame.
+
+\textbf{Solution:} Using the hint, we have that $v_x = -0.85c$ (velocity relative to Earth). The velocity of B with respect to A can then be computed from:
+\begin{equation}
+  v'_x = \frac{v_x - u}{1 - \frac{u v_x}{c^2}} = \frac{-0.85 - 0.75}{1 - 0.75 \cdot (-0.85)} c = -0.9771c.
+\end{equation}
+
+\section*{Solving for $v_x$ in the Lorentz Expression}
+Solve for $v_x$ in the expression:
+\begin{equation}
+  v'_x = \frac{v_x - u}{1 - \frac{u v_x}{c^2}}.
+\end{equation}
+
+\textbf{Solution:} We first multiply both sides by $1 - \frac{u v_x}{c^2}$ such that:
+\begin{equation}
+  v'_x \left( 1 - \frac{u v_x}{c^2} \right) = v_x - u.
+\end{equation}
+We now isolate $v_x$:
+\begin{align*}
+  v'_x + u &= v_x + \frac{u}{c^2} v'_x v_x = \left( 1 + \frac{u v'_x}{c^2} \right) v_x
+\end{align*}
+to get the answer:
+\begin{equation}
+  v_x = \frac{v'_x + u}{1 + \frac{u v'_x}{c^2}}.
+\end{equation}
+
+\end{multicols}
+\end{document}

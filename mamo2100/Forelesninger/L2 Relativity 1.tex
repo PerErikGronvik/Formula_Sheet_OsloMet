@@ -1,0 +1,279 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{titlesec}
+
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt}
+\setlength{\columnsep}{1cm}
+
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries}
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm}
+
+\begin{document}
+\begin{center}
+    \textbf{\large L2 Relativity - Length Contraction - Time Dilation - Lorentz Factor, Time Intervals}
+\end{center}
+
+\vspace{0.2cm}
+\begin{multicols}{2}
+
+\section*{Length Contraction}
+Length contraction is given by the formula:
+\[
+l = \sqrt{1 - \frac{u^2}{c^2}} \cdot l_0,
+\]
+where \( l_0 \) is the rest length and \( u \) is the velocity of the moving object.
+
+Alternatively, we can write:
+\[
+l = \frac{l_0}{\gamma}, \quad \gamma = \frac{1}{\sqrt{1 - \frac{u^2}{c^2}}},
+\]
+where \( \gamma \) is the **Lorentz factor**.
+
+Length contraction only occurs for lengths measured in the direction **parallel** to the relative motion (\(u\)). Lengths that are measured **perpendicular** to the direction of motion are **not contracted**.
+
+For small velocities (\(u \ll c\)):
+\[
+\frac{1}{\gamma} = \sqrt{1 - \frac{u^2}{c^2}} \approx 1 - \frac{1}{2}\frac{u^2}{c^2} + \cdots
+\]
+This implies that for non-relativistic speeds (\(u \ll c\)), the length contraction is negligible:
+\[
+l \approx l_0.
+\]
+For the relativistic case:
+\[
+l = \left( 1 - \frac{1}{2} \frac{u^2}{c^2} + \cdots \right) l_0 = l_0 - \frac{1}{2} \frac{u^2}{c^2} l_0 + \cdots
+\]
+
+\subsection*{Example}
+A spaceship is measured to be \( 100 \, \text{m} \) long when at rest with respect to an observer. If the spaceship flies by the observer with speed \( 0.99c \), what length will the observer find for the spaceship?
+
+\textbf{Solution:}
+
+Using length contraction:
+\[
+\Delta l = l_0 \sqrt{1 - \frac{u^2}{c^2}},
+\]
+where \( l_0 = 100 \, \text{m} \) and \( u = 0.99c \):
+\[
+\frac{u^2}{c^2} = \left( 0.99c \right)^2 / c^2 = 0.99^2,
+\]
+\[
+\Delta l = 100 \cdot \sqrt{1 - 0.99^2} \approx 14 \, \text{m}.
+\]
+
+\section*{Relativity of Length}
+Length contraction occurs for lengths parallel to the direction of motion.
+
+Consider a frame \( S \) and a moving frame \( S' \). Let \( l_0 \) be the rest length.
+
+\[
+d = l + u \Delta t_1, \quad d = c \Delta t_1 \quad \Rightarrow \quad \Delta t_1 = \frac{l}{c - u}
+\]
+\[
+d = l - u \Delta t_2, \quad d = c \Delta t_2 \quad \Rightarrow \quad \Delta t_2 = \frac{l}{c + u}
+\]
+
+Total time:
+\[
+\Delta t = \Delta t_1 + \Delta t_2 = \frac{l}{c - u} + \frac{l}{c + u}
+\]
+\[
+= \frac{l (c + u) + l (c - u)}{c^2 - u^2} = \frac{2lc}{c^2 - u^2}
+\]
+\[
+= \frac{2l/c}{1 - \frac{u^2}{c^2}} = \frac{2l}{c(1 - \frac{u^2}{c^2})} \tag{L5}
+\]
+
+\section*{Time Dilation}
+Two events occur at the same point in space:
+- Observer at rest: \( \Delta t_0 \) (rest frame)
+- Observer moving with constant speed \( u \): \( \Delta t \) (relative frame)
+
+\[
+\Delta t = \frac{\Delta t_0}{\sqrt{1 - \frac{u^2}{c^2}}}, \quad u < c
+\]
+
+\subsection*{Definition (Lorentz Factor)}
+\[
+\gamma = \frac{1}{\sqrt{1 - \frac{u^2}{c^2}}}, \quad \beta = \frac{u}{c}
+\]
+\[
+\gamma = \frac{1}{\sqrt{1 - \beta^2}}
+\]
+
+For small velocities (\( u \ll c \)):
+\[
+\gamma = (1 - \beta^2)^{-1/2} \approx 1 + \frac{1}{2} (\beta^2) + \cdots
+\]
+Thus:
+\[
+\Delta t \approx \Delta t_0 \quad (\text{non-relativistic})
+\]
+\[
+\Delta t = \left( 1 + \frac{1}{2} \frac{u^2}{c^2} + \cdots \right) \Delta t_0 = \Delta t_0 + \frac{1}{2} \frac{u^2}{c^2} \Delta t_0 + \cdots
+\]
+
+\subsection*{Example}
+Person A is in a flying spaceship with a watch and notes that after \( 3600 \, \text{s} \), on earth for person B watching the spaceship, \( 3601 \, \text{s} \) has passed. At what speed is the spaceship flying?
+
+\textbf{Solution:}
+\[
+\Delta t = \frac{\Delta t_0}{\sqrt{1 - \frac{u^2}{c^2}}}
+\]
+\[
+\left( \Delta t \right)^2 = \frac{\left( \Delta t_0 \right)^2}{1 - \frac{u^2}{c^2}}
+\]
+Rearranging:
+\[
+\frac{u^2}{c^2} = 1 - \frac{(\Delta t_0)^2}{(\Delta t)^2}
+\]
+\[
+u = c \sqrt{1 - \frac{(\Delta t_0)^2}{(\Delta t)^2}}
+\]
+Given \( \Delta t_0 = 3600 \, \text{s} \) and \( \Delta t = 3601 \, \text{s} \):
+\[
+u = 3 \times 10^8 \sqrt{1 - \frac{3600^2}{3601^2}} \approx 7 \times 10^6 \, \text{m/s}
+\]
+
+\section*{Limitations of Galilean Transformation and Necessity for Lorentz Transformation}
+The **Galilean transformation** describes how coordinates change between two inertial frames:
+\[
+x = x' + ut, \quad y = y',
+\]
+where \(u\) is the constant relative speed.
+
+This transformation is **not consistent with relativity**, since it implies that velocities are additive:
+\[
+v_x = v'_x + u,
+\]
+which can result in velocities greater than the speed of light (\(c\)), violating relativistic constraints.
+
+To resolve this issue, we use the **Lorentz transformation**, which ensures that no object can travel faster than the speed of light and properly takes into account time dilation and length contraction.
+
+\section*{Relativity of Time Intervals}
+The time interval may be different in different frames of reference.
+
+Consider two frames \( S \) and \( S' \):
+\[
+\Delta t_0 = \frac{2d}{c}
+\]
+Using Pythagoras:
+\[
+l^2 = d^2 + \left( \frac{u \Delta t}{2} \right)^2, \quad l = \sqrt{d^2 + \left( \frac{u \Delta t}{2} \right)^2}
+\]
+\[
+\Delta t = \frac{2l}{c}
+\]
+Squaring both sides:
+\[
+(\Delta t)^2 = \frac{4}{c^2} d^2 + \frac{4}{c^2} \left( \frac{u \Delta t}{2} \right)^2 = \left( \frac{2d}{c} \right)^2 + \frac{u^2 (\Delta t)^2}{c^2}
+\]
+Rearranging gives:
+\[
+(\Delta t)^2 \left( 1 - \frac{u^2}{c^2} \right) = (\Delta t_0)^2
+\]
+Thus:
+\[
+\Delta t = \frac{\Delta t_0}{\sqrt{1 - \frac{u^2}{c^2}}}, \quad u < c
+\]
+
+\section*{Einstein's Postulates}
+1. **Principle of Relativity**: The laws of physics are the same in every inertial frame of reference.
+2. **Constancy of Speed of Light**: The speed of light in a vacuum is the same in all inertial frames of reference.
+
+The speed of light \(c = 3 \times 10^8 \, \text{m/s}\). It is impossible for an inertial observer to travel at the speed of \(c\).
+
+\section*{Relativity 1}
+Let \( c \) denote the speed of light. Moreover, we sometimes use the abbreviations for:
+- **Lorentz factor** (\( \gamma \)):
+\[
+\gamma = \frac{1}{\sqrt{1 - \frac{u^2}{c^2}}}, \quad \text{where } u < c,
+\]
+- **Velocity ratio** (\( \beta \)):
+\[
+\beta = \frac{u}{c}, \tag{1}
+\]
+which simplifies expressions in relativistic physics.
+
+\section*{Calculating the Speed of a Spaceship Using Time Dilation}
+Person A is in a flying spaceship with a watch and notes that after \( \Delta t_0 \) seconds, on earth for person B watching the spaceship, a time interval of \( \Delta t > \Delta t_0 \) seconds has elapsed. At what speed is the spaceship flying? (Answer in terms of \( \Delta t_0 \) and \( \Delta t \)).
+
+\textbf{Solution:} We denote the time interval where the watch is at rest as \( \Delta t_0 \) (proper time). 
+
+The time dilation formula relates the proper time (\( \Delta t_0 \)) to the time observed in another frame (\( \Delta t \)):
+\[
+\Delta t = \frac{\Delta t_0}{\sqrt{1 - \frac{u^2}{c^2}}}. \tag{L1}
+\]
+
+We want to solve for \( u \) in terms of \( \Delta t \) and \( \Delta t_0 \).
+
+First, isolate the term involving \( u \) by squaring both sides:
+\[
+(\Delta t)^2 = \frac{(\Delta t_0)^2}{1 - \frac{u^2}{c^2}}.
+\]
+
+Rearrange to solve for \( u^2 \):
+\[
+1 - \frac{u^2}{c^2} = \frac{(\Delta t_0)^2}{(\Delta t)^2},
+\]
+\[
+\frac{u^2}{c^2} = 1 - \frac{(\Delta t_0)^2}{(\Delta t)^2}. \tag{L2}
+\]
+
+Take the square root to solve for \( u \):
+\[
+u = c \sqrt{1 - \frac{(\Delta t_0)^2}{(\Delta t)^2}}. \tag{L3}
+\]
+
+This formula provides the speed of the spaceship in terms of the observed and proper times.
+
+\section*{Finding the Speed for a Specific Time Dilation Ratio}
+How quickly does the spaceship in the above scenario need to travel (relative to earth) such that time on the spaceship goes half as quickly as time on earth?
+
+\textbf{Solution:} From the time dilation formula:
+\[
+\Delta t = \frac{\Delta t_0}{\sqrt{1 - \frac{u^2}{c^2}}}. \tag{L4}
+\]
+
+We want the time on the spaceship to be half of the time on earth:
+\[
+\Delta t = 2 \Delta t_0.
+\]
+
+Plugging into the time dilation formula:
+\[
+2 \Delta t_0 = \frac{\Delta t_0}{\sqrt{1 - \frac{u^2}{c^2}}}.
+\]
+
+Divide both sides by \( \Delta t_0 \):
+\[
+2 = \frac{1}{\sqrt{1 - \frac{u^2}{c^2}}}.
+\]
+
+Square both sides to solve for \( u^2 \):
+\[
+4 = \frac{1}{1 - \frac{u^2}{c^2}},
+\]
+\[
+1 - \frac{u^2}{c^2} = \frac{1}{4}.
+\]
+
+Rearrange to solve for \( \frac{u^2}{c^2} \):
+\[
+\frac{u^2}{c^2} = 1 - \frac{1}{4} = \frac{3}{4}. \tag{L5}
+\]
+
+Take the square root to find \( u \):
+\[
+u = \sqrt{\frac{3}{4}} c = \left( \frac{\sqrt{3}}{2} \right) c \approx 0.866c.
+\]
+
+Thus, the speed of the spaceship is \( u = (\sqrt{3}/2) c \, \text{m/s} \).
+
+\end{multicols}
+\end{document}

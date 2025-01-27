@@ -1,0 +1,277 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec} % To customize section title size and spacing
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\columnsep}{1cm} % Set spacing between columns
+
+% Adjust section title font size and spacing
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries} % Set section title font to small and bold
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm} % Adjust space before and after section
+
+\begin{document}
+\title{L10 - Finite Potential Well and Bound States}
+\author{}
+\date{}
+\maketitle
+\begin{multicols}{2}
+
+\section{Introduction}
+We analyze the finite potential square well to determine bound state solutions. The potential is given as:
+\[
+U(x) = 
+\begin{cases} 
+U_0 & \text{if } x < -L/2 \text{ or } x > L/2, \\
+0 & \text{if } -L/2 \leq x \leq L/2,
+\end{cases}
+\]
+where \( U_0 > 0 \) is the potential barrier, and \( L \) is the width of the well. We solve the Schrödinger equation:
+\[
+-\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} + U(x)\psi(x) = E\psi(x),
+\]
+for bound states (\( E < U_0 \)).
+
+\section{Regions of the Potential Well}
+The potential well is divided into three regions:
+
+\begin{itemize}
+    \item \textbf{Region I:} \( x < -L/2 \), where \( U(x) = U_0 \).
+    \item \textbf{Region II:} \( -L/2 \leq x \leq L/2 \), where \( U(x) = 0 \).
+    \item \textbf{Region III:} \( x > L/2 \), where \( U(x) = U_0 \).
+\end{itemize}
+
+\subsection{Wavefunctions in Each Region}
+The wavefunctions in each region are solved as follows:
+
+\textbf{Region I and III:} For \( x < -L/2 \) and \( x > L/2 \), the Schrödinger equation becomes:
+\[
+-\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} + U_0\psi = E\psi.
+\]
+Rewriting, 
+\[
+\frac{d^2\psi}{dx^2} = \frac{2m}{\hbar^2}(U_0 - E)\psi = \alpha^2 \psi,
+\]
+where \( \alpha^2 = \frac{2m(U_0 - E)}{\hbar^2} \). The general solution is:
+\[
+\psi(x) = A e^{\alpha x} + B e^{-\alpha x},
+\]
+but we discard the exponentially growing terms at infinity, leaving:
+\[
+\psi(x) = B e^{\alpha x} \text{ for } x < -L/2, \quad \psi(x) = A e^{-\alpha x} \text{ for } x > L/2.
+\]
+
+\textbf{Region II:} For \( -L/2 \leq x \leq L/2 \), the Schrödinger equation becomes:
+\[
+-\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} = E\psi.
+\]
+Rewriting,
+\[
+\frac{d^2\psi}{dx^2} = -\beta^2 \psi, \quad \beta^2 = \frac{2mE}{\hbar^2}.
+\]
+The general solution is:
+\[
+\psi(x) = C \cos(\beta x) + D \sin(\beta x).
+\]
+
+\section{Boundary Conditions}
+The wavefunction \( \psi(x) \) and its derivative \( \psi'(x) \) must be continuous at \( x = \pm L/2 \). This gives four boundary conditions:
+\[
+\psi_I(-L/2) = \psi_{II}(-L/2), \quad \psi_{II}(L/2) = \psi_{III}(L/2),
+\]
+\[
+\psi'_I(-L/2) = \psi'_{II}(-L/2), \quad \psi'_{II}(L/2) = \psi'_{III}(L/2).
+\]
+
+\section{Even and Odd Solutions}
+Symmetry considerations allow us to classify the solutions as even or odd:
+
+\textbf{Even Solutions:} \( \psi(-x) = \psi(x) \).
+\[
+\psi(x) = 
+\begin{cases} 
+B e^{\alpha x}, & x < -L/2, \\
+C \cos(\beta x), & -L/2 \leq x \leq L/2, \\
+A e^{-\alpha x}, & x > L/2.
+\end{cases}
+\]
+
+\textbf{Odd Solutions:} \( \psi(-x) = -\psi(x) \).
+\[
+\psi(x) = 
+\begin{cases} 
+B e^{\alpha x}, & x < -L/2, \\
+D \sin(\beta x), & -L/2 \leq x \leq L/2, \\
+-A e^{-\alpha x}, & x > L/2.
+\end{cases}
+\]
+
+\section{Matching Conditions}
+Using the boundary conditions, we find the transcendental equations for \( \beta \) and \( \alpha \):
+
+\textbf{Even States:}
+\[
+\beta \tan\left(\frac{\beta L}{2}\right) = \alpha,
+\]
+\textbf{Odd States:}
+\[
+\beta \cot\left(\frac{\beta L}{2}\right) = \alpha,
+\]
+with the constraint:
+\[
+\alpha^2 + \beta^2 = \frac{2mU_0}{\hbar^2}.
+\]
+
+\section{Energy Quantization}
+The transcendental equations for \( \beta \) and \( \alpha \) determine the allowed energy levels \( E \) for each state. Energy is related to \( \beta \) by:
+\[
+E = \frac{\hbar^2 \beta^2}{2m}.
+\]
+
+\section{Limiting Case: Infinite Square Well}
+For \( U_0 \to \infty \), \( \alpha \to \infty \), and the transcendental equations reduce to the boundary conditions of the infinite square well. The energy levels are:
+\[
+E_n = \frac{n^2 \pi^2 \hbar^2}{2mL^2}, \quad n = 1, 2, 3, \dots
+\]
+
+\section{Graphical Interpretation}
+The solutions can be visualized by plotting \( \beta \tan(\beta L/2) \) (even states) and \( \beta \cot(\beta L/2) \) (odd states) against \( \alpha^2 + \beta^2 = \rho^2 \), where \( \rho^2 = \frac{2mU_0}{\hbar^2} \). The intersections represent the allowed energy levels.
+
+\section{Overview of the Finite Square Well}
+The finite square potential well is a system where a particle is confined by a potential \( U(x) \) defined as:
+\[
+U(x) = 
+\begin{cases} 
+U_0, & |x| > L/2, \\
+0, & |x| \leq L/2,
+\end{cases}
+\]
+where \( U_0 > 0 \) is the depth of the well, and \( L \) is the width of the well. The Schrödinger equation for this system is:
+\[
+-\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} + U(x)\psi(x) = E\psi(x),
+\]
+where \( \psi(x) \) is the wavefunction, \( E \) is the energy, and \( m \) is the mass of the particle.
+
+For bound states (\( E < U_0 \)), the wavefunction is confined within the well and decays exponentially outside.
+
+\section{Regions of the Potential Well}
+We divide the system into three regions:
+
+\textbf{Region I:} \( x < -L/2 \), where \( U(x) = U_0 \).
+
+\textbf{Region II:} \( -L/2 \leq x \leq L/2 \), where \( U(x) = 0 \).
+
+\textbf{Region III:} \( x > L/2 \), where \( U(x) = U_0 \).
+
+\subsection{Wavefunctions in Each Region}
+\textbf{Region I and III:} For \( x < -L/2 \) and \( x > L/2 \), the Schrödinger equation becomes:
+\[
+-\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} + U_0\psi = E\psi.
+\]
+Simplifying:
+\[
+\frac{d^2\psi}{dx^2} = \frac{2m}{\hbar^2}(U_0 - E)\psi = \alpha^2 \psi,
+\]
+where \( \alpha^2 = \frac{2m(U_0 - E)}{\hbar^2} \). The general solution is:
+\[
+\psi(x) = A e^{\alpha x} + B e^{-\alpha x}.
+\]
+Since \( \psi(x) \) must decay as \( x \to \pm\infty \), we eliminate the growing exponential terms, leaving:
+\[
+\psi_I(x) = B e^{\alpha x}, \quad \psi_{III}(x) = A e^{-\alpha x}.
+\]
+
+\textbf{Region II:} For \( -L/2 \leq x \leq L/2 \), the Schrödinger equation becomes:
+\[
+-\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} = E\psi.
+\]
+Simplifying:
+\[
+\frac{d^2\psi}{dx^2} = -\beta^2 \psi, \quad \beta^2 = \frac{2mE}{\hbar^2}.
+\]
+The general solution is:
+\[
+\psi_{II}(x) = C \cos(\beta x) + D \sin(\beta x).
+\]
+
+\section{Symmetry of the Solutions}
+Due to the symmetry of \( U(x) \), the solutions can be classified as:
+
+\textbf{Even States:} \( \psi(-x) = \psi(x) \).  
+\textbf{Odd States:} \( \psi(-x) = -\psi(x) \).
+
+\subsection{Wavefunctions for Even States}
+For even states, the wavefunction has the form:
+\[
+\psi(x) = 
+\begin{cases} 
+B e^{\alpha x}, & x < -L/2, \\
+C \cos(\beta x), & -L/2 \leq x \leq L/2, \\
+A e^{-\alpha x}, & x > L/2.
+\end{cases}
+\]
+
+\subsection{Wavefunctions for Odd States}
+For odd states, the wavefunction has the form:
+\[
+\psi(x) = 
+\begin{cases} 
+B e^{\alpha x}, & x < -L/2, \\
+D \sin(\beta x), & -L/2 \leq x \leq L/2, \\
+-A e^{-\alpha x}, & x > L/2.
+\end{cases}
+\]
+
+\section{Boundary Conditions}
+The wavefunction \( \psi(x) \) and its derivative \( \psi'(x) \) must be continuous at \( x = \pm L/2 \). This gives four conditions:
+
+1. \( \psi_I(-L/2) = \psi_{II}(-L/2) \),
+2. \( \psi'_I(-L/2) = \psi'_{II}(-L/2) \),
+3. \( \psi_{II}(L/2) = \psi_{III}(L/2) \),
+4. \( \psi'_{II}(L/2) = \psi'_{III}(L/2) \).
+
+\subsection{Transcendental Equations}
+From the boundary conditions, we derive the following equations:
+
+\textbf{Even States:}
+\[
+\beta \tan\left(\frac{\beta L}{2}\right) = \alpha.
+\]
+
+\textbf{Odd States:}
+\[
+\beta \cot\left(\frac{\beta L}{2}\right) = \alpha.
+\]
+
+These transcendental equations must be solved numerically or graphically to find the allowed \( \beta \) values.
+
+\section{Normalization Condition}
+The total probability must equal 1:
+\[
+\int_{-\infty}^\infty |\psi(x)|^2 dx = 1.
+\]
+For even states:
+\[
+1 = 2\left( \frac{e^{-\alpha L}}{\alpha}|A|^2 + \frac{L}{2}|C|^2 + \frac{\sin(\beta L)}{2\beta}|C|^2 \right).
+\]
+
+For odd states, normalization follows a similar approach.
+
+\section{Number of Bound States}
+The number of bound states is determined graphically by solving:
+\[
+x_1^2 + x_2^2 = R^2,
+\]
+where \( x_1 = \beta L/2 \), \( x_2 = \alpha L/2 \), and \( R^2 = \frac{2mU_0 L^2}{\hbar^2 4} \). The intersections with \( x_2 = x_1 \tan(x_1) \) (even) and \( x_2 = -x_1 \cot(x_1) \) (odd) give the bound states.
+
+\section{Special Case: Infinite Square Well}
+When \( U_0 \to \infty \), \( \alpha \to \infty \), and only solutions for \( \beta \) remain. The energy levels reduce to:
+\[
+E_n = \frac{n^2 \pi^2 \hbar^2}{2mL^2}, \quad n = 1, 2, 3, \dots
+\]
+\end{multicols}
+\end{document}

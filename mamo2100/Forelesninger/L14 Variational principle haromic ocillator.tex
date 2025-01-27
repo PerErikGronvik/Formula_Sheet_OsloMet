@@ -1,0 +1,562 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{titlesec} % To customize section title size and spacing
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\columnsep}{1cm} % Set spacing between columns
+
+% Adjust section title font size and spacing
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries} % Set section title font to small and bold
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm} % Adjust space before and after section
+
+\begin{document}
+\title{L14 - Variational Principle and Quantum Harmonic Oscillator}
+\author{}
+\date{}
+\maketitle
+\begin{multicols}{2}
+
+\section{Particle in a Box: Trial Wavefunction}
+
+We begin by solving a standard quantum mechanics problem: the particle in a one-dimensional box with the potential
+\[
+U(x) = 
+\begin{cases} 
+0, & |x| \leq \frac{1}{2} \\ 
+\infty, & |x| > \frac{1}{2}.
+\end{cases}
+\]
+
+The wavefunction must vanish at the boundaries of the box, i.e., \( \psi\left(\pm \frac{1}{2}\right) = 0 \). A trial wavefunction is chosen:
+\[
+\psi(x) = C\left(x^2 - \frac{1}{4}\right),
+\]
+where \( C \) is a normalization constant. This wavefunction satisfies the boundary conditions and is admissible.
+
+\subsection*{Ground-State Energy of the Particle in a Box}
+The ground-state energy for the exact solution is given by:
+\[
+E_1 = \frac{\pi^2 \hbar^2}{2mL^2},
+\]
+where \( L = 1 \) in this case (the box width).
+
+\subsection*{Energy Expectation Value of the Trial Wavefunction}
+The expectation value of the energy for a trial wavefunction \( \psi(x) \) is given by:
+\[
+E[\psi] = \frac{\langle \psi | \hat{H} | \psi \rangle}{\langle \psi | \psi \rangle},
+\]
+where the Hamiltonian is \( \hat{H} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} \). 
+
+\subsubsection*{Step 1: Compute \( \langle \psi | \hat{H} | \psi \rangle \)}
+\[
+\langle \psi | \hat{H} | \psi \rangle = \int_{-\frac{1}{2}}^{\frac{1}{2}} \psi(x) \left(-\frac{\hbar^2}{2m} \frac{d^2}{dx^2}\psi(x)\right) dx.
+\]
+First, compute the derivatives of \( \psi(x) \):
+\[
+\psi'(x) = 2Cx, \quad \psi''(x) = 2C.
+\]
+Substitute into the integrand:
+\[
+\langle \psi | \hat{H} | \psi \rangle = \int_{-\frac{1}{2}}^{\frac{1}{2}} C\left(x^2 - \frac{1}{4}\right) \left(-\frac{\hbar^2}{2m} \cdot 2C\right) dx.
+\]
+Simplify:
+\[
+\langle \psi | \hat{H} | \psi \rangle = -\frac{\hbar^2 C^2}{m} \int_{-\frac{1}{2}}^{\frac{1}{2}} \left(x^2 - \frac{1}{4}\right) dx.
+\]
+Using symmetry, the integral over \( x^3 \) vanishes, leaving:
+\[
+\int_{-\frac{1}{2}}^{\frac{1}{2}} \left(x^2 - \frac{1}{4}\right) dx = \frac{2}{3}\cdot\frac{1}{8} - \frac{1}{4}.
+\]
+
+\subsubsection*{Step 2: Compute Normalization \( \langle \psi | \psi \rangle \)}
+\[
+\langle \psi | \psi \rangle = \int_{-\frac{1}{2}}^{\frac{1}{2}} \left(C^2 \left(x^2 - \frac{1}{4}\right)^2\right) dx.
+\]
+
+Compute term-by-term:
+\[
+\int_{-\frac{1}{2}}^{\frac{1}{2}} x^4 dx = \frac{1}{5},
+\]
+\[
+\quad \int_{-\frac{1}{2}}^{\frac{1}{2}} x^2 \cdot \frac{1}{4} dx = 0,
+\]
+\[
+\quad \int_{-\frac{1}{2}}^{\frac{1}{2}} \left(\frac{1}{4}\right)^2 dx = \frac{1}{16}.
+\]
+
+Substitute into \( \langle \psi | \psi \rangle \), normalize \( C \), and substitute into \( E[\psi] \). Verify that \( E[\psi] \geq E_1 \), as required by the variational principle.
+
+\section{Variational Principle}
+The variational principle states:
+\[
+\frac{\langle \psi | \hat{H} | \psi \rangle}{\langle \psi | \psi \rangle} \geq E_1,
+\]
+where \( E_1 \) is the ground-state energy, and equality holds only when \( \psi(x) \) is the exact ground-state wavefunction.
+
+\section{Quantum Harmonic Oscillator (QHO)}
+
+The quantum harmonic oscillator potential is:
+\[
+U(x) = \frac{1}{2}m\omega^2x^2,
+\]
+where \( m \) is the particle's mass and \( \omega \) is the angular frequency.
+
+\subsection*{Schrödinger Equation for QHO}
+The time-independent Schrödinger equation reads:
+\[
+-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} \psi(x) + \frac{1}{2}m\omega^2x^2 \psi(x) = E \psi(x).
+\]
+
+\subsection*{Solutions to the QHO}
+The solutions are of the form:
+\[
+\psi_n(x) = H_n(x) e^{-\frac{1}{2}\alpha x^2},
+\]
+where \( \alpha = \frac{m\omega}{\hbar} \) and \( H_n(x) \) are Hermite polynomials:
+\[
+H_0(x) = 1, \quad H_1(x) = 2x, \quad H_2(x) = 4x^2 - 2, \dots
+\]
+
+\subsection*{Energy Levels}
+The energy levels of the QHO are quantized:
+\[
+E_n = \hbar\omega\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \dots
+\]
+The ground-state energy is:
+\[
+E_0 = \frac{1}{2}\hbar\omega.
+\]
+
+\subsection*{Zero-Point Energy and Spacing}
+The QHO has a zero-point energy of \( \frac{1}{2}\hbar\omega \), and the energy levels are equally spaced by \( \hbar\omega \).
+
+\section{Numerical Solution of the Harmonic Oscillator (HO)}
+
+\subsection*{Problem Statement}
+We aim to solve the Schrödinger equation numerically for the harmonic oscillator (HO) potential:
+\[
+-\frac{1}{2}\psi''(x) + \frac{1}{2}x^2 \psi(x) = E \psi(x),
+\]
+to determine the ground-state wavefunction \( \psi_0(x) \) and energy \( E_0 \). The exact solutions are already known:
+\[
+E_0 = \frac{1}{2}, \quad \psi_0(x) = Ce^{-x^2/2}.
+\]
+
+\subsection*{Discretization of the Schrödinger Equation}
+The potential \( V(x) = \frac{1}{2}x^2 \) is quadratic. To solve this equation numerically:
+\begin{itemize}
+    \item Discretize space into \( N \) grid points over the interval \([-a, a]\).
+    \item Define the grid spacing:
+    \[
+    dx = \frac{2a}{N-1}.
+    \]
+\end{itemize}
+
+\subsubsection*{Kinetic Energy Term (Matrix Representation)}
+The second derivative in the kinetic energy term is represented using a finite difference approximation:
+\[
+\frac{d^2}{dx^2}\psi(x) \approx \frac{\psi(x+dx) - 2\psi(x) + \psi(x-dx)}{dx^2}.
+\]
+This leads to the tridiagonal matrix for the kinetic energy operator:
+\[
+T = -\frac{1}{2dx^2}
+\begin{bmatrix}
+-2 & 1 & 0 & \cdots & 0 \\
+1 & -2 & 1 & \cdots & 0 \\
+0 & 1 & -2 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & 1 \\
+0 & 0 & 0 & 1 & -2
+\end{bmatrix}.
+\]
+
+\subsubsection*{Potential Energy Term (Diagonal Matrix)}
+The potential energy operator \( V(x) \) is diagonal, given by:
+\[
+V = \text{diag}\left(\frac{1}{2}x_1^2, \frac{1}{2}x_2^2, \ldots, \frac{1}{2}x_N^2\right),
+\]
+where \( x_i \) are the grid points.
+
+\subsubsection*{Hamiltonian Matrix}
+The full Hamiltonian matrix is the sum of the kinetic and potential energy matrices:
+\[
+H = T + V.
+\]
+
+\subsection*{Solving the Eigenvalue Problem}
+The Schrödinger equation in matrix form is:
+\[
+H \vec{\psi} = E \vec{\psi},
+\]
+where:
+\begin{itemize}
+    \item \( \vec{\psi} \) is the eigenvector (discretized wavefunction).
+    \item \( E \) is the eigenvalue (energy).
+\end{itemize}
+Numerical techniques (e.g., diagonalization) yield the eigenvalues and eigenvectors. The smallest eigenvalue corresponds to the ground-state energy \( E_0 \), and the associated eigenvector approximates \( \psi_0(x) \).
+
+\subsection*{Validation Against Exact Solutions}
+The exact solutions for the HO are:
+\[
+E_0 = \frac{1}{2}, \quad \psi_0(x) = Ce^{-x^2/2}.
+\]
+After solving numerically, compare the results to validate the accuracy of the numerical approach.
+
+\section{Analytical Verification of the Ground State}
+We now verify analytically that \( \psi(x) = Ce^{-ax^2} \) is a solution to the Schrödinger equation for some \( a > 0 \).
+
+\subsection*{Step 1: Compute Derivatives of \( \psi(x) \)}
+The trial wavefunction is:
+\[
+\psi(x) = Ce^{-ax^2}.
+\]
+The first derivative is:
+\[
+\psi'(x) = -2aCx e^{-ax^2}.
+\]
+The second derivative is:
+\[
+\psi''(x) = C\left(-2ae^{-ax^2} + 4a^2x^2e^{-ax^2}\right).
+\]
+
+\subsection*{Step 2: Substitute into Schrödinger Equation}
+Substitute \( \psi(x) \), \( \psi'(x) \), and \( \psi''(x) \) into:
+\[
+-\frac{1}{2}\psi''(x) + \frac{1}{2}x^2\psi(x) = E\psi(x).
+\]
+
+The kinetic energy term is:
+\[
+-\frac{1}{2}\psi''(x) = -\frac{1}{2}C\left(-2ae^{-ax^2} + 4a^2x^2e^{-ax^2}\right) = 
+\]
+\[
+Ca e^{-ax^2} - 2a^2Cx^2e^{-ax^2}.
+\]
+
+The potential energy term is:
+\[
+\frac{1}{2}x^2\psi(x) = \frac{1}{2}x^2Ce^{-ax^2}.
+\]
+
+Adding these terms together:
+\[
+-\frac{1}{2}\psi''(x) + \frac{1}{2}x^2\psi(x) = 
+\]
+\[
+C\left(a - 2a^2x^2 + \frac{x^2}{2}\right)e^{-ax^2}.
+\]
+
+For \( \psi(x) \) to satisfy the Schrödinger equation, the coefficient of \( x^2 \) must vanish:
+\[
+-2a^2 + \frac{1}{2} = 0 \implies a = 1.
+\]
+The energy \( E \) is the constant term:
+\[
+E = a = \frac{1}{2}.
+\]
+
+\subsection*{Step 3: Verify Heisenberg Uncertainty Relation (HUR)}
+The HUR states:
+\[
+\Delta x \Delta p \geq \frac{1}{2}.
+\]
+For the ground state \( \psi(x) \), calculate \( \Delta x \) and \( \Delta p \) using:
+\[
+\langle x^2 \rangle = \int_{-\infty}^\infty x^2|\psi(x)|^2 dx, \quad \langle x \rangle = 0,
+\]
+\[
+\Delta x = \sqrt{\langle x^2 \rangle - \langle x \rangle^2}.
+\]
+
+Normalization gives \( C = \left(\frac{a}{\pi}\right)^{1/4} \). Using integrals for Gaussian functions, verify:
+\[
+\Delta x \Delta p = \frac{1}{2}.
+\]
+
+\section{Analytical Solution of a Trial Wavefunction}
+
+We begin by analyzing the trial wavefunction:
+\[
+\psi(x) = Cx e^{-x^2 / 2}.
+\]
+This wavefunction is proposed as a solution to the Schrödinger equation for the harmonic oscillator:
+\[
+-\frac{1}{2} \psi''(x) + \frac{1}{2} x^2 \psi(x) = E \psi(x),
+\]
+where \( \psi(x) \) represents the state, and \( E \) is the energy. We aim to:
+\begin{itemize}
+    \item Verify that \( \psi(x) \) satisfies the equation.
+    \item Determine the corresponding energy \( E \).
+\end{itemize}
+
+\subsection*{Step 1: Compute Derivatives of \( \psi(x) \)}
+The first derivative of \( \psi(x) \) is:
+\[
+\psi'(x) = \frac{d}{dx} \left(Cx e^{-x^2 / 2}\right).
+\]
+Using the product rule:
+\[
+\psi'(x) = C \left(e^{-x^2 / 2} + x \cdot \frac{d}{dx} e^{-x^2 / 2}\right).
+\]
+The derivative of the exponential term is:
+\[
+\frac{d}{dx} e^{-x^2 / 2} = -x e^{-x^2 / 2}.
+\]
+Thus:
+\[
+\psi'(x) = C \left(e^{-x^2 / 2} - x^2 e^{-x^2 / 2}\right) = C e^{-x^2 / 2} (1 - x^2).
+\]
+
+The second derivative of \( \psi(x) \) is:
+\[
+\psi''(x) = \frac{d}{dx} \left(C e^{-x^2 / 2} (1 - x^2)\right).
+\]
+Using the product rule again:
+\[
+\psi''(x) = 
+\]
+\[
+C \left(\frac{d}{dx} e^{-x^2 / 2} (1 - x^2) + e^{-x^2 / 2} \frac{d}{dx} (1 - x^2)\right).
+\]
+Substitute the derivatives:
+\[
+\psi''(x) = C \left(-x e^{-x^2 / 2} (1 - x^2) + e^{-x^2 / 2} (-2x)\right).
+\]
+Simplify:
+\[
+\psi''(x) = -C e^{-x^2 / 2} \left(x (1 - x^2) + 2x\right) = 
+\]
+\[
+-C e^{-x^2 / 2} x (3 - x^2).
+\]
+
+\subsection*{Step 2: Substitute into Schrödinger Equation}
+Substitute \( \psi(x) \), \( \psi'(x) \), and \( \psi''(x) \) into the equation:
+\[
+-\frac{1}{2} \psi''(x) + \frac{1}{2} x^2 \psi(x) = E \psi(x).
+\]
+First, calculate the kinetic energy term:
+\[
+-\frac{1}{2} \psi''(x) = \frac{1}{2} C e^{-x^2 / 2} x (3 - x^2).
+\]
+Next, calculate the potential energy term:
+\[
+\frac{1}{2} x^2 \psi(x) = \frac{1}{2} x^2 C e^{-x^2 / 2}.
+\]
+
+Combine the terms:
+\[
+\frac{1}{2} C e^{-x^2 / 2} x (3 - x^2) + \frac{1}{2} x^2 C e^{-x^2 / 2} = E C x e^{-x^2 / 2}.
+\]
+Factor out \( C e^{-x^2 / 2} x \):
+\[
+\frac{1}{2} x (3 - x^2) + \frac{1}{2} x^3 = E x.
+\]
+Simplify:
+\[
+\frac{1}{2} x (3 - x^2 + x^2) = E x.
+\]
+\[
+\frac{1}{2} x (3) = E x.
+\]
+Divide through by \( x \) (valid for \( x \neq 0 \)):
+\[
+E = \frac{3}{2}.
+\]
+
+\subsection*{Result}
+The energy associated with this trial wavefunction is:
+\[
+E = \frac{3}{2}.
+\]
+
+\section{Ladder Operators for the Harmonic Oscillator}
+
+The harmonic oscillator Hamiltonian is:
+\[
+H = -\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{1}{2} m \omega^2 x^2.
+\]
+We define the ladder (creation and annihilation) operators:
+\[
+a_\pm = \frac{1}{\sqrt{2\hbar m \omega}} \left(\mp i \hbar \frac{d}{dx} + m \omega x\right).
+\]
+
+\subsection*{Commutation Relations}
+The operators satisfy the commutation relations:
+\[
+[a_-, a_+] = 1, \quad [H, a_\pm] = \pm \hbar \omega a_\pm.
+\]
+
+\subsection*{Ground State}
+The ground state \( \psi_0(x) \) satisfies:
+\[
+a_- \psi_0(x) = 0.
+\]
+This implies:
+\[
+\left(-i \hbar \frac{d}{dx} + m \omega x\right) \psi_0(x) = 0.
+\]
+Solve the differential equation:
+\[
+\frac{d \psi_0}{dx} = -\frac{m \omega}{\hbar} x \psi_0.
+\]
+Integrate:
+\[
+\ln \psi_0 = -\frac{m \omega}{2\hbar} x^2 + \text{constant}.
+\]
+Thus:
+\[
+\psi_0(x) = A e^{-m \omega x^2 / 2\hbar}.
+\]
+
+The energy of the ground state is:
+\[
+E_0 = \frac{1}{2} \hbar \omega.
+\]
+
+\subsection*{Excited States}
+The excited states are generated by applying the raising operator \( a_+ \):
+\[
+\psi_n(x) = A_n (a_+)^n \psi_0(x).
+\]
+The energy levels are:
+\[
+E_n = \hbar \omega \left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \dots
+\]
+
+
+\section{Variational Principle}
+
+The variational principle states that for any trial wavefunction \( \psi(x) \) that is normalized (\( \langle \psi | \psi \rangle = 1 \)), the energy expectation value is always greater than or equal to the ground-state energy:
+\[
+E_{\text{trial}} = \frac{\langle \psi | \hat{H} | \psi \rangle}{\langle \psi | \psi \rangle} \geq E_1,
+\]
+where \( E_1 \) is the true ground-state energy. Equality holds only when \( \psi(x) \) is the exact ground-state wavefunction.
+
+\section{Energy of a Trial Wavefunction in a Box}
+
+We analyze a particle in a box with potential:
+\[
+U(x) = 
+\begin{cases}
+0, & |x| \leq \frac{1}{2}, \\
++\infty, & |x| > \frac{1}{2}.
+\end{cases}
+\]
+The trial wavefunction is:
+\[
+\psi(x) = C\left(x^2 - \frac{1}{4}\right),
+\]
+where \( C \) is a normalization constant. 
+
+\subsection*{1. Normalization of the Trial Wavefunction}
+To normalize the wavefunction, we require:
+\[
+\langle \psi | \psi \rangle = \int_{-\frac{1}{2}}^{\frac{1}{2}} |\psi(x)|^2 dx = 1.
+\]
+Substituting \( \psi(x) \):
+\[
+\int_{-\frac{1}{2}}^{\frac{1}{2}} C^2 \left(x^2 - \frac{1}{4}\right)^2 dx = 1.
+\]
+Expanding \( \left(x^2 - \frac{1}{4}\right)^2 \):
+\[
+\left(x^2 - \frac{1}{4}\right)^2 = x^4 - \frac{1}{2}x^2 + \frac{1}{16}.
+\]
+The normalization condition becomes:
+\[
+C^2 \int_{-\frac{1}{2}}^{\frac{1}{2}} \left(x^4 - \frac{1}{2}x^2 + \frac{1}{16}\right) dx = 1.
+\]
+Using symmetry:
+\[
+\int_{-\frac{1}{2}}^{\frac{1}{2}} x^4 dx = 2 \int_{0}^{\frac{1}{2}} x^4 dx = \frac{1}{80}, 
+\]
+\[
+\quad 
+\int_{-\frac{1}{2}}^{\frac{1}{2}} x^2 dx = 2 \int_{0}^{\frac{1}{2}} x^2 dx = \frac{1}{12}.
+\]
+For the constant term:
+\[
+\int_{-\frac{1}{2}}^{\frac{1}{2}} \frac{1}{16} dx = \frac{1}{8}.
+\]
+Substituting:
+\[
+C^2 \left(\frac{1}{80} - \frac{1}{24} + \frac{1}{8}\right) = 1.
+\]
+Simplify:
+\[
+C^2 \left(\frac{3}{240} - \frac{10}{240} + \frac{30}{240}\right) = 1 \implies C^2 \cdot \frac{8}{240} = 1.
+\]
+Solve for \( C \):
+\[
+C^2 = 30 \implies C = \sqrt{30}.
+\]
+
+\subsection*{2. Expectation Value of the Hamiltonian}
+The Hamiltonian for a particle in this box is purely kinetic:
+\[
+\hat{H} = -\frac{\hbar^2}{2m} \frac{d^2}{dx^2}.
+\]
+The expectation value of the energy is:
+\[
+\langle \psi | \hat{H} | \psi \rangle = -\frac{\hbar^2}{2m} \int_{-\frac{1}{2}}^{\frac{1}{2}} \psi(x) \frac{d^2}{dx^2} \psi(x) dx.
+\]
+
+First, compute the second derivative of \( \psi(x) \):
+\[
+\psi(x) = \sqrt{30} \left(x^2 - \frac{1}{4}\right), \quad \frac{d\psi}{dx} = 
+\]
+\[
+\sqrt{30} \cdot 2x, \quad \frac{d^2 \psi}{dx^2} = \sqrt{30} \cdot 2.
+\]
+Substitute into the Hamiltonian:
+\[
+\langle \psi | \hat{H} | \psi \rangle = -\frac{\hbar^2}{2m} \int_{-\frac{1}{2}}^{\frac{1}{2}} \sqrt{30} \left(x^2 - \frac{1}{4}\right) \sqrt{30} \cdot 2 dx.
+\]
+Simplify:
+\[
+\langle \psi | \hat{H} | \psi \rangle = -\frac{\hbar^2}{2m} \cdot 30 \int_{-\frac{1}{2}}^{\frac{1}{2}} 2\left(x^2 - \frac{1}{4}\right) dx.
+\]
+Using previous integrals:
+\[
+\int_{-\frac{1}{2}}^{\frac{1}{2}} x^2 dx = \frac{1}{12}, \quad \int_{-\frac{1}{2}}^{\frac{1}{2}} dx = 1.
+\]
+Substitute:
+\[
+\langle \psi | \hat{H} | \psi \rangle = -\frac{\hbar^2}{2m} \cdot 30 \cdot 2 \left(\frac{1}{12} - \frac{1}{4}\right).
+\]
+Simplify:
+\[
+\langle \psi | \hat{H} | \psi \rangle = -\frac{\hbar^2}{2m} \cdot 30 \cdot 2 \cdot \left(-\frac{1}{6}\right).
+\]
+\[
+\langle \psi | \hat{H} | \psi \rangle = \frac{\hbar^2}{2m} \cdot 10 = \frac{5\hbar^2}{m}.
+\]
+
+\subsection*{3. True Ground-State Energy}
+The true ground-state energy for a particle in a box is:
+\[
+E_{\text{ground}} = \frac{\pi^2 \hbar^2}{2mL^2}.
+\]
+For \( L = 1 \) (from \(-\frac{1}{2}\) to \(\frac{1}{2}\)):
+\[
+E_{\text{ground}} = \frac{\pi^2 \hbar^2}{2m}.
+\]
+
+\subsection*{Comparison}
+The trial energy is:
+\[
+E_{\text{trial}} = \frac{5\hbar^2}{m}, \quad E_{\text{ground}} = \frac{\pi^2 \hbar^2}{2m} \approx \frac{3.15 \hbar^2}{m}.
+\]
+Thus:
+\[
+E_{\text{trial}} > E_{\text{ground}}.
+\]
+This is consistent with the variational principle.
+
+\end{multicols}
+\end{document}

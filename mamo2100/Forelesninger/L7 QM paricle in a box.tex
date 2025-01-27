@@ -1,0 +1,273 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec} % To customize section title size and spacing
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\columnsep}{1cm} % Set spacing between columns
+
+% Adjust section title font size and spacing
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries} % Set section title font to small and bold
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm} % Adjust space before and after section
+
+\begin{document}
+\title{L7 - Quantum Mechanics: Particle in a Box}
+\author{}
+\date{}
+\maketitle
+\begin{multicols}{2}
+
+\section*{The Schrödinger Equation}
+The time-independent Schrödinger equation (SE) for a 1D quantum system is:
+\[
+-\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2} + U(x)\psi(x) = E\psi(x),
+\]
+where:
+\begin{itemize}
+    \item $\psi(x)$: Wavefunction of the particle.
+    \item $U(x)$: Potential energy function.
+    \item $E$: Energy eigenvalue (observable energy).
+    \item $\hbar$: Reduced Planck's constant.
+\end{itemize}
+The wavefunction $\psi(x)$ must satisfy normalization:
+\[
+\int_{-\infty}^\infty |\psi(x)|^2 dx = 1,
+\]
+ensuring the total probability of finding the particle is 1.
+
+\section*{Particle in a Box (Infinite Square Well)}
+We consider a particle confined in a 1D box of length $L$ with infinite potential walls:
+\[
+U(x) = 
+\begin{cases} 
+0, & 0 \leq x \leq L, \\
++\infty, & \text{otherwise}.
+\end{cases}
+\]
+Boundary conditions: $\psi(0) = \psi(L) = 0$ (wavefunction vanishes at the walls).
+
+\section*{Solving the Schrödinger Equation}
+The SE simplifies in the box region ($U(x) = 0$):
+\[
+\frac{d^2\psi(x)}{dx^2} + k^2\psi(x) = 0, \quad k^2 = \frac{2mE}{\hbar^2}.
+\]
+General solution:
+\[
+\psi(x) = C_1 \cos(kx) + C_2 \sin(kx).
+\]
+Applying boundary conditions:
+\begin{itemize}
+    \item At $x=0$: $\psi(0) = C_1 = 0$ $\implies \psi(x) = C_2 \sin(kx)$.
+    \item At $x=L$: $\psi(L) = C_2 \sin(kL) = 0$. For $C_2 \neq 0$, $kL = n\pi$ ($n = 1, 2, 3, \dots$).
+\end{itemize}
+Thus, the allowed wavefunctions are:
+\[
+\psi_n(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{n\pi x}{L}\right),
+\]
+where the prefactor ensures normalization.
+
+\section*{Energy Eigenvalues}
+The quantized energies are:
+\[
+E_n = \frac{n^2 \pi^2 \hbar^2}{2mL^2}, \quad n = 1, 2, 3, \dots.
+\]
+This quantization arises due to the boundary conditions and the discrete nature of $n$.
+
+\section*{Expectation Values}
+The expectation value of an operator $\hat{A}$ is:
+\[
+\langle A \rangle = \int_{-\infty}^\infty \psi^*(x) \hat{A} \psi(x) dx.
+\]
+
+\section*{Position Expectation Values}
+For the ground state wavefunction $\psi_1(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{\pi x}{L}\right)$:
+\[
+\langle x \rangle = \int_0^L x |\psi_1(x)|^2 dx.
+\]
+Substituting $|\psi_1(x)|^2 = \frac{2}{L} \sin^2\left(\frac{\pi x}{L}\right)$:
+\[
+\langle x \rangle = \frac{2}{L} \int_0^L x \sin^2\left(\frac{\pi x}{L}\right) dx.
+\]
+Using $\sin^2(\theta) = \frac{1}{2}(1 - \cos(2\theta))$:
+\[
+\langle x \rangle = \frac{1}{L} \int_0^L x \, dx - \frac{1}{L} \int_0^L x \cos\left(\frac{2\pi x}{L}\right) dx.
+\]
+The first term evaluates to:
+\[
+\int_0^L x \, dx = \frac{L^2}{2}.
+\]
+The second term vanishes due to symmetry. Thus:
+\[
+\langle x \rangle = \frac{L}{2}.
+\]
+
+\section*{Variance in Position}
+The variance in $x$ is:
+\[
+(\Delta x)^2 = \langle x^2 \rangle - \langle x \rangle^2.
+\]
+Compute $\langle x^2 \rangle$:
+\[
+\langle x^2 \rangle = \frac{2}{L} \int_0^L x^2 \sin^2\left(\frac{\pi x}{L}\right) dx.
+\]
+Using integration by parts and trigonometric identities:
+\[
+\langle x^2 \rangle = \frac{L^2}{3} - \frac{L^2}{2\pi^2}.
+\]
+Thus:
+\[
+(\Delta x)^2 = \frac{L^2}{12} - \frac{L^2}{4}.
+\]
+
+\section*{Momentum Operator and Expectation Values}
+The momentum operator is:
+\[
+\hat{p} = -i\hbar \frac{d}{dx}.
+\]
+For the ground state $\psi_1(x)$:
+\[
+\langle p \rangle = \int_0^L \psi_1^*(x) \hat{p} \psi_1(x) dx = 0,
+\]
+due to symmetry. For $\langle p^2 \rangle$:
+\[
+\langle p^2 \rangle = \int_0^L \psi_1^*(x) \hat{p}^2 \psi_1(x) dx = \frac{\pi^2 \hbar^2}{L^2}.
+\]
+
+\section*{Heisenberg Uncertainty Relation (HUR)}
+The uncertainty in position and momentum are:
+\[
+\Delta x = \sqrt{\langle x^2 \rangle - \langle x \rangle^2}, \quad \Delta p = \sqrt{\langle p^2 \rangle - \langle p \rangle^2}.
+\]
+For the ground state:
+\[
+\Delta x \Delta p = \sqrt{\frac{L^2}{12}} \cdot \sqrt{\frac{\pi^2 \hbar^2}{L^2}} = \frac{\hbar}{2},
+\]
+satisfying the HUR:
+\[
+\Delta x \Delta p \geq \frac{\hbar}{2}.
+\]
+
+\section*{Conclusion}
+The particle in a box demonstrates the quantization of energy and wavefunctions in quantum mechanics. The ground state satisfies the Heisenberg uncertainty relation, providing a clear example of the fundamental principles of quantum mechanics.
+
+\section*{Euler's Formula and Trigonometric Identities}
+Using Euler's formula:
+\[
+e^{i\theta} = \cos(\theta) + i\sin(\theta), \quad e^{-i\theta} = \cos(\theta) - i\sin(\theta),
+\]
+we derive the identities for $\cos(x)$ and $\sin(x)$:
+\[
+\cos(x) = \frac{e^{ix} + e^{-ix}}{2}, \quad \sin(x) = \frac{e^{ix} - e^{-ix}}{2i}.
+\]
+Steps:
+\begin{itemize}
+    \item Adding $e^{ix}$ and $e^{-ix}$:
+    \[
+    e^{ix} + e^{-ix} = 2\cos(x) \implies \cos(x) = \frac{e^{ix} + e^{-ix}}{2}.
+    \]
+    \item Subtracting $e^{-ix}$ from $e^{ix}$:
+    \[
+    e^{ix} - e^{-ix} = 2i\sin(x) \implies \sin(x) = \frac{e^{ix} - e^{-ix}}{2i}.
+    \]
+\end{itemize}
+
+\section*{Solving the Boundary Value Problem}
+Consider the differential equation:
+\[
+\psi''(x) + c\psi(x) = 0, \quad \psi(0) = \psi(L) = 0.
+\]
+\textbf{Case 1: $c > 0$}  
+Let $c = k^2$ with $k > 0$. The equation becomes:
+\[
+\psi''(x) + k^2\psi(x) = 0.
+\]
+General solution:
+\[
+\psi(x) = A_1\sin(kx) + A_2\cos(kx).
+\]
+Boundary conditions:
+\begin{itemize}
+    \item At $x=0$: $\psi(0) = A_2 = 0 \implies \psi(x) = A_1\sin(kx)$.
+    \item At $x=L$: $\psi(L) = A_1\sin(kL) = 0 \implies kL = n\pi \quad (n=1, 2, 3, \dots)$.
+\end{itemize}
+Thus:
+\[
+\psi_n(x) = B_n\sin\left(\frac{n\pi x}{L}\right).
+\]
+
+\textbf{Case 2: $c = 0$}  
+The equation reduces to $\psi''(x) = 0$, giving:
+\[
+\psi(x) = Ax + B.
+\]
+Boundary conditions:
+\[
+\psi(0) = B = 0, \quad \psi(L) = A L = 0 \implies A = 0.
+\]
+Thus, $\psi(x) = 0$ is the only solution.
+
+\textbf{Case 3: $c < 0$}  
+Let $c = -k^2$ with $k > 0$. The equation becomes:
+\[
+\psi''(x) - k^2\psi(x) = 0.
+\]
+General solution:
+\[
+\psi(x) = A_1e^{kx} + A_2e^{-kx}.
+\]
+Boundary conditions:
+\begin{itemize}
+    \item At $x=0$: $\psi(0) = A_1 + A_2 = 0 \implies A_1 = -A_2$.
+    \item At $x=L$: $\psi(L) = A_1e^{kL} + A_2e^{-kL} = 0$.
+\end{itemize}
+This condition implies $A_1 = A_2 = 0$, giving the trivial solution $\psi(x) = 0$.
+
+\section*{Energy Levels of a Particle in a Box}
+For a particle confined in a box of length $L$:
+\[
+E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}, \quad n = 1, 2, 3, \dots.
+\]
+Difference between the first two energy levels:
+\[
+E_2 - E_1 = \frac{(2^2 - 1^2)\pi^2\hbar^2}{2mL^2} = \frac{3\pi^2\hbar^2}{2mL^2}.
+\]
+
+\section*{Heisenberg Uncertainty Relation (HUR)}
+To verify $\Delta x \Delta p \geq \frac{\hbar}{2}$ for the ground state $\psi_1(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{\pi x}{L}\right)$:
+\[
+\Delta A = \sqrt{\langle \hat{A}^2 \rangle - \langle \hat{A} \rangle^2}.
+\]
+
+\textbf{Position Uncertainty $\Delta x$:}
+\[
+\langle x \rangle = \int_0^L x |\psi_1(x)|^2 dx = \frac{L}{2}.
+\]
+\[
+\langle x^2 \rangle = \int_0^L x^2 |\psi_1(x)|^2 dx = \frac{L^2}{3} - \frac{L^2}{2\pi^2}.
+\]
+\[
+\Delta x = \sqrt{\langle x^2 \rangle - \langle x \rangle^2} = \sqrt{\frac{L^2}{12}}.
+\]
+
+\textbf{Momentum Uncertainty $\Delta p$:}
+\[
+\langle p \rangle = 0 \quad \text{(symmetry)}.
+\]
+\[
+\langle p^2 \rangle = \frac{\pi^2\hbar^2}{L^2}.
+\]
+\[
+\Delta p = \sqrt{\langle p^2 \rangle} = \frac{\pi\hbar}{L}.
+\]
+
+\textbf{HUR Verification:}
+\[
+\Delta x \Delta p = \sqrt{\frac{L^2}{12}} \cdot \frac{\pi\hbar}{L} = \frac{\pi\hbar}{\sqrt{12}} \geq \frac{\hbar}{2}.
+\]
+
+\end{multicols}
+\end{document}

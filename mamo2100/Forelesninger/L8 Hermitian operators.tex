@@ -1,0 +1,308 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{titlesec} % To customize section title size and spacing
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\columnsep}{1cm} % Set spacing between columns
+
+% Adjust section title font size and spacing
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries} % Set section title font to small and bold
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm} % Adjust space before and after section
+
+\begin{document}
+\title{L8 - QM Hermitian operators}
+\author{}
+\date{}
+\maketitle
+
+\begin{multicols}{2}
+
+\section*{Hermitian Operators and Their Properties}
+
+In quantum mechanics, operators corresponding to physical observables (e.g., position $\hat{x}$, momentum $\hat{p}$, and energy $\hat{H}$) must be Hermitian. This ensures that their eigenvalues, representing measurable quantities, are real.
+
+\subsection*{Definition of a Hermitian Operator}
+An operator $\hat{A}$ is Hermitian if:
+\[
+\langle \phi, \hat{A} \psi \rangle = \langle \hat{A} \phi, \psi \rangle \quad \forall \, \phi, \psi \in V
+\]
+where $V$ is a Hilbert space. In terms of integrals:
+\[
+\int_{-\infty}^\infty \phi^*(x) (\hat{A} \psi(x)) dx = \int_{-\infty}^\infty (\hat{A} \phi(x))^* \psi(x) dx
+\]
+
+For the real case:
+\[
+\langle \psi, \hat{A} \psi \rangle = \langle \hat{A} \psi, \psi \rangle \implies \langle \psi, \hat{A} \psi \rangle \in \mathbb{R}.
+\]
+
+\subsection*{Proposition: Real Eigenvalues of Hermitian Operators}
+If $\hat{A}$ is Hermitian, then $\langle \psi, \hat{A} \psi \rangle$ is real.
+
+\textbf{Proof:}
+\[
+\langle A \rangle = \langle \psi, \hat{A} \psi \rangle.
+\]
+Since $\hat{A}$ is Hermitian:
+\[
+\langle A \rangle = \langle \psi, \hat{A} \psi \rangle = \langle \hat{A} \psi, \psi \rangle = \langle A \rangle^*.
+\]
+Thus, $\langle A \rangle \in \mathbb{R}$.
+
+\section*{Cauchy-Schwarz Inequality in Quantum Mechanics}
+
+\subsection*{Inner Product and Norms}
+The inner product in quantum mechanics is defined as:
+\[
+\langle \phi, \psi \rangle = \int_{-\infty}^\infty \phi^*(x) \psi(x) dx.
+\]
+The norm associated with this inner product is:
+\[
+\|\psi\| = \sqrt{\langle \psi, \psi \rangle} = \sqrt{\int_{-\infty}^\infty |\psi(x)|^2 dx}.
+\]
+
+Normalization of wavefunctions requires:
+\[
+\|\psi\| = 1 \implies \int_{-\infty}^\infty |\psi(x)|^2 dx = 1.
+\]
+
+\subsection*{Cauchy-Schwarz Inequality}
+For any two functions $\phi(x)$ and $\psi(x)$:
+\[
+|\langle \phi, \psi \rangle|^2 \leq \|\phi\|^2 \|\psi\|^2.
+\]
+
+\textbf{Proof:}
+Expand $\|\phi + \lambda \psi\|^2 \geq 0$, where $\lambda$ is a complex number, and simplify to derive the inequality.
+
+\section*{Uncertainty in Quantum Mechanics}
+
+\subsection*{Uncertainty Definition}
+The uncertainty in the measurement of an operator $\hat{A}$ is:
+\[
+\Delta A = \sqrt{\langle \hat{A}^2 \rangle - \langle \hat{A} \rangle^2}.
+\]
+
+\subsection*{Uncertainty Relation for Hermitian Operators}
+For any Hermitian operator $\hat{A}$:
+\[
+\langle \hat{A}^2 \rangle \geq \langle \hat{A} \rangle^2 \implies (\Delta A)^2 \geq 0.
+\]
+
+\textbf{Proof:}
+\[
+\langle A \rangle^2 = \left( \int_{-\infty}^\infty \psi^*(x) (\hat{A} \psi(x)) dx \right)^2.
+\]
+Apply the Cauchy-Schwarz inequality:
+\[
+\langle A \rangle^2 \leq \int |\psi(x)|^2 dx \int |(\hat{A} \psi(x))|^2 dx = \langle \psi, \hat{A}^2 \psi \rangle.
+\]
+Thus:
+\[
+\langle \hat{A}^2 \rangle - \langle \hat{A} \rangle^2 \geq 0.
+\]
+
+\section*{Momentum and Position Operators}
+
+\subsection*{Momentum Operator is Hermitian}
+The momentum operator $\hat{p} = -i\hbar \frac{d}{dx}$ is Hermitian if boundary conditions ensure:
+\[
+\int_{-\infty}^\infty \phi^*(x) \left(-i\hbar \frac{d\psi}{dx}\right) dx = \int_{-\infty}^\infty \left(i\hbar \frac{d\phi^*}{dx}\right) \psi(x) dx.
+\]
+
+Boundary terms vanish if $\psi(x) \to 0$ as $x \to \pm\infty$. This ensures:
+\[
+\langle \phi, \hat{p} \psi \rangle = \langle \hat{p} \phi, \psi \rangle.
+\]
+
+\subsection*{Energy Operator}
+The kinetic energy operator $\hat{T}$ is:
+\[
+\hat{T} = \frac{\hat{p}^2}{2m} = -\frac{\hbar^2}{2m} \frac{d^2}{dx^2}.
+\]
+Since $\hat{p}$ is Hermitian, $\hat{T}$ is also Hermitian, as shown through integration by parts.
+
+\section*{Wavefunctions in Hilbert Space}
+Wavefunctions $\psi(x)$ live in a Hilbert space, which is a complete inner-product space. Completeness ensures all Cauchy sequences converge.
+
+\subsection*{Example: Position Expectation}
+For the position operator $\hat{x}$:
+\[
+\langle x \rangle = \int_{-\infty}^\infty x |\psi(x)|^2 dx.
+\]
+
+The variance in position is:
+\[
+(\Delta x)^2 = \langle x^2 \rangle - \langle x \rangle^2.
+\]
+
+\end{multicols}
+\section*{Momentum Operator Expectation for Real-Valued Wavefunctions}
+
+\subsection*{Goal}
+Show that for a real-valued wavefunction $\psi(x)$, the expectation value of the momentum operator $\hat{p} = -i\hbar \frac{d}{dx}$ is zero:
+\[
+\langle \hat{p} \rangle = \langle \psi, \hat{p} \psi \rangle = 0.
+\]
+
+\subsection*{Solution}
+The expectation value of $\hat{p}$ is defined as:
+\[
+\langle \hat{p} \rangle = \int_{-\infty}^\infty \psi^*(x) \left(-i\hbar \frac{d\psi(x)}{dx} \right) dx.
+\]
+
+Since $\psi(x)$ is real-valued:
+\[
+\psi^*(x) = \psi(x).
+\]
+
+Thus, the expression simplifies to:
+\[
+\langle \hat{p} \rangle = -i\hbar \int_{-\infty}^\infty \psi(x) \frac{d\psi(x)}{dx} dx.
+\]
+
+Now let:
+\[
+I = \int_{-\infty}^\infty \psi(x) \frac{d\psi(x)}{dx} dx.
+\]
+
+\subsection*{Simplifying $I$}
+Using the product rule for derivatives:
+\[
+\frac{d}{dx} \left(\psi^2(x)\right) = 2\psi(x) \frac{d\psi(x)}{dx}.
+\]
+
+Rewriting:
+\[
+\psi(x) \frac{d\psi(x)}{dx} = \frac{1}{2} \frac{d}{dx} \left(\psi^2(x)\right).
+\]
+
+Substituting back into $I$:
+\[
+I = \frac{1}{2} \int_{-\infty}^\infty \frac{d}{dx} \left(\psi^2(x)\right) dx.
+\]
+
+Using the fundamental theorem of calculus:
+\[
+\int_{-\infty}^\infty \frac{d}{dx} \left(\psi^2(x)\right) dx = \left[\psi^2(x)\right]_{-\infty}^\infty.
+\]
+
+Since $\psi(x) \to 0$ as $x \to \pm \infty$ (normalization condition), this boundary term vanishes:
+\[
+\left[\psi^2(x)\right]_{-\infty}^\infty = 0.
+\]
+
+Thus:
+\[
+I = 0 \implies \langle \hat{p} \rangle = 0.
+\]
+
+\subsection*{Conclusion}
+For real-valued wavefunctions, the expectation value of the momentum operator $\hat{p}$ is zero:
+\[
+\boxed{\langle \hat{p} \rangle = 0.}
+\]
+
+\section*{Kinetic Energy Operator is Hermitian}
+
+\subsection*{Goal}
+Show that the kinetic energy operator:
+\[
+\hat{T} = \frac{\hat{p}^2}{2m} = -\frac{\hbar^2}{2m} \frac{d^2}{dx^2}
+\]
+is Hermitian.
+
+\subsection*{Definition of Hermitian Operator}
+An operator $\hat{A}$ is Hermitian if:
+\[
+\langle \phi, \hat{A} \psi \rangle = \langle \hat{A} \phi, \psi \rangle \quad \forall \phi, \psi.
+\]
+
+\subsection*{Solution: Proof for $\hat{T}$}
+Start with the left-hand side:
+\[
+\langle \phi, \hat{T} \psi \rangle = \int_{-\infty}^\infty \phi^*(x) \left(-\frac{\hbar^2}{2m} \frac{d^2\psi(x)}{dx^2}\right) dx.
+\]
+
+Simplify:
+\[
+\langle \phi, \hat{T} \psi \rangle = -\frac{\hbar^2}{2m} \int_{-\infty}^\infty \phi^*(x) \frac{d^2\psi(x)}{dx^2} dx.
+\]
+
+To simplify further, apply integration by parts twice.
+
+\subsection*{First Integration by Parts}
+Let:
+\[
+u = \phi^*(x), \quad dv = \frac{d^2\psi(x)}{dx^2} dx.
+\]
+
+Then:
+\[
+du = \frac{d\phi^*(x)}{dx} dx, \quad v = \frac{d\psi(x)}{dx}.
+\]
+
+Integration by parts gives:
+\[
+\int_{-\infty}^\infty \phi^*(x) \frac{d^2\psi(x)}{dx^2} dx = \left[\phi^*(x) \frac{d\psi(x)}{dx}\right]_{-\infty}^\infty - \int_{-\infty}^\infty \frac{d\phi^*(x)}{dx} \frac{d\psi(x)}{dx} dx.
+\]
+
+The boundary term vanishes because $\psi(x) \to 0$ as $x \to \pm \infty$:
+\[
+\left[\phi^*(x) \frac{d\psi(x)}{dx}\right]_{-\infty}^\infty = 0.
+\]
+
+Thus:
+\[
+\int_{-\infty}^\infty \phi^*(x) \frac{d^2\psi(x)}{dx^2} dx = -\int_{-\infty}^\infty \frac{d\phi^*(x)}{dx} \frac{d\psi(x)}{dx} dx.
+\]
+
+\subsection*{Second Integration by Parts}
+Apply integration by parts again to:
+\[
+\int_{-\infty}^\infty \frac{d\phi^*(x)}{dx} \frac{d\psi(x)}{dx} dx.
+\]
+
+Let:
+\[
+u = \frac{d\phi^*(x)}{dx}, \quad dv = \frac{d\psi(x)}{dx} dx.
+\]
+
+Then:
+\[
+du = \frac{d^2\phi^*(x)}{dx^2} dx, \quad v = \psi(x).
+\]
+
+Integration by parts gives:
+\[
+\int_{-\infty}^\infty \frac{d\phi^*(x)}{dx} \frac{d\psi(x)}{dx} dx = \left[\frac{d\phi^*(x)}{dx} \psi(x)\right]_{-\infty}^\infty - \int_{-\infty}^\infty \phi^*(x) \frac{d^2\psi(x)}{dx^2} dx.
+\]
+
+Again, the boundary term vanishes:
+\[
+\left[\frac{d\phi^*(x)}{dx} \psi(x)\right]_{-\infty}^\infty = 0.
+\]
+
+Thus:
+\[
+\int_{-\infty}^\infty \frac{d\phi^*(x)}{dx} \frac{d\psi(x)}{dx} dx = -\int_{-\infty}^\infty \phi^*(x) \frac{d^2\psi(x)}{dx^2} dx.
+\]
+
+\subsection*{Final Expression}
+Substitute back into the original integral:
+\[
+\langle \phi, \hat{T} \psi \rangle = \int_{-\infty}^\infty \left(-\frac{\hbar^2}{2m} \phi^*(x) \frac{d^2\psi(x)}{dx^2}\right) dx.
+\]
+
+Since the same result holds for $\langle \hat{T} \phi, \psi \rangle$, $\hat{T}$ is Hermitian.
+
+\subsection*{Conclusion}
+The kinetic energy operator $\hat{T}$ is Hermitian:
+\[
+\boxed{\hat{T} \text{ is Hermitian.}}
+\]
+\end{document}

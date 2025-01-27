@@ -1,0 +1,1353 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc} %Tillater bruk at norske bokstaver
+\usepackage{fancyhdr} % For customizing headers and footers
+
+% Custom footer with name and page number
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyfoot[C]{\scriptsize MAMO2100 Per Erik Grønvik \hspace{1em} -- \hspace{1em} Page \thepage} % Footer center
+
+
+\renewcommand{\textbf}[1]{{\scriptsize	\bfseries #1}}
+\newcommand{\margintextbf}[1]{{\vspace{2pt}\noindent\\scriptsize\bfseries #1}}
+
+\makeatletter
+\renewcommand\itemize{%
+  \ifnum\@itemdepth>2\relax\@toodeep\else
+  \advance\@itemdepth\@ne
+  \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
+  \list{\csname\@itemitem\endcsname}{\scriptsize\labelwidth\z@ \itemindent\z@
+    \labelsep 0.5em \leftmargin 1.5em
+    \parsep 0\p@ \@plus\p@ \@minus\p@
+    \topsep 0.3em \@plus\p@ \@minus\p@
+    \partopsep \p@ \@plus\p@
+    \itemsep 0.3em \@plus\p@ \@minus\p@
+    \listparindent\z@
+    \rightmargin\z@ \itemindent\z@
+    \itemindent\z@}%
+  \fi}
+\renewcommand\enditemize{\endlist}
+\makeatother
+
+\titleformat{\section}
+  {\small\bfseries} % Use \scriptsize and bold font
+  {} % No label
+  {0em} % No extra space before title text
+  {} % Code before the title text
+
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\columnsep}{1cm} % Set spacing between columns
+
+\title{Mamo2100}
+\author{Per Erik Grønvik} % Leave empty if no author
+\date{}   % Leave empty if no date
+
+\begin{document}
+
+
+\vspace{-0.5cm} % Reduce space between title and content
+
+% Start smaller font size for the whole document
+\begin{footnotesize}
+
+\begin{multicols}{2}
+\paragraph{\large Mamo2100 \\ \tiny Per Erik Grønvik \quad   2024}
+
+
+\section*{Common Signs and Their Meanings in Quantum Mechanics}
+
+\begin{itemize}
+    \item \( \Psi(x,t) =\Psi \): Full wavefunction. (an abstract vector)
+    \item \( \psi(x) =\psi\): Wavefunction in stationary state.
+    \item \( \overline{\psi} \): Overline represents complex conjugate.
+    \item \( \hat{H} \): Hamiltonian operator.
+    \item \( \hbar \): Reduced Planck's constant. $\frac{h}{2\pi}$
+    \item \( \hat{p} \): Momentum operator.
+    \item \( \hat{x} \): Position operator.
+    \item \( E \): Energy eigenfunction. A upgraded eigenvalue.
+    \item \( \phi \): Phase factor or angular component of a wavefunction.
+    \item \( |\psi(x,t)|^2 \): Probability density of finding a particle.
+    \item \( \Delta x \): Uncertainty in position.
+    \item \( \Delta p \): Uncertainty in momentum.
+    \item \( \sigma_x, \sigma_y, \sigma_z \): Pauli matrices.
+    \item \( \hat{a}^\dagger, \hat{a} \): Creation and annihilation operators.
+    \item \( \hat{} \)  : Operator symbol
+    \item Schrödinger equation: A eigenvalue problem
+    \item $U(x)$: Potential energy
+    \item $\tilde{}$: Symbol for approximated example $\tilde{\psi}$, sometimes anzatz.
+    \item $\mathcal{X}$: Spinor
+\end{itemize}
+
+
+\section*{Classical Mechanics}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Galilean Transformation} \\[-0.2cm]
+For $u \ll c$ and $v_x \ll c$
+
+\textbf{Position:}
+\[
+x = x' + ut
+\]
+
+\textbf{Velocity:}
+\[
+v_x = v'_x + u
+\]
+
+\textit{Where } $u$ is the constant velocity of the reference frame $S'$ relative to $S$.
+
+\end{minipage}
+
+
+\section*{Relativity}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Length Contraction:} \\[-0.2cm]
+\[
+\Delta l = \Delta l_0 \sqrt{1 - \frac{u^2}{c^2}}
+\]
+
+\begin{itemize}
+    \item $\Delta l_0$: Rest length (length measured in the object's rest frame).
+    \item $\Delta l$: Contracted length (length measured by an observer in relative motion).
+\end{itemize}
+
+\end{minipage}
+
+
+\begin{minipage}{\linewidth}
+
+\textbf{Time Dilation} \\[-0.2cm]
+\[
+\Delta t = \frac{\Delta t_0}{\sqrt{1 - \frac{u^2}{c^2}}}
+\]
+\begin{itemize}
+    \item $\Delta t_0$: Proper time (time in the rest frame).
+    \item $u$: Velocity of the moving system.
+\end{itemize}
+
+\end{minipage}
+
+
+
+
+
+\begin{minipage}{\linewidth}
+
+\textbf{Lorentz Velocity Transformation \textit{($v_x \neq c$ and $u < c$):}} \\[-0.2cm]
+\[
+v'_x = \frac{v_x - u}{1 - \frac{uv_x}{c^2}} \quad \Rightarrow \quad v_x = \frac{v'_x + u}{1 + \frac{uv'_x}{c^2}}
+\]
+
+\end{minipage}
+
+\section*{Relativistic Energy and Momentum p}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Lorentz Factor} \\[-0.2cm]
+\[
+\gamma = \frac{1}{\sqrt{1 - \frac{u^2}{c^2}}}
+\]
+\begin{itemize}
+    \item $\beta = \frac{u}{c}$: Relative velocity.
+\end{itemize}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Lorentz Transformation} \\[-0.2cm]
+\[
+x' = \gamma (x - ut), \quad t' = \gamma \left(t - \frac{ux}{c^2}\right)
+\]
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{For small velocities ($u \ll c$):} \\[-0.2cm]
+\[
+\gamma \approx 1 + \frac{1}{2} \frac{u^2}{c^2}
+\]
+
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Energy for Massless Particles:} \\[-0.2cm]
+\[
+E = pc
+\]
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Relativistic Momentum:} \\[-0.2cm]
+\[
+p_{\text{rel}} = p_{\text{classic}}\gamma = \frac{mv}{\sqrt{1 - \frac{v^2}{c^2}}}
+\]
+
+\end{minipage}
+
+
+
+
+
+\begin{minipage}{\linewidth}
+\textbf{Relativistic Force Along One Axis}
+    \[
+    F = \frac{ma}{(1 - \frac{v^2}{c^2})^{3/2}} = \gamma^3 ma = \frac{d}{dt}p
+    \]
+
+\textbf{ Electron with Enhanced Momentum}
+    \[ 
+    F  = x\, (mv)
+    \]
+    $x$ = scale
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Frequency of Waves Received by an Observer:} 
+\[
+f = \sqrt{\frac{c+u}{c-u}}f_0
+\]
+where \( f_0 \) is the frequency in the rest frame.
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Relativistic Kinetic Energy:} \\[-0.2cm]
+\[
+K = (\gamma - 1)mc^2
+\]
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{Relation between total and kinetic energy:} \\[-0.2cm]
+\[
+K = E - mc^2
+\]
+
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Total Energy:} \\[-0.2cm]
+\[
+E = \gamma mc^2
+\]
+
+\end{minipage}
+
+
+\textbf{The relativistic Doppler shift for a source moving at speed \(u\):}
+\[
+\frac{\lambda}{\lambda_0} = \sqrt{\frac{1 - u/c}{1 + u/c}}
+\]
+
+\begin{minipage}{\linewidth}
+
+\textbf{Rest Energy:} \\[-0.2cm]
+\[
+E_{\text{rest}} = mc^2
+\]
+
+\end{minipage}
+
+
+\begin{minipage}{\linewidth}
+
+\textbf{Energy-Momentum Relation(Total energy of particle):} \\[-0.2cm]
+\[
+E^2 = (\vec{P}c)^2 + (mc^2)^2
+\]
+
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Relativistic Work (with $v_x$):} \\[-0.2cm]
+\[
+W = \int_{v_1}^{v_2} \frac{m v_x }{\left( 1 - \frac{v_x^2}{c^2} \right)^{3/2}}\,dv_x  = mc^2 \Big[ \frac{1}{\sqrt{\omega_2}} - \frac{1}{\sqrt{\omega_1}} \Big].
+\]
+\[
+ \omega_1 = 1 - \frac{v_1^2}{c^2} \quad \quad \omega_2 = 1 - \frac{v_2^2}{c^2}
+\]
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Step Size Formula:}
+\[
+\Delta x = \frac{2b}{N - 1}
+\]
+\begin{itemize}
+    \item $b$: Upper limit of the interval.  $[-b, b]$=$b$.
+    \item $N$: Total number of points in the interval.
+    \item $\Delta x$: The step size between two consecutive points.
+\end{itemize}
+
+\end{minipage}
+
+
+\section*{Wave Physics}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Wave Equation} \\[-0.2cm]
+\[
+c = \lambda f
+\]
+
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Interference Intensity:} \\[-0.2cm]
+\[
+I = I_0 \cos^2\left(\frac{\delta}{2}\right)
+\]
+\begin{itemize}
+    \item \(I\): Observed intensity
+    \item \(I_0\): Maximum intensity
+    \item \(\delta\): Phase difference between the two waves, given by:
+\end{itemize}
+
+\[
+\delta = \frac{2\pi}{\lambda} \Delta x
+\]
+\begin{itemize}
+    \item \(\Delta x\): Path difference between the waves
+    \item \(\lambda\): Wavelength.
+\end{itemize}
+
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Light Intensity (Cosine)} \\[-0.2cm]
+\[
+I = I_0 \cos^2\left( \frac{\delta}{2} \right)
+\]
+
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Wave Function} \\[-0.2cm]
+\[
+\phi = \phi_0 \sin(kx - \omega t) + \psi_0 \cos(kx - \omega t + \delta)
+\]
+
+\end{minipage}
+
+
+
+\section*{Photoelectric Effect}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Stopping Potential $U_0$ or $V_0$} \\[-0.2cm]
+\[
+V_0 = U_0 = \frac{hc}{e} \left( \frac{1}{\lambda} - \frac{1}{\lambda_0} \right)
+\]
+
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Work Function $\phi$} \\[-0.2cm]
+\[
+\phi = \frac{hc}{\lambda_0}
+\]
+
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\textbf{Maximum Energy of electron} \\[-0.2cm]
+\[
+E_{\text{max}}  = K_{\text{eMax}} = eU_0 = E_{\text{photon}} - \phi
+\]
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Photon Energy and Momentum} \\[-0.2cm]
+\[
+E_{\text{photon}} = hf = \frac{hc}{\lambda} =Pc 
+\]
+(Jules per second)
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Photon Momentum $P$} \\[-0.2cm]
+\[
+P = \frac{h}{\lambda}
+\]
+
+\end{minipage}
+
+
+
+
+\section*{Time-Independent Schrödinger Equation}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Notation for expectation value for operators ($\hat{A}$)}
+\[
+\langle A_{\text{any}} \rangle = \langle \psi, \hat{A} \psi \rangle = \int_{-\infty}^{\infty} \overline{\psi(x)}\, \hat{A} \Psi(x) \, dx
+\]
+\textbf{Note:} When \(\psi(x)\) is real, \(\overline{\psi(x)} = \psi(x)\), so the formula simplifies to:
+\end{minipage}
+
+
+\begin{minipage}{\linewidth}
+
+\textbf{Expectation value of Kinetic Energy $\hat{T}$}
+\[
+\langle \hat{T} \rangle = \langle \psi, \hat{T} \psi \rangle = \int_{-\infty}^{\infty} \overline{\psi(x)} \, -\frac{\hbar^2}{2m} \frac{d^2}{dx^2} \psi(x) \, dx
+\]
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{Expectation Value of Energy:} \\[-0.2cm]
+\[
+\langle E \rangle= \langle \psi, \hat{H} \psi \rangle = \int_{-\infty}^{\infty} \overline{\psi^(x)} \, \hat{H} \psi(x) \, dx 
+\]
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{Expectation value for position operator $\hat{x}$}
+\[
+\langle x \rangle = \int_{-\infty}^{\infty} \overline{\psi(x)} \, \hat{x} \psi(x) \, dx = \int_{-\infty}^{\infty} x |\psi(x)|^2 \, dx
+\]
+
+\textit{Where the position operator acts as:}
+\[
+\hat{x} \psi(x) = x \psi(x)
+\]
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{Expectation value for momentum operator $\hat{p}$}
+\[
+\langle p \rangle = \int_{-\infty}^{\infty} \overline{\psi(x)} \, -i \hbar \frac{d}{dx} \psi(x) \, dx
+\]
+\textit{Where the momentum operator acts as:}
+\[
+\hat{p} \psi(x) = -i \hbar \frac{d}{dx} \psi(x)
+\]
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Expectation value of Hamiltonian $\hat{H}$}
+\[
+\langle \hat{H} \rangle= \langle \psi, \hat{H} \psi \rangle = \int_{-\infty}^{\infty} \overline{\psi(x)}\, \hat{H}  \psi(x) \, dx 
+\]
+
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\textbf{Time-Dependent Schrödinger Equation }
+\[
+    i\hbar \frac{\partial \: \Psi(x,t)}{\partial t}  = \hat{H} \:\Psi(x,t)
+\]
+New segment??
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{Wavefunction for a Particle(Eigenfunction):} \\[-0.2cm]
+\[
+\Psi(x, t) = \psi(x) e^{-iEt/\hbar}
+\]
+\textit{Where $\psi(x)$ is the time-independent part and $E$ is the energy.}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\textbf{Momentum Operator'}
+
+\[
+\hat{p} \psi(x) = -i\hbar \frac{d}{dx} \psi(x)
+\]
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Kinetic Energy Operator'}
+\[
+    \hat{T} = -\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2}
+    \]
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Potential Energy Operator'}
+\[
+    \hat{U} = U(x)
+    \]
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Hamiltonian Operator $\hat{H}$}
+\[
+    \hat{H} = \hat{T} + \hat{U}
+\]
+\textit{$\hat{T}$ = kinetic energy operator  
+$\hat{U}$ = potential energy operator.}
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{Separation for Time-Independent Potential $U(x)$}
+\[
+    \Psi(x,t) = \psi(x) \phi(t)
+    Finne den tiduavhengige delen 
+\]
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{Equation for Time Component $\Phi(t)$}
+\[
+    i \hbar \frac{d \Phi(t)}{dt} = E \Phi(t) 
+\]
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Time-Independent Schrödinger Equation:}
+\[
+-\frac{\hbar^2 }{2m} \,\psi''(x) + U(x)\psi(x) = E\psi(x)
+\]
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{Gaussian Wave Function in Position Space:} \\[-0.2cm]
+\[
+\psi(x) = Ce^{-\alpha x^2}
+\]
+I don't know where to place this
+\end{minipage}
+
+\section*{Den kvantemekaniske harmoniske oscillator}
+
+\textbf{Schrödinger-ligningen:}
+\[
+-\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} + \frac{1}{2} m \omega^2 x^2 \psi(x) = E \psi(x)
+\]
+
+\textbf{Energienivåer:}
+\[
+E_n = \hbar \omega \left( n + \frac{1}{2} \right), \quad n = 0, 1, 2, \dots
+\]
+
+
+\section*{Particle in a Box}
+
+
+\begin{minipage}{\linewidth}
+\textbf{Potential for Particle in a Box:}
+\[
+U(x) =
+\begin{cases}
+0, & 0 \leq x \leq L \\
+\infty, & \text{otherwise}
+\end{cases}
+\]
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Simplified Schrödinger equation particle in a box with potential U(x)=0 in the interval $0 \leq x \leq L$ :}
+\[
+\hat{\frac{d^2}{dx^2}}\psi(x) + k^2\psi(x) = 0, \quad k^2 = \frac{2mE}{\hbar^2}.
+\]
+\end{minipage}
+
+
+
+\begin{minipage}{\linewidth}
+\textbf{Wave Function Solution for \(\psi(x)\):}
+\[
+\psi_n(x) = B_n \sin\left(\frac{n\pi x}{L}\right), \quad n = 1, 2, 3, \dots
+\]
+\end{minipage}
+
+
+
+\begin{minipage}{\linewidth}
+\textbf{Energy Levels of a Particle in a Box:}
+\[
+E_n = \frac{n^2 \hbar^2 \pi^2}{2mL^2}, \quad n = 1, 2, 3, \dots
+\]
+\end{minipage}
+
+
+
+\begin{minipage}{\linewidth}
+\textbf{Energy Difference (Ground State and First Excited State):}
+\[
+E_2 - E_1 = 3 \frac{\hbar^2 \pi^2}{2mL^2}
+\]
+\end{minipage}
+
+
+
+\begin{minipage}{\linewidth}
+\textbf{Heisenberg Uncertainty Relation(HUR):}
+\[
+\Delta x \Delta p \geq \frac{\hbar}{2}
+\]
+\end{minipage}
+
+
+
+\section*{Quantum Formalism}
+
+\begin{minipage}{\linewidth}
+\textbf{Uncertainty (std) of arbitrary operator \( \hat{A} \):}
+\[
+\Delta A_{\text{anyOperator}} = \sqrt{\langle A^2 \rangle - \langle A \rangle^2}
+\]
+
+\end{minipage}
+
+
+\begin{minipage}{\linewidth}
+
+\textbf{Normalization Condition:} \\[-0.2cm]
+\[
+\int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1
+\]
+
+\end{minipage}
+
+
+\begin{minipage}{\linewidth}
+
+\textbf{Probability Density:} \\[-0.2cm]
+\[
+P(x) = |\psi(x)|^2
+\]
+\textbf{Probability Density for  $(a, b) \subseteq \mathbb{R}$} \\[-0.2cm]
+\[
+P(X \in (a, b)) = \int_a^b |\psi(x)|^2 \, dx \leq 1
+\]
+
+\textbf{Inner Product Representation:}
+\[
+\langle \phi, \psi \rangle = \int \overline{\phi} \psi = \overline{\int \psi \overline{\phi}}= \overline{\int \overline{\phi}\psi } = \overline{\langle \psi, \phi \rangle}
+\]
+\textbf{Linearity of the Inner Product:}
+\[
+\langle \phi, A \psi_1 + B \psi_2 \rangle = \int \overline{\phi} (A \psi_1 + B \psi_2)  
+= A \langle \phi, \psi_1 \rangle + B \langle \phi, \psi_2 \rangle
+\]
+
+\end{minipage}
+
+
+\begin{minipage}{\linewidth}
+
+\textbf{Probability of Finding a Particle in Interval $(a, b)$:} \\[-0.2cm]
+\[
+P(a < x < b) = \int_a^b |\psi(x)|^2 dx
+\]
+
+\end{minipage}
+
+
+\begin{minipage}{\linewidth}
+\section*{Hilbert Space (V) and Operators}
+\textbf{Inner Product:} \\[-0.2cm]
+\[
+\langle \phi, \psi \rangle = \int_{-\infty}^{\infty} \overline{\phi(x)} \, \psi(x) \, dx
+\]
+\end{minipage}
+
+
+\begin{minipage}{\linewidth}
+\textbf{Hermitian Operator Definition:} \\[-0.2cm]
+\[
+\langle \phi, \hat{A} \psi \rangle = \langle \hat{A} \phi, \psi \rangle \quad \forall \,  \phi,\,\, \psi \in V
+\]
+
+\end{minipage}
+
+\textbf{Validating a Hermitian Operator:}
+\begin{enumerate}
+    \item Check  \(\langle \phi, \hat{A} \psi \rangle = \langle \hat{A} \phi, \psi \rangle\)
+    \item Apply the operator: \(\hat{A} \psi\) (acts linearly).
+    \item Verify  \(\langle \phi, \hat{A} \psi \rangle = \overline{\langle \psi, \hat{A} \phi \rangle}\).
+\end{enumerate}
+
+
+\begin{minipage}{\linewidth}
+\textbf{Key Properties of Hermitian Operators}
+\[ 1. \quad \langle \psi, \hat{A} \psi \rangle \in \mathbb{R}\]
+\[2. \quad \hat{A} \psi = E \psi \implies E \in \mathbb{R}\]
+\[ 3.Orthogonality \quad \langle \psi_i, \psi_j \rangle = \delta_{ij}  = 0 \quad \text{if } E_i \neq E_j\]
+\end{minipage}
+\textbf{Orthogonality:} 
+\[
+\delta_{ij} = 
+\begin{cases} 
+1 & \text{if } i = j, \\
+0 & \text{if } i \neq j.
+\end{cases}
+\]
+\textbf{Complex conjugate of multiplier $\hat{A} \in \mathbb{R}$} 
+\[
+when\quad \hat{A} \Rightarrow \hat{A}x = (\hat{A}f)(x) = A(x)f(x) 
+\]
+\[
+\overline{\hat{A} f(x)}= \overline{A f(x)} = A \,\,\overline{f(x)}
+\]
+\textbf{} 
+
+
+\begin{minipage}{\linewidth}
+
+\textbf{Cauchy-Schwarz Inequality:} \\[-0.2cm]
+\[
+|\langle \phi, \psi \rangle|^2 \leq \langle \phi, \phi \rangle \langle \psi, \psi \rangle
+\]
+
+\end{minipage}
+
+
+\begin{minipage}{\linewidth}
+\textbf{Inner product (dot product) in $\mathbb{R}^3$ } :
+\[
+\vec{u} \cdot \vec{v} = \langle \vec{u}, \vec{v} \rangle = \sum_{i=1}^{3} u_i v_i
+\]
+\[
+|\langle \vec{u}, \vec{v} \rangle| = |\vec{u} \cdot \vec{v}| = \|\vec{u}\| \, \|\vec{v}\| \, |\cos(\theta)|.
+\]
+
+\end{minipage}
+
+
+
+\begin{minipage}{\linewidth}
+\textbf{Inner product for wavefunctions:}
+\[
+\langle \phi, \psi \rangle = \int_{-\infty}^{\infty} \overline{ \phi(x)} \, \psi(x) \, dx
+\]
+\[
+\langle \psi, \psi \rangle = \int_{-\infty}^{\infty} |\psi(x)|^2 \, dx \geq 0
+\]
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Normalization Condition in Hilbert Space:} \\[-0.2cm]
+\[
+\|\psi\| = \sqrt{\langle \psi, \psi \rangle} = 1
+\]
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Distributive Property of the Inner Product:}
+\[
+\langle \phi, a\psi_1 + b\psi_2 \rangle = a \langle \phi, \psi_1 \rangle + b \langle \phi, \psi_2 \rangle
+\]
+
+\textbf{Generalized Distributive P. of the Inner Product:}
+\[
+\langle \Psi, \alpha \hat{A}\Phi + \beta \hat{B}\Phi \rangle = \alpha \langle \Psi, \hat{A}\Phi \rangle + \beta \langle \Psi, \hat{B}\Phi \rangle
+\]
+$\psi$ and $\Psi$ can both be used.
+
+\textbf{Scalar Multiplication Rule for $c \in \mathbb{C}$}
+\[
+\langle \phi, c \psi \rangle = c \langle \phi, \psi \rangle.
+\]
+\[
+\langle c \phi, \psi \rangle = \overline{c} \langle \phi, \psi \rangle,
+\]
+
+
+
+\end{minipage}
+
+
+\begin{minipage}{\linewidth}
+\textbf{Commutator of Operators:} \\[-0.2cm]
+\[
+[\hat{A}, \hat{B}] = \hat{A} \hat{B} - \hat{B} \hat{A}
+\]
+
+\end{minipage}
+
+
+\section*{Left to do:}
+Pauli matrices Exercise 4 Exam 1
+Eigenvectors Eigenvalues Exam 2 E3
+Discritation
+Exam 1 E 3cd
+Bestem koefsienter Beta alfa
+Even or od function
+3 Exam 
+3D Matrice Particle in a Box.
+Numerisk metode. noe med fire husker ikke.
+
+
+
+what percentages are:\\
+$u \ll c$\\
+$v_x \ll c$\\
+$u < c$\\
+
+\begin{minipage}{\linewidth}
+\section*{Mathematical Functions}
+\section*{System of differential equations}
+\[
+\begin{pmatrix}
+x_1' \\
+x_2'
+\end{pmatrix}
+=
+\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\
+x_2
+\end{pmatrix}
++
+\begin{pmatrix}
+b_1 \\
+b_2
+\end{pmatrix}.
+\]
+
+
+\section*{Important Integrals}
+\[
+    \int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\pi}.
+    \]
+\[
+\int_{-\infty}^\infty e^{-a x^2} dx = \sqrt{\frac{\pi}{a}}, \quad a > 0.
+\]
+\[
+\int_{-\infty}^\infty x^2 e^{-a x^2} dx = \sqrt{\frac{\pi}{a}} \cdot \frac{1}{2a}, \quad a > 0.
+\]
+\[
+    \int_{-\infty}^\infty x^{2n} e^{-a x^2} dx = \sqrt{\frac{\pi}{a}} \cdot \frac{(2n-1)!!}{(2a)^n}, \quad n \in \mathbb{N}_0, \, a > 0,
+    \]
+\[
+\int_a^b u v' \, dx = \big[ u v \big]_a^b - \int_a^b u' v \, dx
+\]
+\[
+\int_a^b f(u) u' \, dx =\int_a^b f(u) \, \frac{du}{dx} dx = \int_{u(a)}^{u(b)} f(u) \, du
+\]
+\[
+u = ax + b \Rightarrow \quad \frac{du}{dx} = a \Rightarrow \quad du = a \, dx \Rightarrow \quad dx = \frac{du}{a} 
+\]
+
+\textbf{Even an odd functions} \\[-0.2cm]
+\[
+f(-x) = f(x) \Rightarrow \text{even} \Rightarrow \int_{-a}^a f(x) \, dx = 2 \int_0^a f(x) \, dx
+\]
+\[
+f(-x) = -f(x) \Rightarrow \text{odd} \Rightarrow \int_{-a}^a f(x) \, dx = 0
+\]
+\[
+else \Rightarrow neither
+\]
+\end{minipage}
+\section*{Important derivations and rules}
+\[
+\frac{d}{dx} \cos(kx) = -k \sin(kx)
+\]
+
+\[
+\frac{d}{dx} \sin(kx) = k \cos(kx)
+\]
+
+\[
+\frac{d}{dx} f\big(g(x)\big) = f'\big(g(x)\big) \cdot g'(x).
+\]
+\[
+\frac{d}{dx}\big(C \cdot f(x)\big) = C \cdot \frac{d}{dx}f(x),
+\]
+\begin{minipage}{\linewidth}
+\textbf{Linearity of Differentiation:}  
+\[
+\frac{\partial}{\partial x} \sum_{n=1}^\infty f_n(x) = \sum_{n=1}^\infty \frac{\partial}{\partial x} f_n(x),
+\]
+\textit{provided the following conditions are satisfied:}
+\begin{itemize}
+    \item The series \(\sum_{n=1}^\infty f_n(x)\) \textbf{converges uniformly} in the region where differentiation is applied.
+    \item Each term \(f_n(x)\) is \textbf{differentiable} in the region.
+\end{itemize}
+\end{minipage}
+
+
+\begin{minipage}{\linewidth}
+
+\textbf{Trigonometric functions} \\[-0.2cm]
+\[
+\int \cos(kx) dx = \frac{1}{k}\sin(kx) + C
+\]
+\[
+\int \sin(kx) dx = -\frac{1}{k}\cos(kx) + C
+\]
+\[
+\int \tan(x) dx = -ln\left|\cos(x)\right| + C
+\]
+\[
+\int (1+\tan^2(x)) dx = \tan(x) + C
+\]
+\[
+\int \frac{1}{\cos^2(x)} dx = \tan(x) +C
+\]
+\[
+\int \sin^2(x) \, dx = -\frac{1}{4} \sin(2x) - \frac{x}{2} + C.
+\]
+\[
+\int \cos^2(x) dx = \frac{1}{4}\sin(2x) + \frac{x}{2}+C
+\]
+\[
+\int \tan^2(x) dx = \tan(x) - x + C
+\]
+
+
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Sine and Cosine Powers and Products:}
+\[
+\sin(A)\sin(B) = \frac{1}{2} [\cos(A-B) - \cos(A+B)]
+\]
+\[
+2 \sin x \sin 2x = \cos x - \cos 3x,
+\]
+\[
+\sin^3(x) = \frac{3}{4}\sin(x) - \frac{1}{4}\sin(3x)
+\]
+\[
+\sin(3x) = 3\sin(x) - 4\sin^3(x)
+\]
+\[
+\cos(3x) = 4\cos^3(x) - 3\cos(x)
+\]
+\[
+\sin^2(kx) = \frac{1}{2} (1 - \cos(2kx)) 
+\]
+\[
+\cos^2(kx)  = \frac{1}{2} (1 + \cos(2kx))
+\]
+
+\[
+\cos(2x) = \cos^2(x) - \sin^2(x) = 2\cos^2(x) - 1 = 1 - 2\sin^2(x)
+\]
+
+\[
+\sin(2x) = 2\sin(x)\cos(x)
+\]
+\[
+\tan(2x) = \frac{2\tan(x)}{1-\tan^2(x)}
+\]
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Cotangent Definition:}
+\[
+\cot(\theta) = \frac{\cos(\theta)}{\sin(\theta)}
+\]
+\textbf{Addition formulas for sine and cosine:}
+\[
+\cos(x + y) = \cos(x)\cos(y) - \sin(x)\sin(y)
+\]
+\[
+\cos(x - y) = \cos(x)\cos(y) + \sin(x)\sin(y)
+\]
+\[
+\sin(x + y) = \sin(x)\cos(y) + \cos(x)\sin(y)
+\]
+
+\[
+\sin(x - y) = \sin(x)\cos(y) - \cos(x)\sin(y)
+\]
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{Partial Derivatives of a Function $f(x, y)$:} \\[-0.2cm]
+\[
+\frac{\partial f}{\partial x} \Bigg|_{x=x_0, y=y_0} = \lim_{h \to 0} \frac{f(x_0 + h, y_0) - f(x_0, y_0)}{h}
+\]
+
+\[
+\frac{\partial f}{\partial y} \Bigg|_{x=x_0, y=y_0} = \lim_{h \to 0} \frac{f(x_0, y_0 + h) - f(x_0, y_0)}{h}
+\]
+
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\textbf{Euler's Formulas for Cosine and Sine:}
+\[
+\cos(x) = \frac{e^{ix} + e^{-ix}}{2}, \quad \sin(x) = \frac{e^{ix} - e^{-ix}}{2i}
+\]
+\end{minipage}
+
+ \begin{minipage}{\linewidth}
+
+\textbf{Euler's Formula} \\
+\[
+    e^{\pm ix} = \cos(x) \pm i \sin(x)
+\]
+Specific Forms of Euler's Formula (see +- syntax)
+\[
+    e^{-ix} = \cos(x) - i \sin(x)
+\]
+\[
+    e^{ix} = \cos(x) + i \sin(x)
+\]
+
+
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+\textbf{Quantum Second-Order Differential Equation:}
+\(
+\psi''(x) + c_1 \psi'(x) + c_2 \psi(x) = 0
+\)
+\begin{enumerate}
+\item Ansatz/assumption:\(\quad \tilde{\psi}(x) = \alpha e^{\beta x} \text{ or other}\)
+    \item Replace it and derivatives in the general equation.
+    
+   \(
+\beta^2 \alpha e^{\beta x} + c_1 \beta \alpha e^{\beta x} + c_2 \alpha e^{\beta x} = 0
+\)
+    \item Obtain the characteristic equation for \(\beta\).
+   \(
+   \alpha e^{\beta x} (\beta^2 + c_1 \beta + c_2) = 0 \quad \Rightarrow \quad  (\beta^2 + c_1 \beta + c_2) = 0
+   \)
+    \item Solve the roots to get the \(\beta\)'s, assume $\alpha e^{\beta x} \neq 0$ 
+    \item Write the general solution based on the roots:
+
+\(c_1^2 - 4c_2 > 0, \beta_1 \text{ and } \beta_2 \quad \Rightarrow \quad \psi(x) = \alpha_1 e^{\beta_1 x} + \alpha_2 e^{\beta_2 x}\)
+
+\(c_1^2 - 4c_2 = 0 , \beta_1 =\beta_2 \quad \Rightarrow \quad \psi(x) = (\alpha_1 + \alpha_2 x)e^{\beta x}\)
+
+\(c_1^2 - 4c_2 < 0, \, \beta = \lambda \pm i\omega \quad \Rightarrow \)
+
+\(\psi(x) = e^{\lambda x} \big(\alpha_1 \cos(\omega x) + \alpha_2 \sin(\omega x)\big)\)
+\item Substitute the GS into the original to confirm.
+\item Normalize the solution.
+
+    \(
+    C^2 \int |\psi(x)|^2 dx = 1 \quad \Rightarrow \quad C = \sqrt{\frac{1}{\int |\psi(x)|^2 dx}}.
+    \)
+har absoluttverdien av Ci andre og antar at c er positiv ?????????
+\end{enumerate}
+
+
+\textbf{From SE to Energy Levels for 1D/3D Particle in a Box $U(x) = 0$}
+\begin{enumerate}
+\item Schrödinger Equation:\(-\frac{\hbar^2}{2m} \nabla^2 \psi(x, y, z) = E \psi(x, y, z)\)
+
+\item Boundary Conditions:
+\(\psi(x, y, z) = 0 \quad \text{when } x = 0 \text{ or } x = L_x, \, y = 0 \text{ or } y = L_y, \, z = 0 \text{ or } z = L_z\)
+\item Separation of Variables:
+\(
+\psi(x, y, z) = \psi_x(x) \psi_y(y) \psi_z(z)
+\)
+Each component satisfies:
+\(
+\frac{d^2 \psi_x}{dx^2} + k_x^2 \psi_x = 0, \quad \psi_x(0) = \psi_x(L_x) = 0,
+\)
+and similarly for \(\psi_y(y)\) and \(\psi_z(z)\).
+\item  Solutions for \(\psi_x, \psi_y, \psi_z\):
+\(
+\psi_x(x) = \sqrt{\frac{2}{L_x}} \sin\left(\frac{n_x \pi x}{L_x}\right), \quad n_x = 1, 2, 3, \dots
+\)
+\(
+\psi_y(y) = \sqrt{\frac{2}{L_y}} \sin\left(\frac{n_y \pi y}{L_y}\right), \quad n_y = 1, 2, 3, \dots
+\)
+\(
+\psi_z(z) = \sqrt{\frac{2}{L_z}} \sin\left(\frac{n_z \pi z}{L_z}\right), \quad n_z = 1, 2, 3, \dots
+\)
+\item  Total Wavefunction:
+\(\psi_{n_x, n_y, n_z}(x, y, z) = \)\(\sqrt{\frac{8}{L_x L_y L_z}} 
+\sin\left(\frac{n_x \pi x}{L_x}\right)
+\sin\left(\frac{n_y \pi y}{L_y}\right)
+\sin\left(\frac{n_z \pi z}{L_z}\right)\)
+\item  Energy Levels:
+\(
+E_{n_x, n_y, n_z} = \frac{\hbar^2 \pi^2}{2m} 
+\left(\frac{n_x^2}{L_x^2} + \frac{n_y^2}{L_y^2} + \frac{n_z^2}{L_z^2}\right)
+\)
+\item Degeneracy(ways of getting same energy levels ???????):
+For cubical boxes (\(L_x = L_y = L_z\)):
+\(g(E) = \text{Number of distinct permutations of } (n_x, n_y, n_z) \text{ with equal } E.\)
+\end{enumerate}
+
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{Rules for complex konjugates}
+
+\( z = a + bi \quad \Rightarrow \quad \overline{z} = a - bi \)\\
+\( \overline{z_1 + z_2} \quad \Rightarrow \quad \overline{z_1} + \overline{z_2} \)\\
+\( \overline{z_1 - z_2} \quad \Rightarrow \quad \overline{z_1} - \overline{z_2} \)\\
+\( \overline{z_1 z_2} \quad \Rightarrow \quad \overline{z_1} \cdot \overline{z_2} \)\\
+\( \overline{\frac{z_1}{z_2}} \quad \Rightarrow \quad \frac{\overline{z_1}}{\overline{z_2}}, \quad z_2 \neq 0 \)\\
+\( z \in \mathbb{R} \quad \Rightarrow \quad \overline{z} = z \)\\
+\( \overline{i} \quad \Rightarrow \quad -i \)\\
+\( \overline{e^z} \quad \Rightarrow \quad e^{\overline{z}} \)\\
+\( |\overline{z}| \quad \Rightarrow \quad |z| \)\\
+\( \overline{\overline{z}} \quad \Rightarrow \quad z \)\\
+\( \overline{\langle \psi, \phi \rangle} \quad \Rightarrow \quad \langle \phi, \psi \rangle \)\\
+
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{Imaginary numbers}
+
+\( i^2 = -1 \) \\ 
+\( z = a + bi, \quad \text{where } a, b \in \mathbb{R} \) \\
+\( |z| = \sqrt{a^2 + b^2} \) \\
+\( \overline{z} = a - bi \) \\
+\( z \cdot \overline{z} = |z|^2 = a^2 + b^2 \) \\
+\( e^{i\theta} = \cos(\theta) + i\sin(\theta) \) \\
+\( |e^{i\theta}| = 1 \) \\
+\( \left(e^{i\theta}\right)^2 = e^{i(2\theta)} \) \\
+\( z^n = 1 \implies z_k = e^{i\frac{2\pi k}{n}}, \quad k = 0, 1, 2, \dots, n-1 \) \\
+\( z_1 = r_1 e^{i\theta_1}, \quad z_2 = r_2 e^{i\theta_2} \implies
+z_1 \cdot z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)} \)
+\( \frac{z_1}{z_2} = \frac{r_1}{r_2} e^{i(\theta_1 - \theta_2)} \) \\
+\( \left(e^{i\theta}\right)^n = e^{i n \theta} = (\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta) \) \\
+
+\end{minipage}
+\begin{minipage}{\linewidth}
+
+\textbf{Rules for absolute value} 
+
+\(|ab| = |a| \cdot |b|\)\\
+\(\left| \frac{a}{b} \right| = \frac{|a|}{|b|}, \quad b \neq 0\)\\
+\(|a + b| \leq |a| + |b|\)  (Trekantulikheten)\\
+\(||a| - |b|| \leq |a - b|\)\\
+\(||a|| = |a|\)\\
+\(|a| = 0 \quad \Leftrightarrow \quad a = 0\)\\
+\(|a|^2 = a^2\)\\
+\(a(x) \in \mathbb{R}_{\geq 0} \implies |a(x)| = a(x)\)\\
+
+\end{minipage}
+
+
+\begin{minipage}{\linewidth}
+\section*{Common units and conversions}
+\begin{itemize}
+    \item \textbf{Speed of Light ($c$):} $c = 3.00 \times 10^8$ m/s
+    \item \textbf{Planck's Constant ($h$):} $h = 6.63 \times 10^{-34}$ J·s = $6.63 \times 10^{-34}$ Hz·Js
+    \item \textbf{Elementary Charge ($e$):} $e = 1.60 \times 10^{-19}$ C
+    \item \textbf{Energy Conversion:} $1$ eV $= 1.60 \times 10^{-19}$ J
+    \item \textbf{Work Function ($\phi$):} \textit{often measured in eV.}
+    \item \textbf{Energy Conversion:} $1 \text{ eV} = 1.60 \times 10^{-19} \text{ J}$
+\end{itemize}
+\end{minipage}
+
+\end{multicols}
+\begin{minipage}{\linewidth}
+\textbf{Finite Difference Approximation:}
+\[
+\psi'(x_i) = f'(x_i) \approx \frac{\psi(x_{i+1}) - \psi(x_{i-1})}{2\Delta x} = \frac{f(x_{i+1}) - f(x_{i-1})}{2\Delta x}
+\]
+\[
+\psi''(x_i) = f''(x_i) \approx \frac{\psi(x_{i+1}) - 2\psi(x_i) + \psi(x_{i-1})}{(\Delta x)^2} = \frac{f(x_{i+1}) - 2f(x_i) + f(x_{i-1})}{(\Delta x)^2}
+\]
+\[
+\psi^{(n)}(x_i) \approx \frac{1}{(\Delta x)^n} \sum_{k=-n/2}^{n/2} (-1)^k \binom{n}{k} \psi(x_{i+k})
+\]
+
+
+The error is: \[O(h^2)\]
+
+\end{minipage}
+
+\begin{multicols}{2}
+
+\section*{Maybe on the corriculum, I dont know}
+\begin{minipage}{\linewidth}
+
+\[
+\frac{u}{c} = \frac{\lambda_0^2 - \lambda^2}{\lambda_0^2 + \lambda^2}
+\]
+
+\textbf{Relativistic Doppler Effect:} \\[-0.2cm]
+\[
+f' = f \sqrt{\frac{1 + \frac{v}{c}}{1 - \frac{v}{c}}}
+\]
+\(f'\): Observed frequency \\
+\(f\): Source frequency \\
+
+\end{minipage}
+
+
+
+\begin{minipage}{\linewidth}
+
+\textbf{Relativistic Work:} \\[-0.2cm]
+\[
+W = \int_{v_1}^{v_2} \frac{m v \, dv}{\left(1 - \frac{v^2}{c^2}\right)^{3/2}}
+\]
+
+
+\end{minipage}
+
+
+
+
+
+
+
+\end{multicols}
+
+
+\section*{From Differential Equation to Quantum Energy Levels}
+
+
+\textbf{Second-Order Differential Equation:}
+\[
+\psi''(x) + c_1 \psi'(x) + c_2 \psi(x) = 0
+\]
+
+\textbf{Ansatz:}
+\[
+\psi(x) = \alpha e^{\beta x}, \quad \psi(x) = \alpha \cos(\beta x), \quad \psi(x) = \alpha \sin(\beta x).
+\]
+
+\textbf{Steps:}
+\begin{enumerate}
+    \item Substitute \(\psi(x)\) into the equation.
+    \item Solve the characteristic equation for \(\beta\):
+    \[
+    \beta^2 + c_1 \beta + c_2 = 0.
+    \]
+    \item Find general solutions:
+    \begin{itemize}
+        \item \(c_1^2 - 4c_2 > 0 \quad \Rightarrow \quad \psi(x) = \alpha_1 e^{\beta_1 x} + \alpha_2 e^{\beta_2 x}.\)
+        \item \(c_1^2 - 4c_2 = 0 \quad \Rightarrow \quad \psi(x) = (\alpha_1 + \alpha_2 x)e^{\beta x}.\)
+        \item \(c_1^2 - 4c_2 < 0, \, \beta = \lambda \pm i\omega \quad \Rightarrow\)
+        \[
+        \psi(x) = e^{\lambda x} \big(\alpha_1 \cos(\omega x) + \alpha_2 \sin(\omega x)\big).
+        \]
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Schrödinger Equation:}
+\[
+-\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} + V(x)\psi(x) = E\psi(x).
+\]
+
+\textbf{Harmonic Oscillator:}
+\[
+V(x) = \frac{1}{2}m\omega^2x^2 \quad \Rightarrow \quad \psi_n(x) = H_n(x)e^{-m\omega x^2 / 2\hbar}.
+\]
+
+\textbf{Energy Levels:}
+\[
+E_n = \hbar \omega \left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \dots
+\]
+
+\section*{3D Particle in a Box}
+
+\textbf{Schrödinger Equation:}
+\[
+-\frac{\hbar^2}{2m} \nabla^2 \psi(x, y, z) = E \psi(x, y, z),
+\]
+\[
+\psi(x, y, z) = 0 \quad \text{at the boundaries.}
+\]
+
+\textbf{Wavefunction:}
+\[
+\psi_{n_x, n_y, n_z}(x, y, z) = \sqrt{\frac{8}{L_x L_y L_z}} 
+\sin\left(\frac{n_x \pi x}{L_x}\right)
+\sin\left(\frac{n_y \pi y}{L_y}\right)
+\sin\left(\frac{n_z \pi z}{L_z}\right),
+\]
+\[
+n_x, n_y, n_z = 1, 2, 3, \dots
+\]
+
+\textbf{Energy Levels:}
+\[
+E_{n_x, n_y, n_z} = \frac{\hbar^2 \pi^2}{2m} 
+\left(\frac{n_x^2}{L_x^2} + \frac{n_y^2}{L_y^2} + \frac{n_z^2}{L_z^2}\right).
+\]
+
+\textbf{Degeneracy:}
+\[
+g(E) = \text{Number of distinct combinations of } (n_x, n_y, n_z) \text{ for a given } E.
+\]
+
+
+\section*{From \(\psi\) to Energy Levels for 3D Particle in a Box}
+
+\textbf{1. Schrödinger Equation:}
+\[
+-\frac{\hbar^2}{2m} \nabla^2 \psi(x, y, z) = E \psi(x, y, z).
+\]
+
+\textbf{2. Boundary Conditions:}
+\[
+\psi(x, y, z) = 0 \quad \text{when } x = 0 \text{ or } x = L_x, \, y = 0 \text{ or } y = L_y, \, z = 0 \text{ or } z = L_z.
+\]
+
+\textbf{3. Separation of Variables:}
+\[
+\psi(x, y, z) = \psi_x(x) \psi_y(y) \psi_z(z).
+\]
+Each component satisfies:
+\[
+\frac{d^2 \psi_x}{dx^2} + k_x^2 \psi_x = 0, \quad \psi_x(0) = \psi_x(L_x) = 0,
+\]
+and similarly for \(y\) and \(z\).
+
+\textbf{4. Solutions for \(\psi_x, \psi_y, \psi_z\):}
+\[
+\psi_x(x) = \sqrt{\frac{2}{L_x}} \sin\left(\frac{n_x \pi x}{L_x}\right), \quad n_x = 1, 2, 3, \dots
+\]
+\[
+\psi_y(y) = \sqrt{\frac{2}{L_y}} \sin\left(\frac{n_y \pi y}{L_y}\right), \quad n_y = 1, 2, 3, \dots
+\]
+\[
+\psi_z(z) = \sqrt{\frac{2}{L_z}} \sin\left(\frac{n_z \pi z}{L_z}\right), \quad n_z = 1, 2, 3, \dots
+\]
+
+\textbf{5. Total Wavefunction:}
+\[
+\psi_{n_x, n_y, n_z}(x, y, z) = \sqrt{\frac{8}{L_x L_y L_z}} 
+\sin\left(\frac{n_x \pi x}{L_x}\right)
+\sin\left(\frac{n_y \pi y}{L_y}\right)
+\sin\left(\frac{n_z \pi z}{L_z}\right).
+\]
+
+\textbf{6. Energy Levels:}
+\[
+E_{n_x, n_y, n_z} = \frac{\hbar^2 \pi^2}{2m} 
+\left(\frac{n_x^2}{L_x^2} + \frac{n_y^2}{L_y^2} + \frac{n_z^2}{L_z^2}\right).
+\]
+Here \(n_x, n_y, n_z = 1, 2, 3, \dots\).
+
+\textbf{7. Degeneracy:}
+For cubical boxes (\(L_x = L_y = L_z\)):
+\[
+g(E) = \text{Number of distinct permutations of } (n_x, n_y, n_z) \text{ with equal } E.
+\]
+
+
+
+
+
+
+\end{footnotesize}
+
+\end{document}

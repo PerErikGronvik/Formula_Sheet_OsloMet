@@ -1,0 +1,301 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{titlesec} % To customize section title size and spacing
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\columnsep}{1cm} % Set spacing between columns
+
+% Adjust section title font size and spacing
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries} % Set section title font to small and bold
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm} % Adjust space before and after section
+
+\begin{document}
+\title{\textbf{L15 - 3D QM and Hydrogen Atom}}
+\author{}
+\date{}
+\maketitle
+\begin{multicols}{2}
+
+\section*{3D Particle in a Box}
+\subsection*{Problem Setup}
+Consider a particle confined within a cubical box of side length \( L \). The potential \( U(x,y,z) \) is defined as:
+\[
+U(x,y,z) =
+\begin{cases} 
+0 & \text{if } 0 \leq x, y, z \leq L, \\
+\infty & \text{otherwise}.
+\end{cases}
+\]
+The particle is restricted to move only inside the box, where the potential is zero.
+
+\subsection*{Schrödinger Equation (SE) in 3D}
+The time-independent Schrödinger equation is:
+\[
+-\frac{\hbar^2}{2\mu} \nabla^2 \Psi(x,y,z) + U(x,y,z)\Psi(x,y,z) = 
+\]
+\[
+E \Psi(x,y,z),
+\]
+where:
+\begin{itemize}
+    \item \( \nabla^2 = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} \) is the Laplace operator.
+    \item \( \mu \) is the particle's mass.
+    \item \( E \) is the energy of the particle.
+\end{itemize}
+
+\subsection*{Separation of Variables}
+We assume the wavefunction can be separated as:
+\[
+\Psi(x,y,z) = X(x) Y(y) Z(z),
+\]
+and substitute this ansatz into the Schrödinger equation:
+\[
+-\frac{\hbar^2}{2\mu} \left[ \frac{1}{X} \frac{\mathrm{d}^2 X}{\mathrm{d}x^2} + \frac{1}{Y} \frac{\mathrm{d}^2 Y}{\mathrm{d}y^2} + \frac{1}{Z} \frac{\mathrm{d}^2 Z}{\mathrm{d}z^2} \right] = E.
+\]
+Separating the terms gives three independent equations:
+\[
+-\frac{\hbar^2}{2\mu} \frac{\mathrm{d}^2 X}{\mathrm{d}x^2} = E^x X, 
+\]
+\[
+-\frac{\hbar^2}{2\mu} \frac{\mathrm{d}^2 Y}{\mathrm{d}y^2} = E^y Y, 
+\]
+\[
+-\frac{\hbar^2}{2\mu} \frac{\mathrm{d}^2 Z}{\mathrm{d}z^2} = E^z Z,
+\]
+with \( E = E^x + E^y + E^z \).
+
+\subsection*{Solutions to the 1D Equation}
+Each of these equations has the boundary conditions \( X(0) = X(L) = 0 \) (and similarly for \( Y \) and \( Z \)). The solutions are:
+\[
+X_n(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{n\pi x}{L}\right), 
+\]
+\[
+Y_m(y) = \sqrt{\frac{2}{L}} \sin\left(\frac{m\pi y}{L}\right), 
+\]
+\[
+Z_k(z) = \sqrt{\frac{2}{L}} \sin\left(\frac{k\pi z}{L}\right),
+\]
+where \( n, m, k \) are positive integers.
+
+\subsection*{Energy Levels}
+The corresponding energies are:
+\[
+E^x_n = \frac{\hbar^2}{2\mu} \left(\frac{n\pi}{L}\right)^2, 
+\]
+\[
+E^y_m = \frac{\hbar^2}{2\mu} \left(\frac{m\pi}{L}\right)^2, 
+\]
+\[
+E^z_k = \frac{\hbar^2}{2\mu} \left(\frac{k\pi}{L}\right)^2.
+\]
+The total energy is:
+\[
+E_{nmk} = \frac{\pi^2 \hbar^2}{2\mu L^2} (n^2 + m^2 + k^2).
+\]
+
+\subsection*{Wavefunctions}
+The normalized wavefunction for the 3D box is:
+\[
+\Psi_{nmk}(x,y,z) = 
+\]
+\[
+\left(\frac{2}{L}\right)^{3/2} 
+\]
+\[
+\sin\left(\frac{n\pi x}{L}\right) 
+\]
+\[
+\sin\left(\frac{m\pi y}{L}\right) 
+\]
+\[
+\sin\left(\frac{k\pi z}{L}\right).
+\]
+
+\subsection*{Degeneracy}
+The degeneracy of an energy level \( E_{nmk} \) depends on the number of distinct permutations of \( n^2 + m^2 + k^2 \) that yield the same value.
+
+\section*{Hydrogen Atom in Quantum Mechanics}
+\subsection*{Spherical Coordinates}
+The hydrogen atom problem is best solved in spherical coordinates \( (r, \theta, \phi) \), where:
+\[
+r = \sqrt{x^2 + y^2 + z^2},
+\]
+\[
+\theta = \text{zenith angle},
+\]
+\[
+\phi = \text{azimuthal angle}.
+\]
+
+\subsection*{Schrödinger Equation}
+The potential energy is:
+\[
+U(r) = -\frac{e^2}{4\pi \epsilon_0 r}.
+\]
+The Schrödinger equation becomes:
+\[
+-\frac{\hbar^2}{2\mu} \nabla^2 \Psi - \frac{e^2}{4\pi \epsilon_0 r} \Psi = E \Psi.
+\]
+
+\subsection*{Separation of Variables}
+We assume \( \Psi(r,\theta,\phi) = R(r) Y(\theta, \phi) \), where \( Y(\theta, \phi) \) are spherical harmonics and \( R(r) \) is the radial solution.
+
+\subsection*{Energy Levels}
+Solving the radial equation leads to the quantized energy levels:
+\[
+E_n = -\frac{\mu e^4}{2 \hbar^2 (4\pi \epsilon_0)^2} \frac{1}{n^2}, \quad n = 1, 2, 3, \ldots
+\]
+In eV, the ground state energy is \( E_1 = -13.6 \, \mathrm{eV} \).
+
+\subsection*{Quantum Numbers}
+The wavefunction is characterized by three quantum numbers:
+\begin{itemize}
+    \item Principal quantum number \( n = 1, 2, 3, \ldots \),
+    \item Orbital angular momentum quantum number \( l = 0, 1, \ldots, n-1 \),
+    \item Magnetic quantum number \( m_l = -l, -(l-1), \ldots, l-1, l \).
+\end{itemize}
+
+\subsection*{Spherical Harmonics}
+The angular part \( Y_{lm}(\theta, \phi) \) satisfies:
+\[
+\hat{L}^2 Y_{lm} = \hbar^2 l(l+1) Y_{lm}, \quad \hat{L}_z Y_{lm} = \hbar m Y_{lm}.
+\]
+
+\section*{Energy Levels in a 3D Box}
+\subsection*{Problem Setup}
+We consider a particle of mass \( \mu \) confined in a cubical box with sides of length \( L = \pi \). The particle experiences zero potential inside the box and infinite potential at the boundaries. The energy levels are given by:
+\[
+E_{n_x, n_y, n_z} = \frac{\hbar^2 \pi^2}{2\mu L^2} \left(n_x^2 + n_y^2 + n_z^2 \right),
+\]
+where \( n_x, n_y, n_z \) are positive integers representing quantum numbers along the \( x, y, z \)-axes.
+
+\subsection*{Ground State Energy}
+The ground state corresponds to \( n_x = n_y = n_z = 1 \). Substituting these values:
+\[
+E_\text{gs} = \frac{\hbar^2 \pi^2}{2\mu L^2} \left(1^2 + 1^2 + 1^2\right).
+\]
+With \( L = \pi \), the expression simplifies:
+\[
+E_\text{gs} = \frac{\hbar^2}{2\mu} \cdot 3.
+\]
+Thus, the ground-state energy is:
+\[
+E_\text{gs} = \frac{3\hbar^2}{2\mu}.
+\]
+
+\subsection*{Degeneracy of Energy Levels}
+For \( E = \frac{11\hbar^2}{2\mu} \), the quantum numbers must satisfy:
+\[
+n_x^2 + n_y^2 + n_z^2 = 11.
+\]
+The possible combinations of \( (n_x, n_y, n_z) \) are:
+\[
+(3, 1, 1), \quad (1, 3, 1), \quad (1, 1, 3).
+\]
+Thus, the energy level \( E = \frac{11\hbar^2}{2\mu} \) is 3-fold degenerate.
+
+\section*{Inductive Proof of Integral Formula}
+\subsection*{Problem Setup}
+We aim to prove, using induction and integration by parts, the formula:
+\[
+\int_0^\infty r^n e^{-ar} \, \mathrm{d}r = \frac{n!}{a^{n+1}}, \quad a > 0.
+\]
+
+\subsection*{Base Case: \( n = 0 \)}
+When \( n = 0 \), the integral reduces to:
+\[
+\int_0^\infty e^{-ar} \, \mathrm{d}r = \left[-\frac{1}{a} e^{-ar} \right]_0^\infty = \frac{1}{a}.
+\]
+Since \( 0! = 1 \), the base case holds:
+\[
+\int_0^\infty e^{-ar} \, \mathrm{d}r = \frac{0!}{a^{0+1}}.
+\]
+
+\subsection*{Inductive Step}
+Assume the formula holds for \( n = k \):
+\[
+\int_0^\infty r^k e^{-ar} \, \mathrm{d}r = \frac{k!}{a^{k+1}}.
+\]
+We prove it for \( n = k+1 \) using integration by parts. Let:
+\[
+u = r^{k+1}, \quad \mathrm{d}v = e^{-ar} \, \mathrm{d}r.
+\]
+Then:
+\[
+\mathrm{d}u = (k+1)r^k \, \mathrm{d}r, \quad v = -\frac{1}{a} e^{-ar}.
+\]
+By the integration by parts formula \( \int u \, \mathrm{d}v = uv - \int v \, \mathrm{d}u \), we get:
+\[
+\int_0^\infty r^{k+1} e^{-ar} \, \mathrm{d}r =
+\]
+\[
+\left[-\frac{r^{k+1}}{a} e^{-ar} \right]_0^\infty + \frac{k+1}{a} \int_0^\infty r^k e^{-ar} \, \mathrm{d}r.
+\]
+The boundary term vanishes because:
+\[
+\left[-\frac{r^{k+1}}{a} e^{-ar} \right]_0^\infty = 
+\]
+\[
+0 \quad \text{(as \( e^{-ar} \to 0 \) when \( r \to \infty \))}.
+\]
+Substitute the inductive hypothesis:
+\[
+\int_0^\infty r^{k+1} e^{-ar} \, \mathrm{d}r = \frac{k+1}{a} \cdot \frac{k!}{a^{k+1}} = \frac{(k+1)!}{a^{k+2}}.
+\]
+Thus, the formula holds for \( n = k+1 \), completing the proof by induction.
+
+\section*{Wavefunction of Hydrogen Ground State}
+\subsection*{Normalization of Wavefunction}
+The wavefunction is given as:
+\[
+\psi(r) = \frac{1}{\sqrt{\pi}} e^{-r}.
+\]
+To verify normalization, compute:
+\[
+\int_0^\infty |\psi(r)|^2 4\pi r^2 \, \mathrm{d}r = 4\pi \int_0^\infty \left(\frac{1}{\sqrt{\pi}} e^{-r}\right)^2 r^2 \, \mathrm{d}r.
+\]
+Simplify:
+\[
+\int_0^\infty |\psi(r)|^2 4\pi r^2 \, \mathrm{d}r = \frac{4}{\pi} \int_0^\infty r^2 e^{-2r} \, \mathrm{d}r.
+\]
+Using the result from the integral formula with \( n=2 \) and \( a=2 \):
+\[
+\int_0^\infty r^2 e^{-2r} \, \mathrm{d}r = \frac{2!}{2^3} = \frac{2}{8} = \frac{1}{4}.
+\]
+Substitute:
+\[
+\int_0^\infty |\psi(r)|^2 4\pi r^2 \, \mathrm{d}r = \frac{4}{\pi} \cdot \frac{1}{4} \cdot \pi = 1.
+\]
+Thus, the wavefunction is normalized.
+
+\subsection*{Energy of Ground State}
+The Schrödinger equation for the radial wavefunction is:
+\[
+-\frac{1}{2} \psi''(r) - \frac{1}{r} \psi'(r) - \frac{1}{r} \psi(r) = E_n \psi(r).
+\]
+Substitute \( \psi(r) = \frac{1}{\sqrt{\pi}} e^{-r} \):
+\[
+\psi'(r) = -\frac{1}{\sqrt{\pi}} e^{-r}, \quad \psi''(r) = \frac{1}{\sqrt{\pi}} e^{-r}.
+\]
+Simplify:
+\[
+-\frac{1}{2} \psi''(r) - \frac{1}{r} \psi'(r) - \frac{1}{r} \psi(r) = 
+\]
+\[
+-\frac{1}{2} \frac{1}{\sqrt{\pi}} e^{-r} + \frac{1}{r} \frac{1}{\sqrt{\pi}} e^{-r} - \frac{1}{r} \frac{1}{\sqrt{\pi}} e^{-r}.
+\]
+Notice terms cancel, leaving:
+\[
+-\frac{1}{2} \frac{1}{\sqrt{\pi}} e^{-r} = E_1 \frac{1}{\sqrt{\pi}} e^{-r}.
+\]
+Thus:
+\[
+E_1 = -\frac{1}{2}.
+\]
+
+\end{multicols}
+\end{document}

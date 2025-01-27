@@ -1,0 +1,280 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec} % To customize section title size and spacing
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\columnsep}{1cm} % Set spacing between columns
+
+% Adjust section title font size and spacing
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries} % Set section title font to small and bold
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm} % Adjust space before and after section
+
+\begin{document}
+\title{L11 - Finite Square Well Potential and Quantum Tunneling}
+\author{}
+\date{}
+\maketitle
+
+\begin{multicols}{2}
+
+\section{Introduction to the Problem}
+The finite square well potential is a classic problem in quantum mechanics. The potential \( U(x) \) is defined as:
+\[
+U(x) = 
+\begin{cases} 
+0, & |x| \leq \frac{L}{2}, \\ 
+U_0, & |x| > \frac{L}{2}.
+\end{cases}
+\]
+Here, \( U_0 > 0 \) is the height of the potential barrier, and \( L > 0 \) is the width of the well. The particle’s energy \( E \) can be less than \( U_0 \), making tunneling possible.
+
+The Schrödinger equation (SE) for this system is:
+\[
+-\frac{d^2\psi}{dx^2} + U(x)\psi(x) = E\psi(x),
+\]
+where \( \psi(x) \) is the wavefunction.
+
+\section{Energy Levels and Normalization}
+The general solutions to the SE inside and outside the well are:
+\[
+\psi(x) = 
+\begin{cases} 
+B\cos(\beta x), & |x| \leq \frac{L}{2}, \\ 
+Ae^{-\alpha|x|}, & |x| > \frac{L}{2}.
+\end{cases}
+\]
+Here:
+\[
+\beta^2 = 2mE, \quad \alpha^2 = 2m(U_0 - E).
+\]
+
+The wavefunction must be continuous at \( x = \pm\frac{L}{2} \), which gives boundary conditions for matching the solutions.
+
+\section{Continuity at \( x = \frac{L}{2} \)}
+From the condition \( \psi(x) \) and \( \frac{d\psi}{dx} \) are continuous at \( x = \frac{L}{2} \):
+\[
+B\cos\left(\beta \frac{L}{2}\right) = A e^{-\alpha \frac{L}{2}},
+\]
+\[
+-\beta B\sin\left(\beta \frac{L}{2}\right) = -\alpha A e^{-\alpha \frac{L}{2}}.
+\]
+Dividing these equations eliminates \( A \) and gives the transcendental equation for energy \( E \):
+\[
+\beta \tan\left(\beta \frac{L}{2}\right) = \alpha.
+\]
+
+\section{Energy Quantization}
+The transcendental equation couples \( \beta \) and \( \alpha \), which depend on \( E \). Solving numerically gives the energy eigenvalues.
+
+\subsection{Ground State Energy}
+The lowest energy, or ground state energy, satisfies:
+\[
+E = \frac{\pi^2}{16}.
+\]
+
+\section{Wavefunction Normalization}
+To normalize \( \psi(x) \), we require:
+\[
+\int_{-\infty}^\infty |\psi(x)|^2 dx = 1.
+\]
+Because \( \psi(x) \) is even, this simplifies to:
+\[
+2\int_0^\infty |\psi(x)|^2 dx = 1.
+\]
+
+For \( |x| \leq \frac{L}{2} \):
+\[
+\int_0^{L/2} B^2\cos^2(\beta x) dx = B^2 \frac{L}{2}.
+\]
+
+For \( |x| > \frac{L}{2} \):
+\[
+\int_{L/2}^\infty A^2 e^{-2\alpha x} dx = \frac{A^2}{2\alpha}.
+\]
+
+Equating these terms and solving for \( B \) gives:
+\[
+B = \sqrt{\frac{\pi}{\pi + 4}}.
+\]
+
+\section{Quantum Tunneling}
+Quantum mechanics allows the particle to tunnel into the classically forbidden region \( |x| > \frac{L}{2} \). The probability of finding the particle in this region is:
+\[
+P(x \in [\frac{L}{2}, \infty]) = \int_{L/2}^\infty A^2 e^{-2\alpha x} dx > 0.
+\]
+This probability is non-zero, even though \( E < U_0 \), illustrating the tunneling effect.
+
+\section{Expectation Value of Energy}
+The expectation value of energy is calculated as:
+\[
+\langle E \rangle = \int_{-\infty}^\infty \psi^*(x) \left(-\frac{d^2}{dx^2} + U(x)\right) \psi(x) dx.
+\]
+Breaking this into kinetic and potential energy terms:
+\[
+\langle E \rangle = \langle T \rangle + \langle V \rangle,
+\]
+where:
+\[
+\langle T \rangle = \int_{-\infty}^\infty |\psi'(x)|^2 dx,
+\]
+\[
+\quad
+\langle V \rangle = \int_{-\infty}^\infty U(x)|\psi(x)|^2 dx.
+\]
+
+Detailed calculations confirm:
+\[
+\langle E \rangle = \frac{\pi^2}{16}.
+\]
+
+\section{Conclusion}
+The finite square well demonstrates key quantum mechanics concepts:
+\begin{itemize}
+\item Energy quantization: Only specific energies are allowed.
+\item Tunneling: Non-zero probability of being in the classically forbidden region.
+\item Normalization ensures the physicality of the wavefunction.
+\end{itemize}
+These results align with fundamental quantum principles and provide insight into the behavior of particles in potential wells.
+
+
+\section{Introduction}
+The finite square well potential is a fundamental problem in quantum mechanics that illustrates concepts like energy quantization and quantum tunneling. The potential \( U(x) \) is defined as:
+\[
+U(x) = 
+\begin{cases} 
+0, & |x| \leq \frac{L}{2}, \\ 
+U_0, & |x| > \frac{L}{2}.
+\end{cases}
+\]
+Here:
+\begin{itemize}
+    \item \( U_0 > 0 \): Height of the potential barrier.
+    \item \( L \): Width of the well.
+\end{itemize}
+
+We solve the time-independent Schrödinger equation (SE) for this potential:
+\[
+-\frac{d^2\psi}{dx^2} + U(x)\psi(x) = E\psi(x),
+\]
+where \( E \) is the energy of the particle. The particle is bound if \( E < U_0 \).
+
+\section{Wavefunction and Boundary Conditions}
+The general solution to the SE depends on the region:
+\[
+\psi(x) = 
+\begin{cases} 
+B\cos(\beta x), & |x| \leq \frac{L}{2}, \\ 
+Ae^{-\alpha|x|}, & |x| > \frac{L}{2}.
+\end{cases}
+\]
+The parameters \( \beta \) and \( \alpha \) are defined as:
+\[
+\beta^2 = 2mE, \quad \alpha^2 = 2m(U_0 - E).
+\]
+To find \( \psi(x) \), the wavefunction must satisfy:
+\begin{itemize}
+    \item Continuity of \( \psi(x) \) and its derivative \( \psi'(x) \) at \( x = \pm \frac{L}{2} \).
+    \item Normalization: \( \int_{-\infty}^\infty |\psi(x)|^2 dx = 1 \).
+\end{itemize}
+
+\section{Matching Conditions at \( x = \frac{L}{2} \)}
+At \( x = \frac{L}{2} \), the continuity conditions give:
+\[
+B\cos\left(\beta \frac{L}{2}\right) = A e^{-\alpha \frac{L}{2}},
+\]
+\[
+-\beta B\sin\left(\beta \frac{L}{2}\right) = -\alpha A e^{-\alpha \frac{L}{2}}.
+\]
+Dividing these equations to eliminate \( A \) yields the transcendental equation:
+\[
+\beta \tan\left(\beta \frac{L}{2}\right) = \alpha.
+\]
+This equation relates \( E \) (via \( \beta \) and \( \alpha \)) to the potential parameters \( U_0 \) and \( L \).
+
+\section{Energy Quantization}
+The transcendental equation must be solved numerically to find the allowed energy levels \( E \). For the lowest energy state (ground state):
+\[
+E = \frac{\pi^2}{16}.
+\]
+
+\section{Normalization of the Wavefunction}
+To normalize \( \psi(x) \), we enforce:
+\[
+\int_{-\infty}^\infty |\psi(x)|^2 dx = 1.
+\]
+Because \( \psi(x) \) is even, this simplifies to:
+\[
+2\int_0^\infty |\psi(x)|^2 dx = 1.
+\]
+
+\subsection{Inside the Well: \( |x| \leq \frac{L}{2} \)}
+\[
+\int_0^{L/2} B^2\cos^2(\beta x) dx = \frac{B^2}{2}\int_0^{L/2} (1 + \cos(2\beta x)) dx.
+\]
+Carrying out the integration:
+\[
+\int_0^{L/2} \cos(2\beta x) dx = \frac{\sin(\beta L)}{2\beta}.
+\]
+
+\subsection{Outside the Well: \( |x| > \frac{L}{2} \)}
+\[
+\int_{L/2}^\infty A^2 e^{-2\alpha x} dx = \frac{A^2}{2\alpha} e^{-2\alpha \frac{L}{2}}.
+\]
+
+Equating the contributions inside and outside gives the normalization constants:
+\[
+B = \sqrt{\frac{\pi}{\pi + 4}}, \quad A = B \frac{e^{\pi/4}}{\sqrt{2}}.
+\]
+
+\section{Tunneling Probability}
+Quantum mechanics predicts that the particle can be found in the classically forbidden region \( |x| > \frac{L}{2} \). The probability is:
+\[
+P(x > \frac{L}{2}) = \int_{L/2}^\infty |\psi(x)|^2 dx.
+\]
+Substituting \( \psi(x) = A e^{-\alpha x} \):
+\[
+P(x > \frac{L}{2}) = \frac{A^2}{2\alpha} e^{-2\alpha \frac{L}{2}}.
+\]
+After simplification:
+\[
+P = \frac{1}{\pi + 4}.
+\]
+
+\section{Expectation Value of Energy}
+The expectation value of energy is given by:
+\[
+\langle E \rangle = \int_{-\infty}^\infty \psi^*(x)\left(-\frac{d^2}{dx^2} + U(x)\right)\psi(x) dx.
+\]
+Breaking it into kinetic and potential energy:
+\[
+\langle E \rangle = \langle T \rangle + \langle V \rangle.
+\]
+
+\subsection{Kinetic Energy}
+\[
+\langle T \rangle = \int_{-\infty}^\infty |\psi'(x)|^2 dx.
+\]
+\subsection{Potential Energy}
+\[
+\langle V \rangle = \int_{-\infty}^\infty U(x)|\psi(x)|^2 dx.
+\]
+Detailed calculations confirm:
+\[
+\langle E \rangle = \frac{\pi^2}{16}.
+\]
+
+\section{Summary}
+The finite square well potential demonstrates:
+\begin{itemize}
+    \item Energy quantization: Allowed energies are discrete.
+    \item Tunneling: The particle has a non-zero probability of being in the forbidden region.
+    \item Wavefunction normalization ensures \( \psi(x) \) is physical.
+\end{itemize}
+
+\end{multicols}
+\end{document}

@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{multicol}
+\usepackage{geometry}
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+
+% Remove paragraph indentation
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\begin{center}
+    \Large\textbf{Regne eksempler:} \\[0.8cm] %spacing
+\end{center}
+\begin{multicols}{2}
+\section*{Relativity}
+
+
+\begin{minipage}{\linewidth}
+\textbf{Time dilation:} \\[-0.2cm]
+
+A spaceship moves with velocity \( u = 0.8c \). The proper time measured on the spaceship is \( \Delta t_0 = 1 \, \si{\hour} \).
+
+The time dilation formula is:
+\[
+\Delta t = \frac{\Delta t_0}{\sqrt{1 - \frac{u^2}{c^2}}}
+\]
+
+Substitute \( u = 0.8c \):
+\[
+\frac{u^2}{c^2} = 0.64 \quad \Rightarrow \quad \Delta t = \frac{1}{\sqrt{0.36}} \times 1 \, \si{\hour} = 1.6667 \, \si{\hour}
+\]
+
+The observer on Earth measures \( \Delta t \approx 1.67 \, \si{\hour} \).
+
+\vspace{0.5cm}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\textbf{Length contraction:} \\[-0.2cm]
+
+A spaceship at rest has a proper length of \( L_0 = 100 \, \si{\meter} \) and moves at \( u = 0.99c \).
+
+The length contraction formula is:
+\[
+L = L_0 \sqrt{1 - \frac{u^2}{c^2}}
+\]
+
+Substitute \( u = 0.99c \):
+\[
+\frac{u^2}{c^2} = 0.9801 \quad \Rightarrow \quad L = 100 \sqrt{1 - 0.9801} = 100 \sqrt{0.0199}
+\]
+
+\[
+L \approx 100 \times 0.141 = 14.1 \, \si{\meter}
+\]
+
+The observer on Earth measures the length of the spaceship as \( L \approx 14.1 \, \si{\meter} \).
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\textbf{Relativistic energy and momentum:} \\[-0.2cm]
+
+A particle with rest mass \( m = 1 \, \si{\kilogram} \) moves with velocity \( u = 0.6c \). Calculate its total energy \( E \) and momentum \( p \).
+
+The Lorentz factor is:
+\[
+\gamma = \frac{1}{\sqrt{1 - \frac{u^2}{c^2}}}
+\]
+
+Substitute \( u = 0.6c \):
+\[
+\gamma = \frac{1}{\sqrt{1 - 0.36}} = \frac{1}{\sqrt{0.64}} = 1.25
+\]
+
+The total energy \( E \) is:
+\[
+E = \gamma mc^2
+\]
+
+\[
+E = 1.25 \times 1 \, \si{\kilogram} \times (3.00 \times 10^8 \, \si{\meter\per\second})^2
+\]
+
+\[
+E = 1.125 \times 10^{17} \, \si{\joule}
+\]
+
+The relativistic momentum \( p \) is:
+\[
+p = \gamma mu
+\]
+
+\[
+p = 1.25 \times 1 \, \si{\kilogram} \times 0.6c
+\]
+
+\[
+p = 1.25 \times 0.6 \times 3.00 \times 10^8 = 2.25 \times 10^8 \, \si{\kilogram\meter\per\second}
+\]
+
+Thus:
+\[
+E \approx 1.13 \times 10^{17} \, \si{\joule}, \quad p \approx 2.25 \times 10^8 \, \si{\kilogram\meter\per\second}
+\]
+
+\end{minipage}
+
+\vspace{0.2cm}
+
+\begin{minipage}{\linewidth}
+\textbf{Exercise 1:} \\[-0.2cm]
+Show that if $\Psi(x)$ is real-valued, then the expectation value of momentum $p$ is zero:
+\[
+\langle p \rangle = 0
+\]
+\end{minipage}
+
+\vspace{0.2cm}
+
+\begin{minipage}{\linewidth}
+\textbf{Exercise 2:} \\[-0.2cm]
+Show that the operator $\hat{T} = \frac{\hat{p}^2}{2m} = -\frac{\hbar^2}{2m} \frac{d^2}{dx^2}$ is Hermitian.
+\end{minipage}
+
+\textbf{Relativistic Work (with $v_x$):} \\[-0.2cm]
+\[
+W = \int_{v_1}^{v_2} \frac{m v_x \, dv_x}{\left( 1 - \frac{v_x^2}{c^2} \right)^{3/2}} = -\frac{mc^2}{2} \int_{\omega_1 = 1 - \frac{v_1^2}{c^2}}^{\omega_2 = 1 - \frac{v_2^2}{c^2}} \omega^{-3/2} \, d\omega = mc^2 \Big[ \frac{1}{\sqrt{\omega_2 = 1 - \frac{v_2^2}{c^2}}} - \frac{1}{\sqrt{\omega_1 = 1 - \frac{v_1^2}{c^2}}} \Big].
+\]
+
+\end{multicols}
+\end{document}

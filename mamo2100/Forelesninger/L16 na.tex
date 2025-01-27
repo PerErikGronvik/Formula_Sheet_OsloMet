@@ -1,0 +1,420 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb} % For mathematical symbols
+\usepackage{titlesec} % To customize section title size and spacing
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\columnsep}{1cm} % Set spacing between columns
+
+% Adjust section title font size and spacing
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries} % Set section title font to small and bold
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm} % Adjust space before and after section
+
+\begin{document}
+\title{\textbf{L16 - Introduction to Spin and Quantum Angular Momentum}}
+\author{}
+\date{}
+\maketitle
+\begin{multicols}{2}
+
+\section*{Angular Momentum Recap}
+In quantum mechanics, angular momentum is a fundamental concept. For the hydrogen atom, the angular momentum operator $\hat{L}^2$ satisfies the eigenvalue equation:
+\[
+\hat{L}^2 \psi_\ell = \hbar^2 \ell (\ell + 1) \psi_\ell
+\]
+where $\ell$ is the orbital angular momentum quantum number:
+\[
+\ell = 0, 1, 2, \dots, n-1
+\]
+Here, $n$ is the principal quantum number.
+
+For the $z$-component, $\hat{L}_z$, we have:
+\[
+\hat{L}_z \psi_{\ell, m_\ell} = \hbar m_\ell \psi_{\ell, m_\ell}, \quad m_\ell = -\ell, -\ell+1, \dots, \ell
+\]
+These equations describe the orbital angular momentum of an electron in an atom.
+
+\section*{Spin Angular Momentum}
+Spin is an intrinsic property of particles, distinct from orbital angular momentum. The spin operator $\hat{S}^2$ satisfies:
+\[
+\hat{S}^2 \psi_s = \hbar^2 s (s+1) \psi_s
+\]
+where $s$ is the spin quantum number. For electrons, $s = \frac{1}{2}$, and the $z$-component of spin, $\hat{S}_z$, satisfies:
+\[
+\hat{S}_z \psi_{s, m_s} = \hbar m_s \psi_{s, m_s}, \quad m_s = -s, s
+\]
+\textbf{Example: Electrons}  
+Electrons are fermions with $s = \frac{1}{2}$, meaning they have two possible spin states: $m_s = +\frac{1}{2}$ (spin-up) and $m_s = -\frac{1}{2}$ (spin-down).
+
+\section*{Fermions and Bosons}
+Particles with half-integer spin ($s = \frac{1}{2}, \frac{3}{2}, \dots$) are fermions and obey the Pauli exclusion principle.  
+Particles with integer spin ($s = 0, 1, 2, \dots$) are bosons and do not obey this principle.
+
+To explain this distinction, consider the wavefunction $\Psi(x_1, x_2)$ of two particles. Under particle exchange:
+\[
+|\Psi(x_2, x_1)|^2 = |\Psi(x_1, x_2)|^2
+\]
+This symmetry implies:
+\[
+\Psi(x_2, x_1) = e^{i\phi} \Psi(x_1, x_2)
+\]
+\begin{itemize}
+    \item If $\phi = 0$: $\Psi(x_2, x_1) = \Psi(x_1, x_2)$ (symmetric wavefunction, bosons).
+    \item If $\phi = \pi$: $\Psi(x_2, x_1) = -\Psi(x_1, x_2)$ (antisymmetric wavefunction, fermions).
+\end{itemize}
+
+\section*{Spinors and Pauli Matrices}
+Spin states are represented using spinors. For spin-$\frac{1}{2}$ particles, a general spinor is:
+\[
+\chi = \begin{pmatrix}
+\alpha \\ \beta
+\end{pmatrix}, \quad \alpha, \beta \in \mathbb{C}
+\]
+where $|\alpha|^2 + |\beta|^2 = 1$ ensures normalization.
+
+The spin operators $\hat{S}_x$, $\hat{S}_y$, and $\hat{S}_z$ are expressed in terms of the Pauli matrices:
+\[
+\hat{S} = \frac{\hbar}{2} \begin{pmatrix}
+\sigma_x \\ \sigma_y \\ \sigma_z
+\end{pmatrix}, \quad \text{where}
+\]
+\[
+\sigma_x = \begin{pmatrix}
+0 & 1 \\ 1 & 0
+\end{pmatrix},
+\]
+\[
+\sigma_y = \begin{pmatrix}
+0 & -i \\ i & 0
+\end{pmatrix},
+\]
+\[
+\sigma_z = \begin{pmatrix}
+1 & 0 \\ 0 & -1
+\end{pmatrix}
+\]
+
+\section*{Example: Eigenstates of $\hat{S}_z$}
+The eigenstates of $\hat{S}_z$ are:
+\[
+\chi_\uparrow = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad
+\chi_\downarrow = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+\]
+For $\chi_\uparrow$, the eigenvalue is $+\frac{\hbar}{2}$, and for $\chi_\downarrow$, it is $-\frac{\hbar}{2}$.
+
+\section*{Exercise: Verify Pauli Matrix Properties}
+\textbf{a) Show $\sigma_x^2 = \sigma_y^2 = \sigma_z^2 = I$:}
+\[
+\sigma_x^2 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
+\]
+Similar calculations hold for $\sigma_y$ and $\sigma_z$.
+
+\textbf{b) Verify $\hat{S}^2 = \frac{3}{4} \hbar^2$:}
+Using $\hat{S}^2 = \hat{S}_x^2 + \hat{S}_y^2 + \hat{S}_z^2$:
+\[
+\hat{S}^2 = \frac{\hbar^2}{4} (\sigma_x^2 + \sigma_y^2 + \sigma_z^2) = \frac{\hbar^2}{4}(I + I + I) = \frac{3\hbar^2}{4}
+\]
+
+\section*{Exercise: Magnetic Field and Spin Precession}
+Consider a spin-$\frac{1}{2}$ particle in a uniform magnetic field $\mathbf{B} = (0, 0, B)$. The Hamiltonian is:
+\[
+H = -\mu \mathbf{B} \cdot \hat{\mathbf{S}} = -\frac{e \hbar}{2m} B \hat{S}_z
+\]
+The Schrödinger equation:
+\[
+i\hbar \frac{\partial}{\partial t} \chi = H \chi
+\]
+has solutions in terms of eigenstates $\chi_\uparrow$ and $\chi_\downarrow$ with time-dependent phases.
+
+\section*{Introduction to the Stern-Gerlach Experiment}
+The Stern-Gerlach experiment is a cornerstone of quantum mechanics. It demonstrates the quantization of spin angular momentum and its role as an intrinsic property of particles.
+
+\section*{Experimental Setup}
+A beam of silver atoms is passed through an inhomogeneous magnetic field:
+\[
+\mathbf{B}(x, y, z) = (0, 0, B + \nabla B_z z)
+\]
+The magnetic field gradient $\nabla B_z$ varies in the $z$-direction, creating a non-uniform field. The apparatus includes:
+\begin{itemize}
+    \item A source emitting particles (e.g., silver atoms).
+    \item A magnet producing the inhomogeneous field.
+    \item A screen to detect the deflected particles.
+\end{itemize}
+
+\section*{Classical Expectation}
+Classically, angular momentum is continuous. A classical beam would produce a continuous spread on the screen, as all possible orientations of magnetic dipole moments are allowed.
+
+\section*{Quantum Mechanical Prediction}
+In quantum mechanics, spin is quantized. For spin-$\frac{1}{2}$ particles like silver atoms ($s = \frac{1}{2}$), the beam splits into:
+\[
+2s + 1 = 2 \quad \text{distinct streams}
+\]
+These correspond to the two possible spin states: 
+\[
+m_s = +\frac{1}{2} \quad \text{(spin-up)} \quad \text{and}
+\]
+\[
+m_s = -\frac{1}{2} \quad \text{(spin-down)}.
+\]
+
+\section*{Magnetic Force and Deflection}
+The force on a magnetic moment $\mu_z$ in a non-uniform field is given by:
+\[
+\mathbf{F} = -\nabla(\mu_z \cdot \mathbf{B})
+\]
+For silver atoms, the magnetic moment $\mu_z$ is proportional to $m_s$:
+\[
+\mu_z = g_s \frac{e \hbar}{2m_e} m_s
+\]
+where:
+\begin{itemize}
+    \item $g_s$ is the gyromagnetic ratio for spin.
+    \item $e$ is the electron charge.
+    \item $m_e$ is the electron mass.
+\end{itemize}
+Substituting $\mu_z$ into $\mathbf{F}$ gives:
+\[
+\mathbf{F}_z = -g_s \frac{e \hbar}{2m_e} m_s \nabla B_z
+\]
+The force causes the beam to split into two distinct paths:
+\begin{itemize}
+    \item One for $m_s = +\frac{1}{2}$ (spin-up).
+    \item One for $m_s = -\frac{1}{2}$ (spin-down).
+\end{itemize}
+
+\section*{Key Results}
+\textbf{1. Beam Splitting:}  
+The observed beam splits into two discrete components, confirming the quantization of spin.
+
+\textbf{2. Spin Quantization:}  
+For silver atoms, $s = \frac{1}{2}$ leads to $2s + 1 = 2$ possible spin states. This result aligns with the quantum mechanical model.
+
+\textbf{3. No Classical Spread:}  
+The absence of a continuous spread of deflection proves that angular momentum is quantized, not continuous as classical mechanics predicts.
+
+\section*{Conclusion}
+The Stern-Gerlach experiment provides direct evidence of:
+\begin{itemize}
+    \item The intrinsic nature of spin.
+    \item Spin quantization into discrete states.
+    \item The failure of classical mechanics to describe atomic-scale phenomena.
+\end{itemize}
+This experiment laid the foundation for understanding quantum angular momentum and the behavior of fermions and bosons.
+
+\section*{Pauli Matrices: Properties and Verification}
+The Pauli matrices $\sigma_x$, $\sigma_y$, and $\sigma_z$ are fundamental in quantum mechanics, particularly for spin-$\frac{1}{2}$ particles. They are defined as:
+\[
+\sigma_x = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix},
+\]
+\[
+\sigma_y = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}, 
+\]
+\[
+\sigma_z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+\]
+
+\subsection*{1. Verification of $\sigma_x^2 = \sigma_y^2 = \sigma_z^2 = I_2$}
+We calculate the squares of the Pauli matrices:
+\[
+\sigma_x^2 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I_2
+\]
+Similarly,
+\[
+\sigma_y^2 = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I_2
+\]
+\[
+\sigma_z^2 = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I_2
+\]
+
+\subsection*{2. Eigenvalue of $\hat{S}^2$ for Spin-$\frac{1}{2}$ Particles}
+The total spin operator is:
+\[
+\hat{S}^2 = \hat{S}_x^2 + \hat{S}_y^2 + \hat{S}_z^2 = \frac{\hbar^2}{4}(\sigma_x^2 + \sigma_y^2 + \sigma_z^2)
+\]
+Using $\sigma_x^2 = \sigma_y^2 = \sigma_z^2 = I_2$, we find:
+\[
+\hat{S}^2 = \frac{\hbar^2}{4}(I_2 + I_2 + I_2) = \frac{3\hbar^2}{4}I_2
+\]
+Thus, the eigenvalue of $\hat{S}^2$ is:
+\[
+s(s+1)\hbar^2 = \frac{3}{4}\hbar^2, \quad \text{with } s = \frac{1}{2}.
+\]
+
+\subsection*{3. Hermitian Nature of Pauli Matrices}
+A matrix is Hermitian if $A^\dagger = A$ (where $\dagger$ denotes the conjugate transpose). Checking for each Pauli matrix:
+\[
+\sigma_x^\dagger = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}^\dagger = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \sigma_x
+\]
+\[
+\sigma_y^\dagger = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}^\dagger = \begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix} = \sigma_y
+\]
+\[
+\sigma_z^\dagger = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}^\dagger = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} = \sigma_z
+\]
+Therefore, all Pauli matrices are Hermitian.
+
+\subsection*{4. Commutator of Pauli Matrices}
+The commutator of two matrices $A$ and $B$ is defined as:
+\[
+[A, B] = AB - BA
+\]
+For $\sigma_x$ and $\sigma_y$, we calculate:
+\[
+\sigma_x \sigma_y = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} = \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix} = i \sigma_z
+\]
+\[
+\sigma_y \sigma_x = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} -i & 0 \\ 0 & i \end{pmatrix} = -i \sigma_z
+\]
+Thus:
+\[
+[\sigma_x, \sigma_y] = \sigma_x \sigma_y - \sigma_y \sigma_x = i\sigma_z - (-i\sigma_z) = 2i\sigma_z
+\]
+
+\section*{Spinor Normalization}
+A spinor is a 2-component complex vector. Consider:
+\[
+\chi = \frac{1}{2}\begin{pmatrix} 1+i \\ a \end{pmatrix}, \quad a \in \mathbb{R}
+\]
+To normalize $\chi$, we require:
+\[
+\|\chi\|^2 = \left|\frac{1}{2}\right|^2 (|1+i|^2 + |a|^2) = 1
+\]
+Expanding:
+\[
+\left|\frac{1}{2}\right|^2 (|1+i|^2 + |a|^2) = \frac{1}{4}((1+i)(1-i) + a^2) = 1
+\]
+\[
+\frac{1}{4}(2 + a^2) = 1 \implies 2 + a^2 = 4 \implies a^2 = 2
+\]
+Thus:
+\[
+a = \pm \sqrt{2}
+\]
+
+\section*{Conclusion}
+The properties of Pauli matrices and the normalization of spinors play a central role in describing quantum systems, particularly for spin-$\frac{1}{2}$ particles. These foundational tools are indispensable in quantum mechanics.
+
+
+\section*{Hamiltonian of a Spin-$\frac{1}{2}$ System in a Magnetic Field}
+A spin-$\frac{1}{2}$ particle in a magnetic field $\mathbf{B} = (0, 0, B_0)$ is described by the Hamiltonian:
+\[
+H = -\gamma \mathbf{B} \cdot \hat{\mathbf{S}}, \quad \gamma > 0
+\]
+where $\gamma$ is the gyromagnetic ratio, and $\hat{\mathbf{S}} = (\hat{S}_x, \hat{S}_y, \hat{S}_z)$ is the spin operator. Substituting $\mathbf{B}$:
+\[
+H = -\gamma B_0 \hat{S}_z
+\]
+For a spin-$\frac{1}{2}$ particle, the $z$-component of spin is:
+\[
+\hat{S}_z = \frac{\hbar}{2} \sigma_z, \quad \sigma_z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+\]
+Thus:
+\[
+H = -\gamma B_0 \frac{\hbar}{2} \sigma_z = -\frac{\gamma B_0 \hbar}{2} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+\]
+
+\section*{Eigenvalues and Eigenvectors of the Hamiltonian}
+The eigenvalues of $H$ are found by solving:
+\[
+\det(H - \lambda I) = 0
+\]
+Substituting $H = -\frac{\gamma B_0 \hbar}{2} \sigma_z$:
+\[
+\det\left(-\frac{\gamma B_0 \hbar}{2} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} - \lambda \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}\right) = 0
+\]
+\[
+\det\begin{pmatrix} -\frac{\gamma B_0 \hbar}{2} - \lambda & 0 \\ 0 & \frac{\gamma B_0 \hbar}{2} - \lambda \end{pmatrix} = 0
+\]
+The eigenvalues are:
+\[
+\lambda_1 = -\frac{\gamma B_0 \hbar}{2}, \quad \lambda_2 = \frac{\gamma B_0 \hbar}{2}
+\]
+
+The corresponding eigenvectors are obtained by solving $(H - \lambda I)\chi = 0$:
+\[
+\chi_\uparrow = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \chi_\downarrow = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+\]
+
+\section*{Time Evolution of the Spinor State}
+The Schrödinger equation is:
+\[
+i \hbar \frac{\partial}{\partial t} \chi(t) = H \chi(t)
+\]
+Substituting $H = -\frac{\gamma B_0 \hbar}{2} \sigma_z$, we have:
+\[
+i \hbar \frac{\partial}{\partial t} \chi(t) = -\frac{\gamma B_0 \hbar}{2} \sigma_z \chi(t)
+\]
+Dividing through by $i \hbar$:
+\[
+\frac{\partial}{\partial t} \chi(t) = i \frac{\gamma B_0}{2} \sigma_z \chi(t)
+\]
+The general solution is:
+\[
+\chi(t) = e^{i \frac{\gamma B_0}{2} \sigma_z t} \chi(0)
+\]
+
+\subsection*{Matrix Exponential for $\sigma_z$}
+Using the properties of $\sigma_z$:
+\[
+\sigma_z^2 = I
+\]
+\[
+\quad e^{i \frac{\gamma B_0}{2} \sigma_z t} = \cos\left(\frac{\gamma B_0 t}{2}\right) I + i \sin\left(\frac{\gamma B_0 t}{2}\right) \sigma_z
+\]
+Substituting this into $\chi(t)$:
+\[
+\chi(t) = \left[\cos\left(\frac{\gamma B_0 t}{2}\right) I + i \sin\left(\frac{\gamma B_0 t}{2}\right) \sigma_z \right] \chi(0)
+\]
+
+\section*{Example: Expectation Value of $\hat{S}_z$}
+For the initial state:
+\[
+\chi(0) = \frac{1}{2} \begin{pmatrix} 1 \\ \sqrt{3} \end{pmatrix}
+\]
+The time-evolved state is:
+\[
+\chi(t) = e^{i \frac{\gamma B_0}{2} \sigma_z t} \chi(0) = \frac{1}{2} \begin{pmatrix} e^{i \frac{\gamma B_0 t}{2}} \\ \sqrt{3} e^{-i \frac{\gamma B_0 t}{2}} \end{pmatrix}
+\]
+
+The expectation value of $\hat{S}_z$ is given by:
+\[
+\langle \hat{S}_z \rangle = \chi(t)^\dagger \hat{S}_z \chi(t), \quad \hat{S}_z = \frac{\hbar}{2} \sigma_z
+\]
+Substituting:
+\[
+\langle \hat{S}_z \rangle = \frac{\hbar}{2} \chi(t)^\dagger \sigma_z \chi(t)
+\]
+Calculate $\sigma_z \chi(t)$:
+\[
+\sigma_z \chi(t) = \sigma_z \frac{1}{2} \begin{pmatrix} e^{i \frac{\gamma B_0 t}{2}} \\ \sqrt{3} e^{-i \frac{\gamma B_0 t}{2}} \end{pmatrix} = \frac{1}{2} \begin{pmatrix} e^{i \frac{\gamma B_0 t}{2}} \\ -\sqrt{3} e^{-i \frac{\gamma B_0 t}{2}} \end{pmatrix}
+\]
+Now:
+\[
+\chi(t)^\dagger \sigma_z \chi(t) = 
+\]
+\[
+{1}{4} \begin{pmatrix} e^{-i \frac{\gamma B_0 t}{2}} & \sqrt{3} e^{i \frac{\gamma B_0 t}{2}} \end{pmatrix} \begin{pmatrix} e^{i \frac{\gamma B_0 t}{2}} \\ -\sqrt{3} e^{-i \frac{\gamma B_0 t}{2}} \end{pmatrix}
+\]
+Performing the matrix multiplication:
+\[
+\chi(t)^\dagger \sigma_z \chi(t) = 
+\]
+\[
+{1}{4} \left(|e^{i \frac{\gamma B_0 t}{2}}|^2 - 3 |e^{-i \frac{\gamma B_0 t}{2}}|^2 \right) = \frac{1}{4} (1 - 3) = -\frac{1}{2}
+\]
+Thus:
+\[
+\langle \hat{S}_z \rangle = \frac{\hbar}{2} \left(-\frac{1}{2}\right) = -\frac{\hbar}{4}
+\]
+
+\section*{Conclusion}
+The eigenvalues, eigenvectors, and time-evolution properties of spin-$\frac{1}{2}$ systems illustrate the quantum mechanical nature of spin. The expectation values provide insight into measurable quantities in experiments.
+
+
+
+\end{multicols}
+\end{document}

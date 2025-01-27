@@ -1,0 +1,282 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec}
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt}
+\setlength{\columnsep}{1cm}
+
+% Adjust section title font size and spacing
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries} % Set section title font to small and bold
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm} % Adjust space before and after section
+
+\begin{document}
+\title{L4 - Relativity - Momentum - Doppler-effect}
+\author{}
+\date{}
+\maketitle
+\begin{multicols}{2}
+
+\section*{Relativistic Force}
+\textbf{Newton's Second Law: Classical Mechanics}  
+In classical mechanics, Newton's second law is expressed as:
+\[
+F = \frac{d\mathbf{p}}{dt} = \frac{d}{dt}(m\mathbf{v}) = m\frac{d\mathbf{v}}{dt} = m\mathbf{a}.
+\]
+Here:
+\begin{itemize}
+    \item \( F \): Force
+    \item \( \mathbf{p} = m\mathbf{v} \): Momentum (mass times velocity)
+    \item \( \mathbf{a} = \frac{d\mathbf{v}}{dt} \): Acceleration
+\end{itemize}
+
+\textbf{Newton's Second Law: Relativistic Mechanics}  
+For relativistic mechanics, the momentum is defined as:
+\[
+\mathbf{p}_{\text{rel}} = \frac{m\mathbf{v}}{\sqrt{1 - \frac{v^2}{c^2}}}.
+\]
+Thus, the force becomes:
+\[
+F = \frac{d}{dt}\left( \frac{m\mathbf{v}}{\sqrt{1 - \frac{v^2}{c^2}}} \right).
+\]
+
+\section*{Derivation: Relativistic Force Along One Axis}
+Given that the velocity and force act along the \(x\)-axis, let \( \mathbf{v} = v \) and \( \mathbf{a} = \frac{dv}{dt} \). We derive:
+\[
+F = m\frac{d}{dt}\left(v \sqrt{1 - \frac{v^2}{c^2}}^{-1}\right).
+\]
+Using the product rule, expand:
+\[
+\frac{d}{dt}\left[v (1 - \frac{v^2}{c^2})^{-1/2}\right] = 
+\]
+\[
+v\frac{d}{dt}(1 - \frac{v^2}{c^2})^{-1/2} + (1 - \frac{v^2}{c^2})^{-1/2}\frac{dv}{dt}.
+\]
+Now compute each term:
+\begin{enumerate}
+    \item For the derivative of \((1 - \frac{v^2}{c^2})^{-1/2}\), use the chain rule:
+    \[
+    \frac{d}{dt}(1 - \frac{v^2}{c^2})^{-1/2} = -\frac{1}{2}(1 - \frac{v^2}{c^2})^{-3/2}\cdot\frac{d}{dt}(-\frac{v^2}{c^2}).
+    \]
+    Since \(\frac{d}{dt}(-\frac{v^2}{c^2}) = -\frac{2v}{c^2}\frac{dv}{dt}\), this becomes:
+    \[
+    \frac{d}{dt}(1 - \frac{v^2}{c^2})^{-1/2} = \frac{v}{c^2}(1 - \frac{v^2}{c^2})^{-3/2}a.
+    \]
+    \item Substitute back into \(F\):
+    \[
+    F = 
+    \]
+    \[
+    m\left[a(1 - \frac{v^2}{c^2})^{-3/2} + \frac{v^2}{c^2}a(1 - \frac{v^2}{c^2})^{-3/2}\right]
+    \]
+    Combine terms:
+    \[
+    F = \frac{ma}{(1 - \frac{v^2}{c^2})^{3/2}}.
+    \]
+\end{enumerate}
+
+\section*{Relativistic Momentum}
+To ensure consistency with relativity, momentum is redefined as:
+\[
+p = \frac{m v}{\sqrt{1 - \frac{v^2}{c^2}}},
+\]
+where:
+\begin{itemize}
+    \item \(m\): Rest mass
+    \item \(v\): Speed
+    \item \(c\): Speed of light.
+\end{itemize}
+
+For small velocities (\(v \ll c\)), we approximate:
+\[
+\frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \approx 1 + \frac{1}{2}\frac{v^2}{c^2}.
+\]
+Thus:
+\[
+p_{\text{rel}} \approx m v + \frac{1}{2}m\frac{v^3}{c^2}.
+\]
+The relativistic momentum approaches infinity as \(v \to c\), since \(1 - \frac{v^2}{c^2} \to 0\).
+
+\section*{Speed of an Electron with Enhanced Momentum}
+If the relativistic momentum is \(x\) times the classical momentum:
+\[
+\frac{mv}{\sqrt{1 - \frac{v^2}{c^2}}} = x(mv).
+\]
+Simplify:
+\[
+\frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} = x.
+\]
+Square both sides:
+\[
+1 = x^2(1 - \frac{v^2}{c^2}).
+\]
+Solve for \(v^2\):
+\[
+\frac{v^2}{c^2} = 1 - \frac{1}{x^2}.
+\]
+Take the square root:
+\[
+v = c\sqrt{1 - \frac{1}{x^2}}.
+\]
+
+\section*{Relativistic Doppler Effect}
+\textbf{Frequency of Waves Received by an Observer:}  
+Consider a source emitting light waves at frequency \(f_0\) in its rest frame, moving with speed \(u\) toward a stationary observer. The observed frequency \(f\) is given by:
+\[
+f = \sqrt{\frac{c+u}{c-u}}f_0.
+\]
+
+\textbf{Derivation:}
+Start from the relation \(f = \frac{c}{\lambda}\), where \(\lambda = cT - uT = (c-u)T\). Thus:
+\[
+f = \frac{c}{(c-u)T}.
+\]
+The relativistic time dilation gives \(T = \gamma T_0\), where \(\gamma = \frac{1}{\sqrt{1 - \frac{u^2}{c^2}}}\). Substituting:
+\[
+f = \frac{c}{c-u}\cdot\frac{1}{T_0}.
+\]
+Using \(f_0 = \frac{1}{T_0}\), we arrive at:
+\[
+f = \sqrt{\frac{c+u}{c-u}}f_0.
+\]
+
+\textbf{Remarks:}
+\begin{itemize}
+    \item When the source moves \textit{toward} the observer (\(u > 0\)), \(f > f_0\) (blue shift).
+    \item When the source moves \textit{away} (\(u < 0\)), \(f < f_0\) (red shift).
+\end{itemize}
+\section*{Finding the Speed of a Particle with Momentum Greater than Classical Momentum}
+
+\subsection*{Problem}
+An electron has a momentum that is 90\% larger than its classical momentum. Find the speed of the electron. How would the result change for a proton?
+
+\subsection*{Solution}
+The relativistic momentum is given by:
+\[
+p_{\text{rel}} = x p_{\text{cl}}
+\]
+where \(x = 1.9\) (since the momentum is 90\% larger). The classical momentum \(p_{\text{cl}}\) is:
+\[
+p_{\text{cl}} = mv
+\]
+The relativistic momentum \(p_{\text{rel}}\) is expressed as:
+\[
+p_{\text{rel}} = \frac{mv}{\sqrt{1 - v^2/c^2}}
+\]
+Equating \(p_{\text{rel}} = x p_{\text{cl}}\), we have:
+\[
+\frac{mv}{\sqrt{1 - v^2/c^2}} = x (mv)
+\]
+The mass \(m\) cancels out, leaving:
+\[
+\frac{1}{\sqrt{1 - v^2/c^2}} = x
+\]
+Squaring both sides:
+\[
+\frac{1}{1 - v^2/c^2} = x^2
+\]
+Rearranging for \(v^2\):
+\[
+1 - v^2/c^2 = \frac{1}{x^2}
+\]
+\[
+v^2/c^2 = 1 - \frac{1}{x^2}
+\]
+\[
+v = c \sqrt{1 - \frac{1}{x^2}}
+\]
+Substitute \(x = 1.9\):
+\[
+v = c \sqrt{1 - \frac{1}{1.9^2}}
+\]
+\[
+v = c \sqrt{1 - 0.277}
+\]
+\[
+v \approx c \sqrt{0.723}
+\]
+\[
+v \approx 0.85c
+\]
+
+\subsection*{Result for a Proton}
+The calculation remains the same since the mass cancels out in the derivation. Therefore, the speed of the proton would also be approximately \(0.85c\).
+
+\section*{Relating Force to Acceleration in Relativistic Mechanics}
+
+\subsection*{Problem}
+Show that \(F = \gamma^3 ma\), where \(\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}\), using \(F = \frac{d}{dt}p\), \(p = \frac{mv}{\sqrt{1 - v^2/c^2}}\), and \(a = \frac{dv}{dt}\). Compute \(\lim_{v \to c} a\).
+
+\subsection*{Solution}
+The relativistic force is:
+\[
+F = \frac{d}{dt}p
+\]
+The momentum \(p\) is:
+\[
+p = \frac{mv}{\sqrt{1 - v^2/c^2}}
+\]
+Taking the time derivative:
+\[
+F = \frac{d}{dt} \left( \frac{mv}{\sqrt{1 - v^2/c^2}} \right)
+\]
+Using the product rule:
+\[
+F = m \frac{d}{dt}\left( \frac{v}{\sqrt{1 - v^2/c^2}} \right)
+\]
+The derivative of \(v/\sqrt{1 - v^2/c^2}\) involves the chain rule:
+\[
+\frac{d}{dt} \left( \frac{v}{\sqrt{1 - v^2/c^2}} \right) =
+\]
+\[
+\frac{\sqrt{1 - v^2/c^2} \frac{dv}{dt} + v \frac{d}{dt} \sqrt{1 - v^2/c^2}}{(1 - v^2/c^2)}
+\]
+The derivative of \(\sqrt{1 - v^2/c^2}\) is:
+\[
+\frac{d}{dt} \sqrt{1 - v^2/c^2} = -\frac{1}{2} \frac{1}{\sqrt{1 - v^2/c^2}} \cdot \frac{d}{dt}(v^2/c^2)
+\]
+Substituting, simplifying, and factoring terms yields:
+\[
+F = \gamma^3 ma
+\]
+
+As \(v \to c\), \(\gamma \to \infty\), and the acceleration \(a \to 0\) due to the increase in inertial mass.
+
+\section*{Relativistic Doppler Effect and Velocity}
+
+\subsection*{Problem}
+Using the relativistic Doppler effect, show that:
+\[
+\frac{u}{c} = \frac{\lambda_0^2 - \lambda^2}{\lambda_0^2 + \lambda^2}
+\]
+
+\subsection*{Solution}
+The relativistic Doppler shift for a source moving at speed \(u\) is:
+\[
+\frac{\lambda}{\lambda_0} = \sqrt{\frac{1 - u/c}{1 + u/c}}
+\]
+Squaring both sides:
+\[
+\left( \frac{\lambda}{\lambda_0} \right)^2 = \frac{1 - u/c}{1 + u/c}
+\]
+Cross-multiplying:
+\[
+\lambda^2 (1 + u/c) = \lambda_0^2 (1 - u/c)
+\]
+Expanding terms:
+\[
+\lambda^2 + \frac{u}{c} \lambda^2 = \lambda_0^2 - \frac{u}{c} \lambda_0^2
+\]
+Rearranging to isolate \(\frac{u}{c}\):
+\[
+\frac{u}{c} (\lambda^2 + \lambda_0^2) = \lambda_0^2 - \lambda^2
+\]
+\[
+\frac{u}{c} = \frac{\lambda_0^2 - \lambda^2}{\lambda_0^2 + \lambda^2}
+\]
+\end{multicols}
+\end{document}

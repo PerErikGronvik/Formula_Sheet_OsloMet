@@ -1,0 +1,262 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec} % To customize section title size and spacing
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\columnsep}{1cm} % Set spacing between columns
+
+% Adjust section title font size and spacing
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries} % Set section title font to small and bold
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm} % Adjust space before and after section
+
+\begin{document}
+\title{L13 - Time-Dependent Schrodinger Equation TDSE and Numerical Solutions}
+\author{}
+\date{}
+\maketitle
+\begin{multicols}{2}
+
+\section{Introduction to the TDSE}
+The time-dependent Schrödinger equation (TDSE) for a particle in one dimension is:
+\[
+i \hbar \frac{\partial \Psi(x,t)}{\partial t} = \left(-\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} + U(x)\right)\Psi(x,t),
+\]
+where:
+\begin{itemize}
+\item $\Psi(x,t)$ is the wave function,
+\item $U(x)$ is the potential energy, and
+\item $\frac{\partial^2}{\partial x^2}$ represents the second spatial derivative (kinetic energy operator).
+\end{itemize}
+
+\section{Separation of Variables in TDSE}
+If the potential $U(x)$ is time-independent, the wave function can be expressed as:
+\[
+\Psi(x,t) = \sum_{n=1}^\infty c_n(t)\psi_n(x),
+\]
+where $\{\psi_n(x)\}$ forms an orthonormal basis of eigenfunctions of the time-independent Schrödinger equation:
+\[
+-\frac{\hbar^2}{2m} \frac{d^2\psi_n(x)}{dx^2} + U(x)\psi_n(x) = E_n\psi_n(x).
+\]
+The eigenvalues $E_n$ are the energies corresponding to the eigenfunctions $\psi_n(x)$.
+
+
+\section{Time Dependence of Coefficients}
+The time evolution of the coefficients $c_n(t)$ is determined by substituting $\Psi(x,t)$ into the TDSE:
+\[
+i \hbar \frac{\partial}{\partial t} \Psi(x,t) = \sum_{n=1}^\infty i \hbar \frac{dc_n(t)}{dt} \psi_n(x).
+\]
+On the right-hand side, we have:
+\[
+\hat{H}\Psi(x,t) = \sum_{n=1}^\infty c_n(t)E_n\psi_n(x),
+\]
+where $\hat{H} = -\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} + U(x)$.
+
+Equating terms yields:
+\[
+i \hbar \frac{dc_n(t)}{dt} = E_n c_n(t),
+\]
+which simplifies to the ordinary differential equation:
+\[
+\frac{dc_n(t)}{dt} = -\frac{i E_n}{\hbar} c_n(t).
+\]
+The solution is:
+\[
+c_n(t) = c_n(0)e^{-iE_n t/\hbar}.
+\]
+
+\section{General Solution for $\Psi(x,t)$}
+Substituting $c_n(t)$ into the wave function, we get:
+\[
+\Psi(x,t) = \sum_{n=1}^\infty c_n(0)e^{-iE_n t/\hbar}\psi_n(x).
+\]
+
+\section{Normalization of $\Psi(x,t)$}
+The wave function $\Psi(x,t)$ must remain normalized:
+\[
+\int |\Psi(x,t)|^2 dx = 1.
+\]
+This is satisfied because the eigenfunctions $\{\psi_n(x)\}$ are orthonormal:
+\[
+\int \psi_n^*(x) \psi_m(x) dx = \delta_{nm},
+\]
+and the time-dependent coefficients $e^{-iE_n t/\hbar}$ preserve the norm.
+
+\section{Example: Sinusoidal Initial State}
+Let the initial state be:
+\[
+\Psi_0(x) = \frac{4}{\sqrt{5\pi}} \sin^3(x).
+\]
+We need to express $\Psi_0(x)$ in terms of the orthonormal basis $\psi_n(x) = \sqrt{\frac{2}{\pi}}\sin(nx)$. Using the trigonometric identity:
+\[
+\sin^3(x) = \frac{3}{4}\sin(x) - \frac{1}{4}\sin(3x),
+\]
+we find:
+\[
+\Psi_0(x) = \frac{3}{10}\psi_1(x) - \frac{1}{10}\psi_3(x),
+\]
+where the coefficients are:
+\[
+b_1 = \frac{3}{10}, \quad b_3 = -\frac{1}{10}, \quad b_n = 0 \text{ for } n \notin \{1,3\}.
+\]
+
+\section{Time Evolution of $\Psi(x,t)$}
+The time-dependent solution is:
+\[
+\Psi(x,t) = \sum_{n=1}^\infty b_n e^{-iE_n t/\hbar} \psi_n(x).
+\]
+Substituting the coefficients and eigenfunctions:
+\[
+\Psi(x,t) = \frac{3}{10}e^{-iE_1t/\hbar}\psi_1(x) - \frac{1}{10}e^{-iE_3t/\hbar}\psi_3(x).
+\]
+Using $E_n = \frac{\hbar^2n^2}{2m}$, the final result becomes:
+\[
+\Psi(x,t) = 
+\]
+\[
+\frac{3}{10} e^{-i\frac{\hbar t}{2m}} \sqrt{\frac{2}{\pi}} \sin(x) - \frac{1}{10} e^{-i\frac{9\hbar t}{2m}} \sqrt{\frac{2}{\pi}} \sin(3x).
+\]
+
+\section{Orthogonality Check}
+To verify that $\psi_n(x)$ is an orthonormal basis:
+\[
+\int_0^\pi \psi_n(x)\psi_m(x) dx =
+\begin{cases} 
+1 & n = m, \\
+0 & n \neq m.
+\end{cases}
+\]
+
+\section{Key Formulae}
+\begin{itemize}
+\item Matrix exponential: For a diagonalizable matrix $\mathbf{A}$:
+\[
+e^{\mathbf{A}} = \mathbf{P} e^{\mathbf{D}} \mathbf{P}^{-1},
+\]
+where $\mathbf{D}$ is the diagonal matrix of eigenvalues and $\mathbf{P}$ is the eigenvector matrix.
+\item Exponential series:
+\[
+e^x = \sum_{n=0}^\infty \frac{x^n}{n!}.
+\]
+\end{itemize}
+
+\section{Introduction to the Time-Dependent Schrödinger Equation}
+The time-dependent Schrödinger equation (TDSE) describes the evolution of the wave function $\Psi(x,t)$ in quantum mechanics:
+\[
+i\hbar \frac{\partial \Psi(x,t)}{\partial t} = \left( -\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} + U(x) \right) \Psi(x,t)
+\]
+Here:
+\begin{itemize}
+    \item $i = \sqrt{-1}$ is the imaginary unit.
+    \item $\hbar$ is the reduced Planck constant.
+    \item $U(x)$ is the potential energy.
+    \item $\Psi(x,t)$ is the wave function, a complex-valued function encoding the probability distribution of the particle.
+\end{itemize}
+
+We consider an infinite potential well:
+\[
+U(x) = 
+\begin{cases} 
+0 & 0 \leq x \leq \pi, \\
+\infty & \text{otherwise.}
+\end{cases}
+\]
+The particle is confined to the region $0 \leq x \leq \pi$ and cannot exist elsewhere.
+
+\section{Stationary States in the Infinite Well}
+For a time-independent potential, we solve the time-independent Schrödinger equation:
+\[
+-\frac{\hbar^2}{2m} \frac{d^2 \psi_n(x)}{dx^2} = E_n \psi_n(x), \quad 0 \leq x \leq \pi.
+\]
+The boundary conditions $\psi_n(0) = \psi_n(\pi) = 0$ lead to the normalized eigenfunctions:
+\[
+\psi_n(x) = \sqrt{\frac{2}{\pi}} \sin(n x), \quad n = 1, 2, 3, \ldots.
+\]
+The corresponding energy eigenvalues are:
+\[
+E_n = \frac{\hbar^2 n^2}{2m}.
+\]
+
+\section{Initial State of the System}
+The initial wave function is given as:
+\[
+\Psi_0(x) = \frac{4}{\sqrt{5\pi}} \sin^3(x).
+\]
+We need to express $\Psi_0(x)$ as a linear combination of the eigenfunctions $\{\psi_n(x)\}$:
+\[
+\Psi_0(x) = \sum_{n=1}^\infty b_n \psi_n(x).
+\]
+
+\section{Calculating the Fourier Coefficients $b_n$}
+The coefficients $b_n$ are determined using the orthonormality property of $\psi_n(x)$:
+\[
+b_n = \int_0^\pi \Psi_0(x) \psi_n(x) dx.
+\]
+To simplify, we use the trigonometric identity for $\sin^3(x)$:
+\[
+\sin^3(x) = \frac{3}{4}\sin(x) - \frac{1}{4}\sin(3x).
+\]
+Substituting into $\Psi_0(x)$:
+\[
+\Psi_0(x) = \frac{4}{\sqrt{5\pi}} \left( \frac{3}{4}\sin(x) - \frac{1}{4}\sin(3x) \right).
+\]
+Rewriting in terms of $\psi_n(x)$:
+\[
+\Psi_0(x) = \frac{1}{\sqrt{10}} \left( 3\psi_1(x) - \psi_3(x) \right).
+\]
+This gives:
+\[
+b_1 = \frac{3}{\sqrt{10}}, \quad b_3 = -\frac{1}{\sqrt{10}},
+\]
+\[
+\quad b_n = 0 \text{ for } n \notin \{1, 3\}.
+\]
+
+\section{Normalization of $\Psi_0(x)$}
+To confirm that $\Psi_0(x)$ is normalized:
+\[
+\|\Psi_0\|^2 = \int_0^\pi |\Psi_0(x)|^2 dx = \sum_{n=1}^\infty |b_n|^2.
+\]
+Using $b_1 = \frac{3}{\sqrt{10}}$ and $b_3 = -\frac{1}{\sqrt{10}}$:
+\[
+\|\Psi_0\|^2 = \left( \frac{3}{\sqrt{10}} \right)^2 + \left( -\frac{1}{\sqrt{10}} \right)^2 = \frac{9}{10} + \frac{1}{10} = 1.
+\]
+Thus, $\Psi_0(x)$ is properly normalized.
+
+\section{Time Evolution of the Wave Function}
+The solution to the TDSE is:
+\[
+\Psi(x,t) = \sum_{n=1}^\infty b_n e^{-iE_n t/\hbar} \psi_n(x).
+\]
+Substituting the known $b_n$ and $E_n = \frac{\hbar^2 n^2}{2m}$:
+\[
+\Psi(x,t) = b_1 e^{-i \frac{\hbar t}{2m}} \psi_1(x) + b_3 e^{-i \frac{9\hbar t}{2m}} \psi_3(x).
+\]
+Simplifying:
+\[
+\Psi(x,t) = \frac{3}{\sqrt{10}} e^{-i \frac{\hbar t}{2m}} \sqrt{\frac{2}{\pi}} \sin(x) -
+\]
+\[
+\frac{1}{\sqrt{10}} e^{-i \frac{9\hbar t}{2m}} \sqrt{\frac{2}{\pi}} \sin(3x).
+\]
+
+\section{Final Solution for $\Psi(x,t)$}
+The complete wave function is:
+\[
+\Psi(x,t) = \frac{3}{\sqrt{5\pi}} \sin(x) e^{-i \frac{\hbar t}{2m}} - \frac{1}{\sqrt{5\pi}} \sin(3x) e^{-i \frac{9\hbar t}{2m}}.
+\]
+This describes the time evolution of the system in the infinite well.
+
+\section{Key Observations}
+\begin{itemize}
+    \item The coefficients $b_n$ determine the contribution of each eigenstate $\psi_n(x)$.
+    \item Only $\psi_1(x)$ and $\psi_3(x)$ contribute to $\Psi(x,t)$ because $\Psi_0(x)$ contains only $\sin(x)$ and $\sin(3x)$.
+    \item The time dependence of each term is governed by the corresponding energy eigenvalue $E_n$.
+\end{itemize}
+
+\end{multicols}
+\end{document}

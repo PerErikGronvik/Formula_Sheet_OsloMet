@@ -1,0 +1,230 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{titlesec}
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt}
+\setlength{\columnsep}{1cm}
+
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries}
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\large L1 - Mathematical Methods Notes}
+\end{center}
+
+\vspace{0.2cm}
+
+\begin{multicols}{2}
+
+\section*{Trigonometric Identities}
+\begin{align*}
+    \sin^2(x) + \cos^2(x) &= 1 \\
+    \cos(2x) &= \cos^2(x) - \sin^2(x)
+\end{align*}
+
+Using the identity for $\cos(2x)$, we can rewrite:
+\begin{align*}
+    \cos^2(x) &= \frac{1 + \cos(2x)}{2} \\
+    \sin^2(x) &= \frac{1 - \cos(2x)}{2}
+\end{align*}
+
+\section*{Example: Compute $\int_0^{\pi} \cos^2(x) \, dx$}
+Using the trigonometric identity for $\cos^2(x)$, we have:
+\begin{align*}
+    I &= \int_0^{\pi} \cos^2(x) \, dx \\
+      &= \frac{1}{2} \int_0^{\pi} \left( 1 + \cos(2x) \right) \, dx \\
+      &= \frac{1}{2} \left[ x + \frac{\sin(2x)}{2} \right]_0^{\pi} \\
+      &= \frac{1}{2} \pi
+\end{align*}
+
+\section*{Integration by Parts}
+\begin{align*}
+    \int_a^b f(x) \, dx &= A
+\end{align*}
+
+The integration by parts formula is:
+\begin{align*}
+    \int_a^b f(x) g'(x) \, dx = \left[ f(x) g(x) \right]_a^b - \int_a^b f'(x) g(x) \, dx
+\end{align*}
+
+\section*{Example: Compute $\int_0^{\infty} x^3 e^{-x^2} \, dx$}
+Using integration by parts, let:
+\begin{align*}
+    I &= \int_0^{\infty} x^3 e^{-x^2} \, dx \\
+      &= -\frac{1}{2} \int_0^{\infty} x^2 (-2x e^{-x^2}) \, dx \\
+      &= \frac{1}{2}
+\end{align*}
+
+\section*{Taylor Series}
+If $f$ is smooth, then the Taylor series expansion around $x = 0$ is given by:
+\begin{align*}
+    f(x) &= \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!} x^n
+\end{align*}
+where $f^{(n)}(0)$ is the $n$-th derivative of $f(x)$ evaluated at $x = 0$.
+
+\section*{Example: Binomial Expansion $(1+x)^{\alpha}$}
+\[
+(1 + x)^\alpha = 1 + \alpha x + \frac{\alpha (\alpha - 1)}{2!} x^2 + \frac{\alpha (\alpha - 1) (\alpha - 2)}{3!} x^3 + \cdots
+\]
+
+\subsection*{Specific Cases}
+\begin{itemize}
+    \item $\alpha = \frac{1}{2}$:
+    \[
+    (1+x)^{1/2} \approx 1 + \frac{1}{2}x - \frac{1}{8}x^2 + \cdots
+    \]
+    \item $\alpha = -\frac{1}{2}$:
+    \[
+    (1+x)^{-1/2} \approx 1 - \frac{1}{2}x + \frac{3}{8}x^2 + \cdots
+    \]
+\end{itemize}
+
+\section*{Is the integrand even or odd? Compute $\int_{-\pi}^{\pi} \sin^2(x) \, dx$.}
+
+To determine if the function is even or odd, we first consider the symmetry properties of the integrand:
+- The function \(\sin^2(x)\) is **even**, since:
+\[
+\sin^2(-x) = \sin^2(x).
+\]
+This implies that the function is symmetric about the y-axis.
+
+Since the integrand is even, we can use the property of even functions to simplify the limits of integration:
+\[
+I = \int_{-\pi}^{\pi} \sin^2(x) \, dx = 2 \int_0^{\pi} \sin^2(x) \, dx.
+\]
+
+To evaluate the integral, we use the trigonometric identity:
+\[
+\sin^2(x) = \frac{1}{2}(1 - \cos(2x)).
+\]
+Thus,
+\[
+I = 2 \int_0^{\pi} \frac{1}{2} (1 - \cos(2x)) \, dx = \int_0^{\pi} (1 - \cos(2x)) \, dx.
+\]
+
+Breaking it down:
+\[
+I = \int_0^{\pi} 1 \, dx - \int_0^{\pi} \cos(2x) \, dx.
+\]
+Evaluating each part:
+\[
+\int_0^{\pi} 1 \, dx = \pi, \quad \int_0^{\pi} \cos(2x) \, dx = \left[ \frac{\sin(2x)}{2} \right]_0^{\pi} = 0.
+\]
+Thus,
+\[
+I = \pi. \tag{L1}
+\]
+
+\section*{Calculate $\int_0^{\infty} x^2 e^{-2x} \, dx$}
+
+To solve this integral, we use **integration by parts** twice. Let:
+\[
+u = x^2, \quad dv = e^{-2x} \, dx.
+\]
+Then,
+\[
+ du = 2x \, dx, \quad v = -\frac{1}{2} e^{-2x}.
+\]
+
+Applying integration by parts:
+\[
+\int u \, dv = uv - \int v \, du,
+\]
+we have:
+\[
+\int_0^{\infty} x^2 e^{-2x} \, dx = \left[ -\frac{1}{2} x^2 e^{-2x} \right]_0^{\infty} + \int_0^{\infty} x \cdot e^{-2x} \, dx.
+\]
+The boundary term evaluates to zero as \(x \to \infty\) and at \(x = 0\).
+
+For the remaining integral, we use integration by parts again:
+\[
+u = x, \quad dv = e^{-2x} \, dx, \quad du = dx, \quad v = -\frac{1}{2} e^{-2x}.
+\]
+Thus:
+\[
+\int_0^{\infty} x e^{-2x} \, dx = \left[ -\frac{1}{2} x e^{-2x} \right]_0^{\infty} + \int_0^{\infty} \frac{1}{2} e^{-2x} \, dx = \frac{1}{4}.
+\]
+So the final answer is:
+\[
+\int_0^{\infty} x^2 e^{-2x} \, dx = \frac{1}{4}. \tag{L2}
+\]
+
+\section*{Calculate $\int_0^{\pi} x \sin(x) \, dx$}
+
+We solve this using **integration by parts**. Let:
+\[
+u = x, \quad dv = \sin(x) \, dx, \quad du = dx, \quad v = -\cos(x).
+\]
+
+Applying integration by parts:
+\[
+\int_0^{\pi} x \sin(x) \, dx = \left[ -x \cos(x) \right]_0^{\pi} + \int_0^{\pi} \cos(x) \, dx.
+\]
+Evaluating the boundary term:
+\[
+\left[ -x \cos(x) \right]_0^{\pi} = 0,
+\]
+and the remaining integral is:
+\[
+\int_0^{\pi} \cos(x) \, dx = \left[ \sin(x) \right]_0^{\pi} = 0.
+\]
+Thus:
+\[
+\int_0^{\pi} x \sin(x) \, dx = \pi. \tag{L3}
+\]
+
+\section*{Determine the addition formulas for $\cos(x+y)$ and $\cos(x-y)$. Evaluate $\int_0^{\pi} \sin(nx) \sin(mx) \, dx$ for $n \neq m$.}
+
+The addition formulas for cosine are:
+\[
+\cos(x+y) = \cos(x) \cos(y) - \sin(x) \sin(y),
+\]
+\[
+\cos(x-y) = \cos(x) \cos(y) + \sin(x) \sin(y). \tag{L4}
+\]
+
+To evaluate the integral for \(n \neq m\):
+\[
+I(n, m) = \int_0^{\pi} \sin(nx) \sin(mx) \, dx.
+\]
+Using the product-to-sum identity:
+\[
+\sin(nx) \sin(mx) = \frac{1}{2} \left( \cos((n-m)x) - \cos((n+m)x) \right). \tag{L5}
+\]
+Thus:
+\[
+I(n, m) = \frac{1}{2} \int_0^{\pi} \left( \cos((n-m)x) - \cos((n+m)x) \right) \, dx.
+\]
+Evaluating each part:
+\[
+\int_0^{\pi} \cos((n-m)x) \, dx = \left[ \frac{\sin((n-m)x)}{n-m} \right]_0^{\pi} = 0,
+\]
+\[
+\int_0^{\pi} \cos((n+m)x) \, dx = \left[ \frac{\sin((n+m)x)}{n+m} \right]_0^{\pi} = 0.
+\]
+Thus:
+\[
+I(n, m) = 0. \tag{L6}
+\]
+
+\section*{Derivative of a Function in One Variable}
+Let $f = f(x)$, the derivative is given by:
+\begin{align*}
+    \frac{df}{dx}\bigg|_{x=x_0} &= \lim_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h}
+\end{align*}
+
+\section*{Partial Derivatives of a Function in Two Variables}
+Let $f = f(x, y)$, the partial derivatives are given by:
+\begin{align*}
+    \frac{\partial f}{\partial x}\bigg|_{x = x_0, y = y_0} &= \lim_{h \to 0} \frac{f(x_0 + h, y_0) - f(x_0, y_0)}{h} \\
+    \frac{\partial f}{\partial y}\bigg|_{x = x_0, y = y_0} &= \lim_{h \to 0} \frac{f(x_0, y_0 + h) - f(x_0, y_0)}{h}
+\end{align*}
+
+\end{multicols}
+\end{document}

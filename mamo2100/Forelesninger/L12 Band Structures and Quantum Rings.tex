@@ -1,0 +1,278 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
+\setlength{\parindent}{0pt}
+\setlength{\columnsep}{1cm}
+
+% Adjust section title font size and spacing
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries}
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{0.3cm}{0.2cm}
+
+\begin{document}
+
+\title{L12 - Band Structures and Quantum Rings}
+\author{}
+\date{}
+\maketitle
+\begin{multicols}{2}
+
+\section{Band Structure and Eigenvalues}
+The plot of band structures (Figure 1) shows the relationship between the eigenvalues $E_i$ and the crystal momentum $k$. The eigenvalues represent solutions to the Schrödinger equation with a periodic potential, such that:  
+\[
+E_i = E_i(k), \quad k \text{ is the crystal momentum.}
+\]
+
+\textbf{Key Concepts:}
+- The gaps between bands are called \textbf{band gaps}, which dictate electronic properties like conductivity.
+- The band structure determines whether the material behaves as a conductor, insulator, or semiconductor.
+
+\textbf{Figure 1: Band Structure}  
+Insert a labeled figure here showing the energy eigenvalues $E_i(k)$ for several bands. Annotate the band gaps.
+
+\section{Schrödinger Equation for Periodic Potentials}
+The time-independent Schrödinger equation in the presence of a periodic potential $v(x)$ is given by:
+\[
+\hat{H}(v, k) = \frac{1}{2}\left(-i \frac{d}{dx} + k \right)^2 + v(x),
+\]
+where:
+- $k$ is the crystal momentum.
+- $v(x)$ is a periodic potential modeling the atomic arrangement in a crystal.
+
+\textbf{Bloch's Theorem:} Solutions to this equation satisfy:
+\[
+\hat{H}(v, k)\phi = E\phi, \quad \phi(x+a) = \phi(x),
+\]
+where $a$ is the lattice period. This periodic condition implies solutions of the form:
+\[
+\psi(x) = e^{ikx}\phi(x),
+\]
+where $\phi(x)$ is a periodic function. Solving this leads to $E = E(k)$.
+
+\section{Numerical Solution for the Schrödinger Equation}
+The goal is to compute eigenvalues numerically for systems such as quantum rings or potential wells.  
+\textbf{Example: Quantum Ring with $U=0$}
+Solve the Schrödinger equation on a ring with radius $R$:
+\[
+-\psi''(\theta) = E\psi(\theta),
+\]
+subject to periodic boundary conditions $\psi(\theta) = \psi(\theta+2\pi)$.  
+
+\textbf{Solution:}
+1. Assume a solution of the form $\psi(\theta) = De^{ik\theta}$.
+2. Substituting into the equation:
+   \[
+   \psi''(\theta) + k^2\psi(\theta) = 0.
+   \]
+   Here, $E = k^2$, where $k$ is an integer ($k = 0, \pm 1, \pm 2, \dots$) due to periodicity.  
+
+3. Normalize:
+   \[
+   1 = \int_0^{2\pi} |\psi_k(\theta)|^2 d\theta = |D_k|^2 \cdot 2\pi,
+   \]
+   giving $|D_k| = \frac{1}{\sqrt{2\pi}}$.  
+
+\textbf{Final Normalized Solution:}
+\[
+\psi_k(\theta) = \frac{1}{\sqrt{2\pi}}e^{ik\theta}.
+\]
+
+\section{Periodic Quantum Systems with Potentials}
+We introduce a periodic potential $U(\theta)$ (e.g., $U(\theta) = \cos(\theta)$). The Hamiltonian becomes:
+\[
+\hat{H} = \frac{1}{2}\left(-\frac{i}{R}\frac{d}{d\theta} + A(\theta) \right)^2 + U(\theta),
+\]
+where $A(\theta)$ is a magnetic potential.
+
+\textbf{Special Case: $A(\theta) = 0$ and $U(\theta) = 0$}  
+The Hamiltonian simplifies to:
+\[
+\hat{H} = -\frac{1}{2}\frac{d^2}{d\theta^2},
+\]
+leading back to the eigenfunctions and eigenvalues discussed earlier.
+
+\section{Numerical Approximations: Discretization}
+The Schrödinger equation can be discretized for numerical solutions by approximating the second derivative:
+\[
+\psi''(x_k) \approx \frac{\psi(x_{k-1}) - 2\psi(x_k) + \psi(x_{k+1})}{\Delta x^2}.
+\]
+
+For $N$ grid points and symmetric potential $U(x)$:
+\[
+-\frac{\hbar^2}{2m}\psi'' + U(x)\psi = E\psi,
+\]
+this becomes a matrix eigenvalue problem:
+\[
+H\vec{\psi} = E\vec{\psi},
+\]
+where $H$ is the Hamiltonian matrix.  
+
+\textbf{Example: Finite Square Well}  
+Discretize the well with $b = 2$, $N=5$, and grid spacing $\Delta x = 1$. This leads to a tridiagonal matrix for $H$.
+
+\textbf{Steps:}
+1. Compute $\psi''(x_k)$ for $x_k = -2, -1, 0, 1, 2$.  
+2. Construct the potential $U(x_k)$ on the grid.  
+3. Solve the resulting matrix eigenvalue problem.
+
+\section{Conclusion}
+These techniques illustrate how quantum systems are analyzed numerically using discretization and linear algebra. The band structure directly informs the material properties, while numerical approaches provide solutions to otherwise intractable problems.
+
+
+\section{Finite Square Well Potential}
+We consider a finite square well potential $U(x)$ with strength $U_0 = 1$ and half-width $a = L/2 = 3/2$. The interval is $[-2, 2]$, and the goal is to solve the Schrödinger equation (SE):
+\[
+-\frac{1}{2}\psi''(x) + U(x)\psi(x) = E\psi(x),
+\]
+numerically using $N = 5$ grid points. 
+
+\subsection{Discretization of the Domain}
+The domain $[-2, 2]$ is discretized into $N = 5$ points, leading to a grid spacing:
+\[
+\Delta x = \frac{2b}{N-1} = \frac{4}{5-1} = 1.
+\]
+The grid points are:
+\[
+x_1 = -2, \, x_2 = -1, \, x_3 = 0, \, x_4 = 1, \, x_5 = 2.
+\]
+
+\subsection{Finite Difference Approximation}
+The second derivative of the wavefunction $\psi(x)$ is approximated using finite differences:
+\[
+\psi''(x_k) \approx \frac{\psi(x_{k-1}) - 2\psi(x_k) + \psi(x_{k+1})}{\Delta x^2}.
+\]
+Substituting this into the SE gives:
+\[
+-\frac{1}{2} \frac{\psi(x_{k-1}) - 2\psi(x_k) + \psi(x_{k+1})}{\Delta x^2} + 
+\]
+\[
+U(x_k)\psi(x_k) = E\psi(x_k).
+\]
+
+\subsection{Matrix Formulation of the Hamiltonian}
+Rewriting the discretized SE in matrix form, the Hamiltonian becomes:
+\[
+H = -\frac{1}{2}
+\begin{bmatrix}
+-2 & 1 & 0 & 0 & 0 \\
+1 & -2 & 1 & 0 & 0 \\
+0 & 1 & -2 & 1 & 0 \\
+0 & 0 & 1 & -2 & 1 \\
+0 & 0 & 0 & 1 & -2
+\end{bmatrix}
+\]
+\[
++ \text{diag}(U(x_1), U(x_2), \dots, U(x_5)).
+\]
+
+The eigenvalues of $H$ correspond to the energy levels $E$, and the eigenvectors provide the wavefunctions $\psi(x_k)$.
+
+\subsection{Potential Function $U(x)$}
+The potential $U(x)$ is defined as:
+\[
+U(x) =
+\begin{cases}
+0 & |x| \leq \frac{L}{2}, \\
+U_0 & |x| > \frac{L}{2}.
+\end{cases}
+\]
+\[
+\begin{aligned}
+x_1 &= -2, \\
+x_2 &= -1, \\
+x_3 &= 0, \\
+x_4 &= 1, \\
+x_5 &= 2.
+\end{aligned}
+\]
+the potential values are:
+\[
+\begin{aligned}
+U(x_1) &= 1, \\
+U(x_2) &= 0, \\
+U(x_3) &= 0, \\
+U(x_4) &= 0, \\
+U(x_5) &= 1.
+\end{aligned}
+\]
+
+\subsection{Numerical Solution}
+Solve the eigenvalue problem:
+\[
+H\vec{\psi} = E\vec{\psi},
+\]
+using a computational tool like Python. The lowest eigenvalue represents the ground-state energy, and higher eigenvalues correspond to excited states.
+
+\section{Quantum Ring with Periodic Boundary Conditions}
+Consider a quantum ring with $R = 1$ and $U(\theta) = 0$, where $\theta \in [0, 2\pi]$ is the angular coordinate. Solve the Schrödinger equation:
+\[
+-\psi''(\theta) + U(\theta)\psi(\theta) = E\psi(\theta),
+\]
+with periodic boundary conditions:
+\[
+\psi(\theta) = \psi(\theta + 2\pi).
+\]
+
+\subsection{Analytic Solution for $U(\theta) = 0$}
+When $U(\theta) = 0$, the SE reduces to:
+\[
+-\psi''(\theta) = E\psi(\theta).
+\]
+Assume a solution of the form:
+\[
+\psi(\theta) = Ae^{ik\theta},
+\]
+where $k$ is an integer to satisfy periodicity:
+\[
+\psi(\theta + 2\pi) = \psi(\theta) \implies e^{ik(\theta + 2\pi)} = e^{ik\theta}.
+\]
+This implies $e^{i2\pi k} = 1$, or:
+\[
+k = 0, \pm 1, \pm 2, \dots
+\]
+
+The eigenvalues are:
+\[
+E = k^2,
+\]
+and the eigenfunctions are:
+\[
+\psi_k(\theta) = Ae^{ik\theta}.
+\]
+
+\subsection{Normalization of Eigenfunctions}
+Normalize $\psi_k(\theta)$ over $[0, 2\pi]$:
+\[
+\int_0^{2\pi} |\psi_k(\theta)|^2 d\theta = 1.
+\]
+Substitute $\psi_k(\theta) = Ae^{ik\theta}$:
+\[
+|A|^2 \int_0^{2\pi} 1 \, d\theta = 1 \implies |A|^2 \cdot 2\pi = 1 
+\]
+\[
+\implies |A| = \frac{1}{\sqrt{2\pi}}.
+\]
+
+The normalized eigenfunctions are:
+\[
+\psi_k(\theta) = \frac{1}{\sqrt{2\pi}} e^{ik\theta}, \quad k = 0, \pm 1, \pm 2, \dots
+\]
+
+\section*{Conclusion}
+This lecture demonstrates:
+\begin{enumerate}
+    \item The numerical treatment of the finite square well potential using finite difference methods.
+    \item Analytic solutions for the quantum ring under periodic boundary conditions.
+\end{enumerate}
+
+These techniques form the foundation for analyzing quantum systems both numerically and analytically.
+
+
+
+\end{multicols}
+\end{document}
