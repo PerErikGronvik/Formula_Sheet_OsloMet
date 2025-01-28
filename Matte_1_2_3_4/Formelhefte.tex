@@ -1,4 +1,4 @@
-\documentclass[a4paper,8pt,fleqn]{article}
+\documentclass[a4paper,7pt,fleqn]{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{multicol}
@@ -6,6 +6,27 @@
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage[T1]{fontenc} %Tillater bruk at norske bokstaver
+\usepackage{listings}
+
+\lstset{
+    basicstyle=\ttfamily,    % Bruk monospace-skrift
+    breaklines=true,         % Bryt linjer automatisk
+    tabsize=4,               % Størrelse på tabulator (antall mellomrom)
+    language=Python          % Sett språket til Python
+}
+
+
+\lstset{
+    basicstyle=\ttfamily\small, % Kodefont og størrelse
+    frame=single,              % Ramme rundt koden
+    numbers=left,              % Linjenummer til venstre
+    numberstyle=\tiny\color{gray}, % Stil for linjenummer
+    keywordstyle=\color{blue}\bfseries, % Nøkkelord i blått
+    commentstyle=\color{gray}, % Kommentarer i grått
+    stringstyle=\color{red},   % Strenger i rødt
+    breaklines=true,           % Automatisk linjebrudd
+    language=Python            % Språket (velg ønsket)
+}
 
 % Geometry and layout
 \geometry{a4paper, left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
@@ -43,7 +64,7 @@
 % Custom footer
 \pagestyle{fancy}
 \fancyhf{}
-\fancyfoot[C]{\scriptsize Matte 4000 - Per Erik Grønvik \hspace{1em} -- \hspace{1em} Page \thepage}
+\fancyfoot[C]{\scriptsize Matte alle - Per Erik Grønvik \hspace{1em} -- \hspace{1em} Page \thepage}
 
 \begin{document}
 
@@ -55,7 +76,7 @@
 
 \begin{minipage}{\linewidth}
 % Title and class inside columns
-{\bfseries Matte 400 Formula Sheet} \\
+{\bfseries Matte alle Formel ark} \\
 {\scriptsize Per Erik Grønvik \quad 2025}
 \end{minipage}
 
@@ -80,26 +101,7 @@
 \int \frac{1}{g(y)} \, dy = \int f(x) \, dx
 \]
 
-\section{Standardintegraler}
-\subsection{Standardintegral for \(\frac{1}{a^2 - u^2}\)}
-\[
-\int \frac{1}{a^2 - u^2} \, du = \frac{1}{2a} \ln\left|\frac{a + u}{a - u}\right| + C
-\]
 
-\subsection{Standardintegral for \(\frac{1}{1 - u^2}\)}
-\[
-\int \frac{1}{1 - u^2} \, du = \text{artanh}(u) + C
-\]
-
-\subsection{Relasjon mellom \(\text{artanh}(x)\) og logaritmer}
-\[
-\text{artanh}(x) = \frac{1}{2} \ln\left(\frac{1 + x}{1 - x}\right)
-\]
-
-\subsection{Standardintegral for \(\frac{1}{a^2 - b^2x^2}\)}
-\[
-\int \frac{1}{a^2 - b^2x^2} \, dx = \frac{1}{2ab} \ln\left|\frac{a + bx}{a - bx}\right| + C
-\]
 
 \section{Generelle løsninger av lineære differensialligninger}
 En lineær differensialligning på formen:
@@ -174,28 +176,7 @@ Ved integrasjon av komplekse uttrykk kan trigonometriske substitusjoner forenkle
 
 
 
-\section*{Important Integrals}
-\[
-    \int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\pi}.
-    \]
-\[
-\int_{-\infty}^\infty e^{-a x^2} dx = \sqrt{\frac{\pi}{a}}, \quad a > 0.
-\]
-\[
-\int_{-\infty}^\infty x^2 e^{-a x^2} dx = \sqrt{\frac{\pi}{a}} \cdot \frac{1}{2a}, \quad a > 0.
-\]
-\[
-    \int_{-\infty}^\infty x^{2n} e^{-a x^2} dx = \sqrt{\frac{\pi}{a}} \cdot \frac{(2n-1)!!}{(2a)^n}, \quad n \in \mathbb{N}_0, \, a > 0,
-    \]
-\[
-\int_a^b u v' \, dx = \big[ u v \big]_a^b - \int_a^b u' v \, dx
-\]
-\[
-\int_a^b f(u) u' \, dx =\int_a^b f(u) \, \frac{du}{dx} dx = \int_{u(a)}^{u(b)} f(u) \, du
-\]
-\[
-u = ax + b \Rightarrow \quad \frac{du}{dx} = a \Rightarrow \quad du = a \, dx \Rightarrow \quad dx = \frac{du}{a} 
-\]
+
 
 
 
@@ -208,9 +189,6 @@ u = ax + b \Rightarrow \quad \frac{du}{dx} = a \Rightarrow \quad du = a \, dx \R
 \[
 \frac{d}{dx}\big(C \cdot f(x)\big) = C \cdot \frac{d}{dx}f(x),
 \]
-
-
-
 
 
 \textbf{Trigonometric functions} \\[-0.2cm]
@@ -319,6 +297,7 @@ Specific Forms of Euler's Formula (see +- syntax)
 
 
 
+
 \end{minipage}
 
 
@@ -369,6 +348,7 @@ Specific Forms of Euler's Formula (see +- syntax)
 z_1 \cdot z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)} \)
 \( \frac{z_1}{z_2} = \frac{r_1}{r_2} e^{i(\theta_1 - \theta_2)} \) \\
 \( \left(e^{i\theta}\right)^n = e^{i n \theta} = (\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta) \) \\
+
 \end{minipage}
 
 
@@ -402,7 +382,7 @@ z_1 \cdot z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)} \)
 
 \end{minipage}
 \begin{minipage}{\linewidth}
-\textbf{Rules for summation} 
+\subsection{Rules for summation} 
 
 \(\sum_{i=1}^n (a + b) = \sum_{i=1}^n a + \sum_{i=1}^n b\) \\
 \(\sum_{i=1}^n c \cdot a_i = c \cdot \sum_{i=1}^n a_i, \quad \text{if } c \text{ is constant.}\) \\
@@ -417,11 +397,12 @@ z_1 \cdot z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)} \)
 \(\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i\)
 \(\text{Cov}(X, Y) = \frac{1}{n} \sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})\) \\
 \(\text{Var}(X) = E(X^2) - E(X)^2\) \\
+\(\text{Var}(aX + b) = a^2 \text{Var}(X)\) \\
 \end{minipage}
 
 
 \begin{minipage}{\linewidth}
-\textbf{Rules for expectation \(E\)} 
+\subsection{Rules for expectation \(E\)} 
 \(E(c) = c, \quad \text{if } c \text{ is constant.}\) \\
 \(E(a + b) = E(a) + E(b)\) \\
 \(E(c \cdot a) = c \cdot E(a), \quad \text{if } c \text{ is constant.}\) \\
@@ -433,11 +414,296 @@ z_1 \cdot z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)} \)
 \(E(g(a)) = \sum_{x} g(x) P(a = x), \quad \text{(for the discrete case).}\)
 \end{minipage}
 
+\begin{minipage}{\linewidth}
+\subsection{Regneregler for potenser}
+\(a^p a^q = a^{p+q}\) \\
+\(\frac{a^p}{a^q} = a^{p-q}\) \\
+\(a^{-q} = \frac{1}{a^q}\) \\
+\((a^p)^q = a^{p \cdot q}\) \\
+\(a^{\frac{1}{p}} = \sqrt[p]{a}\) \\
+\(a^p b^p = (ab)^p\) \\
+\(\frac{a^p}{b^p} = \left(\frac{a}{b}\right)^p\) \\
+\(a^0 = 1, \quad \text{for } a \neq 0\) \\
+\(a^1 = a\) \\
+\(0^p = 0, \quad \text{for } p > 0\) \\
+\(1^p = 1\) \\
+\((-a)^p = 
+\begin{cases} 
+    a^p, & \text{hvis } p \text{ er partall} \\
+    -a^p, & \text{hvis } p \text{ er oddetall} 
+\end{cases}\) \\
+\(a^{1/2} = \sqrt{a}\)
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+    \textbf{Regneregler for kvadratrøtter} \\
+    \(\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}, \quad \text{for } a \geq 0, b \geq 0\) \\
+    \(\sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}, \quad \text{for } a \geq 0, b > 0\) \\
+    \((\sqrt{a})^2 = a, \quad \text{for } a \geq 0\) \\
+    \(\sqrt{a^2} = |a|\) \\
+    \(\sqrt[2]{a} = a^{1/2}\) \\
+    \(\sqrt{a^n} = a^{n/2}, \quad \text{for } a \geq 0\) \\
+    \(\sqrt{k \cdot a} = \sqrt{k} \cdot \sqrt{a}, \quad \text{for positiv konstant } k\) \\
+    \(\sqrt{a} \neq \sqrt{b} \quad \text{med mindre } a = b\) \\
+    \(\sqrt{a^2 + b^2} \neq \sqrt{a^2} + \sqrt{b^2} \quad \text{(ikke likhet)}\)
+\end{minipage}
+
+
+\end{multicols}
 
 \newpage
+\begin{multicols}{2}
+
+
+\begin{minipage}{\linewidth}
+section{Integration}
+
+subsection{Important integrals}
+\[
+\int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\pi}
+\]
+\[
+\int_{-\infty}^\infty e^{-a x^2} dx = \sqrt{\frac{\pi}{a}}, \quad a > 0
+\]
+\[
+\int_{-\infty}^\infty x^2 e^{-a x^2} dx = \sqrt{\frac{\pi}{a}} \cdot \frac{1}{2a}, \quad a > 0
+\]
+\[
+\int_{-\infty}^\infty x^{2n} e^{-a x^2} dx = \sqrt{\frac{\pi}{a}} \cdot \frac{(2n-1)!!}{(2a)^n}, \quad n \in \mathbb{N}_0, \, a > 0
+\]
+\[
+\int_a^b u v' \, dx = \big[ u v \big]_a^b - \int_a^b u' v \, dx
+\]
+\[
+\int_a^b f(u) u' \, dx = \int_{u(a)}^{u(b)} f(u) \, du
+\]
+\[
+u = ax + b \Rightarrow \frac{du}{dx} = a \Rightarrow du = a \, dx \Rightarrow dx = \frac{du}{a}
+\]
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\subsection*{Eksponentialfunksjoner}
+\(\int e^{kx} \, dx = \frac{1}{k} e^{kx} + C, \quad k \neq 0\) \\
+\(\int a^x \, dx = \frac{a^x}{\ln(a)} + C, \quad a > 0, a \neq 1\) \\
+
+\subsection*{Trigonometriske funksjoner}
+\(\int \sin(kx) \, dx = -\frac{1}{k} \cos(kx) + C\) \\
+\(\int \cos(kx) \, dx = \frac{1}{k} \sin(kx) + C\) \\
+\(\int \sec^2(kx) \, dx = \frac{1}{k} \tan(kx) + C\) \\
+\(\int \csc^2(kx) \, dx = -\frac{1}{k} \cot(kx) + C\) \\
+\(\int \sec(kx) \tan(kx) \, dx = \frac{1}{k} \sec(kx) + C\) \\
+\(\int \csc(kx) \cot(kx) \, dx = -\frac{1}{k} \csc(kx) + C\) \\
+
+\subsection*{Hyperbolske funksjoner}
+\(\int \sinh(kx) \, dx = \frac{1}{k} \cosh(kx) + C\) \\
+\(\int \cosh(kx) \, dx = \frac{1}{k} \sinh(kx) + C\) \\
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\subsection*{Inverse trigonometriske funksjoner}
+\(\int \frac{1}{\sqrt{a^2 - x^2}} \, dx = \arcsin\left(\frac{x}{a}\right) + C\) \\
+\(\int \frac{1}{1 + x^2} \, dx = \arctan(x) + C\) \\
+
+\subsection*{Logaritmiske funksjoner}
+\(\int \frac{1}{x} \, dx = \ln|x| + C\) \\
+\(\int \ln(x) \, dx = x\ln(x) - x + C\) \\
+
+\subsection*{Potensfunksjoner}
+\(\int x^n \, dx = \frac{x^{n+1}}{n+1} + C, \quad n \neq -1\) \\
+
+\subsection*{Spesielle integraler}
+\(\int \frac{1}{\sqrt{x^2 + a^2}} \, dx = \ln\left|x + \sqrt{x^2 + a^2}\right| + C\) \\
+\(\int \frac{1}{\sqrt{x^2 - a^2}} \, dx = \ln\left|x + \sqrt{x^2 - a^2}\right| + C, \quad x > a\)
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\(\int x^r \, dx = \frac{x^{r+1}}{r+1} + C, \, r \neq -1\) \\
+\(\int \frac{1}{x} \, dx = \ln|x| + C\) \\
+\(\int e^x \, dx = e^x + C\) \\
+\(\int e^{kx} \, dx = \frac{1}{k} e^{kx} + C, \, k \neq 0\) \\
+\(\int \sin x \, dx = -\cos x + C\) \\
+\(\int \cos x \, dx = \sin x + C\) \\
+\(\int \frac{1}{\cos^2 x} \, dx = \tan x + C\) \\
+\(\int \frac{1}{\sqrt{1 - x^2}} \, dx = \sin^{-1} x + C\) \\
+\(\int \frac{1}{1 + x^2} \, dx = \tan^{-1} x + C\)
+\end{minipage}
+
+
 
 
 
 \end{multicols}
+
+\newpage
+\begin{multicols}{2}
+\section{Trigonemetriske funksjoner}
+
+\subsection*{Eksakte verdier til sin og cos}
+
+\[
+\begin{array}{|c|c|c|c|c|}
+\hline
+u & u & \sin u & \cos u & \tan u \\
+\hline
+0 & 0^\circ & 0 & 1 & 0 \\
+\pi/6 & 30^\circ & 1/2 & \sqrt{3}/2 & 1/\sqrt{3} \\
+\pi/4 & 45^\circ & \sqrt{2}/2 & \sqrt{2}/2 & 1 \\
+\pi/3 & 60^\circ & \sqrt{3}/2 & 1/2 & \sqrt{3} \\
+\pi/2 & 90^\circ & 1 & 0 & - \\
+\hline
+\end{array}
+\]
+
+\begin{minipage}{\linewidth}
+    \subsection{Trigonometriske formler}
+    \(1 = \sin^2 u + \cos^2 u\) \\
+    \(\tan u = \frac{\sin u}{\cos u}\) \\
+    \(\sin u = \sin(u + 2\pi n), \quad n \in \mathbb{Z}\) \\
+    \(\cos u = \cos(u + 2\pi n), \quad n \in \mathbb{Z}\) \\
+    \(\tan u = \tan(u + \pi n), \quad n \in \mathbb{Z}\) \\
+    \(\sin(\pi - u) = \sin u\) \\
+    \(\cos(-u) = \cos u\) \\
+    \(-\sin(u) = \sin(-u)\) \\
+    \(\cos^2 u = \frac{1 + \cos(2u)}{2}\) \\
+    \(\sin^2 u = \frac{1 - \cos(2u)}{2}\) \\
+    \(\sin(u + v) = \sin u \cos v + \cos u \sin v\) \\
+    \(\cos(u + v) = \cos u \cos v - \sin u \sin v\) \\
+    \(\sin(2u) = 2 \sin u \cos u\) \\
+    \(\cos(2u) = \cos^2 u - \sin^2 u\)
+    \end{minipage}
+\end{multicols}
+
+\newpage
+\begin{multicols}{2}
+\section{Derivatives}
+\begin{minipage} {\linewidth}
+    
+\subsection{Derivasjons regler}
+\((u + v)' = u' + v' \) \\
+\((u - v)' = u' - v' \) \\
+\((cu(x))' = cu'(x) \) \\
+\((uv)' = u'v + uv' \) \\
+\((\frac{u}{v})' = \frac{u'v - uv'}{v^2} \) \\
+\((u \circ v)' = u'(v) \cdot v' \) \\
+\((u^{-1})' = -\frac{u'}{u^2} \) \\
+\((u^n)' = nu^{n-1}u' \) \\
+\((e^u)' = u'e^u \) \\
+\((a^u)' = u'a^u \ln(a) \) \\
+\((\ln(u))' = \frac{u'}{u} \) \\
+\((\log_a(u))' = \frac{u'}{u \ln(a)} \) \\
+\((\sin(u))' = u'\cos(u) \) \\
+\((\cos(u))' = -u'\sin(u) \) \\
+\((\tan(u))' = u'\sec^2(u) \) \\
+\((\cot(u))' = -u'\csc^2(u) \) \\
+\((\sec(u))' = u'\sec(u)\tan(u) \) \\
+\((\csc(u))' = -u'\csc(u)\cot(u) \) \\
+\((\arcsin(u))' = \frac{u'}{\sqrt{1-u^2}} \) \\
+\((\arccos(u))' = -\frac{u'}{\sqrt{1-u^2}} \) \\
+\((\arctan(u))' = \frac{u'}{1+u^2} \) \\
+
+
+
+
+\subsection{Important Derivatives}
+\( \frac{d}{dx} (c) = 0 \)\\
+\( \frac{d}{dx} (x) = 1 \)\\
+\( \frac{d}{dx} (x^n) = nx^{n-1} \)\\
+\( \frac{d}{dx} (e^x) = e^x \)\\
+\( \frac{d}{dx} (a^x) = a^x \ln(a) \)\\
+\( \frac{d}{dx} (\ln(x)) = \frac{1}{x} \)\\
+\( \frac{d}{dx} (\log_a(x)) = \frac{1}{x \ln(a)} \)\\
+\( \frac{d}{dx} (\sin(x)) = \cos(x) \)\\
+\( \frac{d}{dx} (\cos(x)) = -\sin(x) \)\\
+\( \frac{d}{dx} (\tan(x)) = \sec^2(x) \)\\
+\( \frac{d}{dx} (\cot(x)) = -\csc^2(x) \)\\
+\( \frac{d}{dx} (\sec(x)) = \sec(x) \tan(x) \)\\
+\( \frac{d}{dx} (\csc(x)) = -\csc(x) \cot(x) \)\\
+\( \frac{d}{dx} (\arcsin(x)) = \frac{1}{\sqrt{1-x^2}} \)\\
+\( \frac{d}{dx} (\arccos(x)) = -\frac{1}{\sqrt{1-x^2}} \)\\
+\( \frac{d}{dx} (\arctan(x)) = \frac{1}{1+x^2} \)\\
+
+
+\end{minipage}
+\end{multicols}
+\newpage
+
+\begin{minipage}{\linewidth}
+
+\section{Differensialligning ansatser}
+
+\subsection{Homogene ligninger }
+Ansatser for  \( y'' + by' + cy = 0 \):
+\( y = e^{\lambda x} \)\\
+\( y = C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x} \)\\
+\( y = e^{\alpha x}(C_1 \cos(\beta x) + C_2 \sin(\beta x)) \)\\
+\( y = (C_1 + C_2 x)e^{\lambda x} \)\\
+
+
+\subsection{Inhomogene ligninger}
+Ansatser for \( g(x) \):
+\( y_p = B_0 + B_1x + \cdots + B_nx^n \)\\
+\( y_p = Ce^{ax} \) \\
+\( y_p = Cxe^{ax} \)\\
+\( y_p = C_1 \cos(ax) + C_2 \sin(ax) \) \\
+\( y_p = x(C_1 \cos(ax) + C_2 \sin(ax)) \)\\
+\( y_p = e^{ax}(R_n(x)\cos(bx) + S_n(x)\sin(bx)) \)\\
+
+
+\subsection{Ikke-lineære ligninger}
+\( \frac{dy}{dx} = g(x)h(y) \)
+\( z = y^{1-n} \)
+\( y = vx, \quad v = \frac{y}{x} \)
+\( y = \frac{1}{z} \)
+\( y = e^z \)
+
+\subsection{Spesialtilfeller}
+\( y = x^r \)
+\( y = A\cos(kx) + B\sin(kx) \)
+\( y = e^{kx} \)
+\end{minipage}
+
+
+\newpage
+\section{Statistikk}
+
+\newpage
+\section{Matriser}
+
+\newpage
+\section{Vektorer}
+
+\newpage
+\section{Geometri}
+
+\newpage
+\section{Kvantemekanikk}
+
+\newpage
+\section{Numeriske metoderbb}
+
+\newpage
+
+\section{numpy}
+\verb|np.mean(data)| \\
+\verb|np.median(data)| \\
+\verb|np.std(data)| \\
+\verb|np.var(data)| \\
+\verb|np.percentile(data, 25)| \\
+\verb|np.corrcoef(data1, data2)| \\
+\verb|np.cov(data1, data2)| \\
+\verb|np.histogram(data)| \\
+\verb|np.histogram2d(data1, data2)| \\
+\verb|np.histogram_bin_edges(data)| \\
+\verb|np.histogramdd(data)| \\
+\verb|np.sqrt(data) 2rot| \\
+\verb|np.cbrt 3rot, 4rot potens++| \\
+\verb|np.exp(data)| \\
+\verb|np.log(data) 2,10 osv.. |\\
+\verb|np.sin(data) osv..| \\
+
+
+
+
 
 \end{document}
