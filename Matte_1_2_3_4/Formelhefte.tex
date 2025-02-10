@@ -285,11 +285,7 @@ z_1 \cdot z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)} \)
 \(\log_b(1) = 0\) \\
 \(\log_b(b) = 1\) \\
 \(\log_b(x) = \frac{\ln(x)}{\ln(b)}\) \\
-\(\ln(e^x) = x\) \\
-\(\ln(1) = 0\) \\
-\(\ln(ab) = \ln(a) + \ln(b)\) \\
-\(\ln\left(\frac{a}{b}\right) = \ln(a) - \ln(b)\) \\
-\(\ln(a^k) = k \cdot \ln(a)\)
+
 
 
 \end{minipage}
@@ -334,14 +330,16 @@ z_1 \cdot z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)} \)
 \(E(a \cdot b) = E(a) \cdot E(b), \quad \text{if } a \text{ and } b \text{ are independent.}\) \\
 \(E\left( \sum_{i=1}^n a_i \right) = \sum_{i=1}^n E(a_i)\) \\
 \(E(a^2) = \text{Var}(a) + E(a)^2\) \\
-\(E\left(\frac{a}{b}\right) \neq \frac{E(a)}{E(b)}, \quad \text{(not always equal, except in special cases).}\) \\
-\(E(g(a)) = \int_{-\infty}^\infty g(x) f_a(x) \, dx, \quad \text{(for the continuous case with density function } f_a(x)\text{).}\) \\
+\(E\left(\frac{a}{b}\right) \neq \frac{E(a)}{E(b)}, \quad \text{(not always equal).}\) \\
+\(E(g(a)) = \int_{-\infty}^\infty g(x) f_a(x) \, dx, \quad \\ 
+\text{(for the continuous case with density function } f_a(x)\text{).}\) \\
 \(E(g(a)) = \sum_{x} g(x) P(a = x), \quad \text{(for the discrete case).}\)
 \end{minipage}
 
 \begin{minipage}{\linewidth}
 \subsection{Regneregler for potenser}
 \(a^p a^q = a^{p+q}\) \\
+\((a*b)^p = a^p b^p\) \\
 \(\frac{a^p}{a^q} = a^{p-q}\) \\
 \(a^{-q} = \frac{1}{a^q}\) \\
 \((a^p)^q = a^{p \cdot q}\) \\
@@ -373,6 +371,25 @@ z_1 \cdot z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)} \)
     \(\sqrt{a^2 + b^2} \neq \sqrt{a^2} + \sqrt{b^2} \quad \text{(ikke likhet)}\)
 \end{minipage}
 
+\begin{minipage}{\linewidth}
+\subsection{Rules for e and ln}
+\(e^0 = 1\) \\
+\(e^1 = e\) \\
+\(e^x \cdot e^y = e^{x+y}\) \\
+\(\frac{e^x}{e^y} = e^{x-y}\) \\
+\(e^{-y} = \frac{1}{e^y}\) \\
+\((e^x)^y = e^{xy}\) \\
+\(e^{\frac{1}{x}} = \sqrt[x]{e}\) \\
+\(e^{\ln(x)} = x\) \\
+\(\ln(e^x) = x\) \\
+\(\ln(1) = 0\) \\
+\(\ln(ab) = \ln(a) + \ln(b)\) \\
+\(\ln\left(\frac{a}{b}\right) = \ln(a) - \ln(b)\) \\
+\(\ln(a^k) = k \cdot \ln(a)\) \\
+\(\ln(e) = 1\) \\
+\(\ln(x) = \frac{\log(x)}{\log(e)}\) \\
+
+\end{minipage}
 
 \end{multicols}
 

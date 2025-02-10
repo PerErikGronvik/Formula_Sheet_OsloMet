@@ -1,8 +1,8 @@
-PWD c:/Users/PerEr/Documents/pegro6469/Formula_Sheet_OsloMet/Matte_1_2_3_4
+PWD c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4
 INPUT c:/texlive/2024/texmf.cnf
 INPUT c:/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/PerEr/Documents/pegro6469/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex
+INPUT c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex
 OUTPUT Formelhefte.log
 INPUT c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
