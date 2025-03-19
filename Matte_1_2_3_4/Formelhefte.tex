@@ -198,27 +198,27 @@ Ved integrasjon av komplekse uttrykk kan trigonometriske substitusjoner forenkle
 \( \cos(x - y) = \cos(x)\cos(y) + \sin(x)\sin(y) \) \\
 
 \end{minipage}
-\begin{minipage}{\linewidth}
 
-\textbf{Partial Derivatives of a Function $f(x, y)$:} \\[-0.2cm]
-\( \frac{\partial f}{\partial x} \Bigg|_{x=x_0, y=y_0} = \lim_{h \to 0} \frac{f(x_0 + h, y_0) - f(x_0, y_0)}{h} \) \\
-
-\( \frac{\partial f}{\partial y} \Bigg|_{x=x_0, y=y_0} = \lim_{h \to 0} \frac{f(x_0, y_0 + h) - f(x_0, y_0)}{h} \) \\
-
-\end{minipage}
 
 \begin{minipage}{\linewidth}
-\textbf{Euler's Formulas for Cosine and Sine:}
-\( \cos(x) = \frac{e^{ix} + e^{-ix}}{2}, \quad \sin(x) = \frac{e^{ix} - e^{-ix}}{2i} \) \\
+\textbf{Euler's Formulas for Cosine and Sine:}\\
+\( \cos(x) = \frac{e^{ix} + e^{-ix}}{2}\)\\
+\(\quad \sin(x) = \frac{e^{ix} - e^{-ix}}{2i} \) \\
 \end{minipage}
 
  \begin{minipage}{\linewidth}
 
 \textbf{Euler's Formula} \\
 \(     e^{\pm ix} = \cos(x) \pm i \sin(x) \) \\
-Specific Forms of Euler's Formula (see +- syntax)
 \(     e^{-ix} = \cos(x) - i \sin(x) \) \\
 \(     e^{ix} = \cos(x) + i \sin(x) \) \\
+
+
+
+
+
+
+
 
 
 
@@ -274,17 +274,23 @@ z_1 \cdot z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)} \)
 \( \frac{z_1}{z_2} = \frac{r_1}{r_2} e^{i(\theta_1 - \theta_2)} \) \\
 \( \left(e^{i\theta}\right)^n = e^{i n \theta} = (\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta) \) \\
 
-\end{minipage}
 
 
-\begin{minipage}{\linewidth}
-\subsection{Logarithmic Rules}
+
+
+\textbf{Logarithmic Rules}
+
 \(\log_b(xy) = \log_b(x) + \log_b(y)\) \\ 
 \(\log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y)\) \\
 \(\log_b(x^k) = k \cdot \log_b(x)\) \\
 \(\log_b(1) = 0\) \\
 \(\log_b(b) = 1\) \\
 \(\log_b(x) = \frac{\ln(x)}{\ln(b)}\) \\
+\(\ln(e^x) = x\) \\
+\(\ln(1) = 0\) \\
+\(\ln(ab) = \ln(a) + \ln(b)\) \\
+\(\ln\left(\frac{a}{b}\right) = \ln(a) - \ln(b)\) \\
+\(\ln(a^k) = k \cdot \ln(a)\)
 
 
 
@@ -302,24 +308,7 @@ z_1 \cdot z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)} \)
 \(a(x) \in \mathbb{R}_{\geq 0} \implies |a(x)| = a(x)\)\\
 
 \end{minipage}
-\begin{minipage}{\linewidth}
-\subsection{Rules for summation} 
 
-\(\sum_{i=1}^n (a + b) = \sum_{i=1}^n a + \sum_{i=1}^n b\) \\
-\(\sum_{i=1}^n c \cdot a_i = c \cdot \sum_{i=1}^n a_i, \quad \text{if } c \text{ is constant.}\) \\
-\(\sum_{i=1}^n c = n \cdot c, \quad \text{if } c \text{ is constant.}\) \\
-\(\sum_{i=1}^n (a_i \cdot b_i) \neq \left( \sum_{i=1}^n a_i \right) \cdot \left( \sum_{i=1}^n b_i \right), \quad \text{(not always equal!)}\) \\
-\(\sum_{i=1}^n i = \frac{n(n+1)}{2}\) \\
-\(\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}\) \\
-\(\sum_{i=1}^n (X_i - \bar{X}) X_i = \sum_{i=1}^n (X_i - \bar{X})^2\) \\
-\(\sum_{i=1}^n (X_i - \bar{X})^2 = \sum_{i=1}^n X_i^2 - n\bar{X}^2\) \\
-\(\sum_{i=1}^n (a X_i + b)^2 = a^2 \sum_{i=1}^n X_i^2 + 2ab \sum_{i=1}^n X_i + nb^2\) \\
-\(\sum_{i=1}^n (x_i - \bar{x}) = 0\)
-\(\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i\)
-\(\text{Cov}(X, Y) = \frac{1}{n} \sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})\) \\
-\(\text{Var}(X) = E(X^2) - E(X)^2\) \\
-\(\text{Var}(aX + b) = a^2 \text{Var}(X)\) \\
-\end{minipage}
 
 
 \begin{minipage}{\linewidth}
@@ -369,6 +358,25 @@ z_1 \cdot z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)} \)
     \(\sqrt{k \cdot a} = \sqrt{k} \cdot \sqrt{a}, \quad \text{for positiv konstant } k\) \\
     \(\sqrt{a} \neq \sqrt{b} \quad \text{med mindre } a = b\) \\
     \(\sqrt{a^2 + b^2} \neq \sqrt{a^2} + \sqrt{b^2} \quad \text{(ikke likhet)}\)
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\subsection{Rules for summation} 
+
+\(\sum_{i=1}^n (a + b) = \sum_{i=1}^n a + \sum_{i=1}^n b\) \\
+\(\sum_{i=1}^n c \cdot a_i = c \cdot \sum_{i=1}^n a_i, \quad \text{if } c \text{ is constant.}\) \\
+\(\sum_{i=1}^n c = n \cdot c, \quad \text{if } c \text{ is constant.}\) \\
+\(\sum_{i=1}^n (a_i \cdot b_i) \neq \left( \sum_{i=1}^n a_i \right) \cdot \left( \sum_{i=1}^n b_i \right), \quad \text{(not always equal!)}\) \\
+\(\sum_{i=1}^n i = \frac{n(n+1)}{2}\) \\
+\(\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}\) \\
+\(\sum_{i=1}^n (X_i - \bar{X}) X_i = \sum_{i=1}^n (X_i - \bar{X})^2\) \\
+\(\sum_{i=1}^n (X_i - \bar{X})^2 = \sum_{i=1}^n X_i^2 - n\bar{X}^2\) \\
+\(\sum_{i=1}^n (a X_i + b)^2 = a^2 \sum_{i=1}^n X_i^2 + 2ab \sum_{i=1}^n X_i + nb^2\) \\
+\(\sum_{i=1}^n (x_i - \bar{x}) = 0\)
+\(\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i\)
+\(\text{Cov}(X, Y) = \frac{1}{n} \sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})\) \\
+\(\text{Var}(X) = E(X^2) - E(X)^2\) \\
+\(\text{Var}(aX + b) = a^2 \text{Var}(X)\) \\
 \end{minipage}
 
 \begin{minipage}{\linewidth}
@@ -432,10 +440,17 @@ subsection{Important integrals}\\
 \subsection*{Trigonometriske funksjoner}
 \(\int \sin(kx) \, dx = -\frac{1}{k} \cos(kx) + C\) \\
 \(\int \cos(kx) \, dx = \frac{1}{k} \sin(kx) + C\) \\
-\(\int \sec^2(kx) \, dx = \frac{1}{k} \tan(kx) + C\) \\
-\(\int \csc^2(kx) \, dx = -\frac{1}{k} \cot(kx) + C\) \\
+\(\int \tan(x) dx = -\ln|\cos(x)| + C\) \\
+\(\int (1+\tan^2(x)) dx = \tan(x) + C\) \\
+\(\int \frac{1}{\cos^2(x)} dx = \tan(x) + C\) \\
+\(\int \sin^2(x) \, dx = -\frac{1}{4} \sin(2x) - \frac{x}{2} + C\) \\
+\(\int \cos^2(x) dx = \frac{1}{4} \sin(2x) + \frac{x}{2} + C\) \\
+\(\int \tan^2(x) dx = \tan(x) - x + C\) \\
 \(\int \sec(kx) \tan(kx) \, dx = \frac{1}{k} \sec(kx) + C\) \\
+\(\int \sec^2(kx) \, dx = \frac{1}{k} \tan(kx) + C\) \\
 \(\int \csc(kx) \cot(kx) \, dx = -\frac{1}{k} \csc(kx) + C\) \\
+\(\int \csc^2(kx) \, dx = -\frac{1}{k} \cot(kx) + C\) \\
+
 
 \subsection*{Hyperbolske funksjoner}
 \(\int \sinh(kx) \, dx = \frac{1}{k} \cosh(kx) + C\) \\
@@ -531,7 +546,20 @@ u & u & \sin u & \cos u & \tan u \\
 \newpage
 \begin{multicols}{2}
 \section{Derivatives}
+
+\begin{minipage}{\linewidth}
+
+\textbf{Partial Derivatives of a Function $f(x, y)$:}
+\begin{align*}
+    \frac{\partial f}{\partial x} \Bigg|_{x=x_0, y=y_0} &= \lim_{h \to 0} \frac{f(x_0 + h, y_0) - f(x_0, y_0)}{h} \\[0.3cm]
+    \frac{\partial f}{\partial y} \Bigg|_{x=x_0, y=y_0} &= \lim_{h \to 0} \frac{f(x_0, y_0 + h) - f(x_0, y_0)}{h}
+\end{align*}
+\end{minipage}
+
+
 \begin{minipage} {\linewidth}
+
+
     
 \subsection{Derivasjons regler}
 \((u + v)' = u' + v' \) \\
@@ -580,6 +608,162 @@ u & u & \sin u & \cos u & \tan u \\
 
 \end{minipage}
 \end{multicols}
+
+\[
+\begin{array}{cccccc}
+\text{Formel} 
+& \text{Derivert} 
+& \frac{d}{dx} \text{ Formel} 
+& \frac{d}{dx} \text{ Derivert} 
+& \text{Alt Formel} 
+& \text{Alt Derivert} \\
+
+$c'$
+& 0 
+& \frac{d}{dx} (c) 
+& 0 
+& C' 
+& 0 \\
+
+$x'$ 
+& 1 
+& \frac{d}{dx} (x) 
+& 1 
+& X' 
+& 1 \\
+
+$(x + v)'$ 
+& x' + v' 
+& \frac{d}{dx} (x + v) 
+& \frac{d}{dx} + \frac{d}{dv} 
+& (X(x) + V(x))' 
+& X'(x) + V'(x) \\
+
+$cx'$ 
+& cx' 
+& \frac{d}{dx} (cx) 
+& c \frac{d}{dx} 
+& (cX(x))' 
+& cX'(x) \\
+
+$(UV)'$
+& U'V + V'U 
+& \frac{d}{dx} (UV) 
+& \frac{d}{dx}(U) \cdot V + \frac{d}{dx}(V) \cdot U 
+& X(x) \cdot V(x) 
+& X'(x) V(x) + X(x) V'(x) \\
+
+\frac{x}{v}$'$
+& \frac{x'v - xv'}{v^2} 
+& \frac{d}{dx} \left( \frac{x}{v} \right) 
+& \frac{\frac{d}{dx} \cdot v - \frac{d}{dv} \cdot x}{v^2} 
+& \frac{X(x)}{V(x)} 
+& \frac{X'(x) V(x) - X(x) V'(x)}{V(x)^2} \\
+
+(x^n)$'$ 
+& nx^{n-1} x' 
+& \frac{d}{dx} (x^n) 
+& n x^{n-1} 
+& X(x)^n 
+& nX(x)^{n-1} X'(x) \\
+
+$(e^x)$'$ 
+& x' e^x 
+& \frac{d}{dx} (e^x) 
+& e^x 
+& e^{X(x)} 
+& X'(x) e^{X(x)} \\
+
+$(a^x)$'$ 
+& x' a^x \ln(a) 
+& \frac{d}{dx} (a^x) 
+& a^x \ln(a) 
+& a^{X(x)} 
+& X'(x) a^{X(x)} \ln(a) \\
+
+$(\ln(x))$'$ 
+& \frac{x'}{x} 
+& \frac{d}{dx} (\ln(x)) 
+& \frac{1}{x} 
+& \ln(X(x)) 
+& \frac{X'(x)}{X(x)} \\
+
+$(\log_a(x))$'$ 
+& \frac{x'}{x \ln(a)} 
+& \frac{d}{dx} (\log_a(x)) 
+& \frac{1}{x \ln(a)} 
+& \log_a(X(x)) 
+& \frac{X'(x)}{X(x) \ln(a)} \\
+
+$(\sin(x))$'$
+& x' \cos(x) 
+& \frac{d}{dx} (\sin(x)) 
+& \cos(x) 
+& \sin(X(x)) 
+& X'(x) \cos(X(x)) \\
+
+$(\cos(x))$'$
+& -x' \sin(x) 
+& \frac{d}{dx} (\cos(x)) 
+& -\sin(x) 
+& \cos(X(x)) 
+& -X'(x) \sin(X(x)) \\
+
+$(\tan(x))$'$
+& x' \sec^2(x) 
+& \frac{d}{dx} (\tan(x)) 
+& \sec^2(x) 
+& \tan(X(x)) 
+& X'(x) \sec^2(X(x)) \\
+
+$(\cot(x))$'$
+& -x' \csc^2(x) 
+& \frac{d}{dx} (\cot(x)) 
+& -\csc^2(x) 
+& \cot(X(x)) 
+& -X'(x) \csc^2(X(x)) \\
+
+$(\sec(x))$'$
+& x' \sec(x) \tan(x) 
+& \frac{d}{dx} (\sec(x)) 
+& \sec(x) \tan(x) 
+& \sec(X(x)) 
+& X'(x) \sec(X(x)) \tan(X(x)) \\
+
+$(\csc(x))$'$
+& -x' \csc(x) \cot(x) 
+& \frac{d}{dx} (\csc(x)) 
+& -\csc(x) \cot(x) 
+& \csc(X(x)) 
+& -X'(x) \csc(X(x)) \cot(X(x)) \\
+
+$(\arcsin(x))$'$ 
+& \frac{x'}{\sqrt{1 - x^2}} 
+& \frac{d}{dx} (\arcsin(x)) 
+& \frac{1}{\sqrt{1 - x^2}} 
+& \arcsin(X(x)) 
+& \frac{X'(x)}{\sqrt{1 - X(x)^2}} \\
+
+(\arccos(x))$'$
+& -\frac{x'}{\sqrt{1 - x^2}} 
+& \frac{d}{dx} (\arccos(x)) 
+& -\frac{1}{\sqrt{1 - x^2}} 
+& \arccos(X(x)) 
+& -\frac{X'(x)}{\sqrt{1 - X(x)^2}} \\
+
+(\arctan(x))$'$
+& \frac{x'}{1 + x^2} 
+& \frac{d}{dx} (\arctan(x)) 
+& \frac{1}{1 + x^2} 
+& \arctan(X(x)) 
+& \frac{X'(x)}{1 + X(x)^2} \\
+
+\end{array}
+\]
+
+
+
+
 \newpage
 
 \begin{minipage}{\linewidth}
@@ -620,6 +804,247 @@ Ansatser for \( g(x) \):
 
 \newpage
 \section{Statistikk}
+\begin{multicols}{2}
+    \paragraph{\large Mamo3100 \\ \tiny Per Erik Grønvik \quad   2025}
+    
+    
+    \section*{Vanlige tegn i Statistikk}
+    
+    \(\sum\): Summasjon, brukes for å summere verdier.\\
+    \(\prod\): Produkt, brukes for å multiplisere verdier.\\
+    \(\bar{x}\): Gjennomsnitt, representerer gjennomsnittet av et datasett.\\
+    \(\hat{\beta}\): Estimat, en estimert parameterverdi, ofte brukt i regresjon.\\
+    \(\varepsilon\): Feilledd, tilfeldige feil eller støy i en modell.\\
+    \(n\): Antall, antall observasjoner eller datapunkter.\\
+    \(\sigma^2\): Varians, måler spredningen i et datasett.\\
+    \(\sigma\): Standardavvik, kvadratroten av variansen.\\
+    \(P(A)\): Sannsynlighet, sannsynligheten for hendelsen \(A\).\\
+    \(f(x)\): Tetthetsfunksjon, sannsynlighetstetthet for en kontinuerlig variabel.\\
+    \(F(x)\): Fordelingsfunksjon, kumulativ sannsynlighet for en variabel.\\
+    \(\mu\): Forventningsverdi, populasjonsgjennomsnittet.\\
+    \(x_i\): Observasjon, den \(i\)-te observasjonen i et datasett.\\
+    \(X\): Tilfeldig variabel, en stokastisk variabel.\\
+    \(z\): Z-score, standardisert verdi for en observasjon.\\
+    \(|x|\): Absoluttverdi, avstanden fra 0 på tallinjen.\\
+    \(a^\top\): Transponert. \(a^\top\) transponert av \(a\).\\
+    Derfor orthogonal \( y = \hat{y} + \hat{\varepsilon}, \quad \) med \( \quad \hat{\varepsilon}^\top \hat{y} = 0, \quad X^\top \hat{\varepsilon} = 0. \)
+    
+
+
+    \section*{Regressjon}
+    
+    \begin{minipage}{\linewidth}
+    
+    \textbf{Sum of Squared Errors (SSE):}
+    \textbf{Linear regression formula} 
+    
+    \((x_1, y_1), \ldots, (x_n, y_n)\) \\
+    \(y = \alpha + \beta x + \varepsilon_i\) \\
+    \(\hat{\alpha} = \bar{y} - \hat{\beta} \bar{x}\) \\
+    \(\hat{\beta} = \frac{\sum_{i=1}^n (x_i - \bar{x}) y_i}{\sum_{i=1}^n (x_i - \bar{x})^2} = \frac{\sum_{i=1}^n X_i Y_i - n \bar{X} \bar{Y}}{\sum_{i=1}^n X_i^2 - n \bar{X}^2}\) \\
+    \(SSE(\alpha, \beta) = \sum \left( y_i - \alpha - \beta x_i \right)^2\) \\
+    \(\text{Var}(\hat{\beta}) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}\) \\
+    \(\text{Var}(\hat{\beta}) = \frac{\text{Var}\left(\sum_{i=1}^n (X_i - \bar{X}) \varepsilon_i \right)}{\left(\sum_{i=1}^n (X_i - \bar{X})^2\right)^2} = \) \\
+    \( \frac{\sigma^2 \sum_{i=1}^n (X_i - \bar{X})^2}{\left(\sum_{i=1}^n (X_i - \bar{X})^2\right)^2} = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}.\)
+    
+    \textbf{Konfidansintervall for T-interverall} 
+    \[
+    \beta\pm t_{(\alpha, n-2)}  \frac{\hat{\sigma}}{\sqrt{\sum_{i=1}^n (X_i - \overline{X})^2}}
+    \]
+    \textbf{Least Squares (LS):}
+    \[
+    \text{LS}(\boldsymbol{\beta}) = \sum_{i=1}^n (y_i - \mathbf{x}_i'\boldsymbol{\beta})^2 = \sum_{i=1}^n \varepsilon_i^2 = \boldsymbol{\varepsilon}'\boldsymbol{\varepsilon},
+    \]
+    \textbf{Least Absolute Deviations (LA):}
+    \[
+    \text{LA}(\boldsymbol{\beta}) = \sum_{i=1}^n |y_i - \mathbf{x}_i'\boldsymbol{\beta}| = \sum_{i=1}^n |\varepsilon_i|.
+    \]
+    
+    
+    \end{minipage}
+    
+
+
+
+
+
+    \begin{minipage}{\linewidth}
+    \textbf{Linearity of Differentiation:}  
+    \[
+    \frac{\partial}{\partial x} \sum_{n=1}^\infty f_n(x) = \sum_{n=1}^\infty \frac{\partial f_n(x)}{\partial x},
+    \]
+    \textit{provided the following conditions are satisfied:}
+    \begin{itemize}
+        \item The series \(\sum_{n=1}^\infty f_n(x)\) \textbf{converges uniformly} in the region where differentiation is applied.
+        \item Each term \(f_n(x)\) is \textbf{differentiable} in the region.
+    \end{itemize}
+    
+    
+    \end{minipage}
+    \begin{minipage}{\linewidth}
+    
+    \textbf{Rules for expectation \(E\)} 
+    
+    \(E(c) = c, \quad \text{if } c \text{ is constant.}\) \\
+    \(E(a + b) = E(a) + E(b)\) \\
+    \(E(c \cdot a) = c \cdot E(a), \quad \text{if } c \text{ is constant.}\) \\
+    \(E(a \cdot b) = E(a) \cdot E(b), \quad \text{if } a \text{ and } b \text{ are independent.}\) \\
+    \(E\left( \sum_{i=1}^n a_i \right) = \sum_{i=1}^n E(a_i)\) \\
+    \(E(a^2) = \text{Var}(a) + E(a)^2\) \\
+    \(E\left(\frac{a}{b}\right) \neq \frac{E(a)}{E(b)}, \quad \text{(not always equal, except in special cases).}\) \\
+    \(E(g(a)) = \int_{-\infty}^\infty g(x) f_a(x) \, dx, \quad \text{(for the continuous case with density function } f_a(x)\text{).}\) \\
+    \(E(g(a)) = \sum_{x} g(x) P(a = x), \quad \text{(for the discrete case).}\) \\
+    
+    
+    \end{minipage}
+    \begin{minipage}{\linewidth}
+    \textbf{Regneregler for varians}
+    
+    \[
+    \mathrm{Var}\left( \sum_{i=1}^{n} a_i \varepsilon_i \right) = \sum_{i=1}^{n} a_i^2 \mathrm{Var}(\varepsilon_i),
+    \]
+    
+    
+    \end{minipage}
+    \begin{minipage}{\linewidth}
+    
+    \section*{Formler og regneregler for lineær regresjon}
+    
+    \subsection*{1. Modell og grunnleggende formler}
+    Lineær regresjonsmodell:
+    \(
+    Y_i = \alpha + \beta X_i + \varepsilon_i
+    \)
+    Forventning og varians:
+    \[
+    E(Y_i) = \alpha + \beta X_i, \quad \text{Var}(Y_i) = \sigma^2
+    \]
+    \end{minipage}
+    \begin{minipage}{\linewidth}
+    
+    \subsection*{2. Minste kvadraters metode (OLS)}
+    Estimat for \(\beta\):
+    \[
+    \hat{\beta} = \frac{\sum_{i=1}^n (X_i - \bar{X}) Y_i}{\sum_{i=1}^n (X_i - \bar{X})^2}
+    \]
+    
+    
+    
+    Estimat for \(\alpha\):
+    \[
+    \hat{\alpha} = \bar{Y} - \hat{\beta} \bar{X}
+    \]
+    Sum of Squared Errors (SSE):
+    \[
+    SSE = \sum_{i=1}^n \left(Y_i - \hat{Y}_i\right)^2 = \sum_{i=1}^n \left(Y_i - \hat{\alpha} - \hat{\beta} X_i\right)^2
+    \]
+    
+    \end{minipage}
+    \begin{minipage}{\linewidth}
+    
+    \subsection*{3. Varians og standardfeil}
+    Estimert varians til residualene (\(s^2\)):
+    \[
+    \hat{\sigma}^2 = s^2 = \frac{1}{n-2} \sum_{i=1}^n \left(Y_i - \hat{Y}_i\right)^2
+    \]
+    Varians til \(\hat{\beta}\):
+    \[
+    \text{Var}(\hat{\beta}) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
+    \]
+    Standardfeil for \(\hat{\beta}\):
+    \[
+    SE(\hat{\beta}) = \sqrt{\frac{s^2}{\sum_{i=1}^n (X_i - \bar{X})^2}}
+    \]
+    
+    \end{minipage}
+    \begin{minipage}{\linewidth}
+    
+    \subsection*{4. Hypotesetesting for \(\beta\)}
+    Null- og alternativhypotese:
+    \[
+    H_0: \beta = 0 \quad \text{(ingen sammenheng)}, 
+    \]
+    \[
+    H_1: \beta \neq 0 \quad \text{(sammenheng eksisterer)}
+    \]
+    T-test-statistikk:
+    \[
+    t_{\text{obs}} = \frac{\hat{\beta}}{SE(\hat{\beta})} = \frac{\hat{\beta} \sqrt{\sum_{i=1}^n (X_i - \bar{X})^2}}{s}
+    \]
+    Forkastningsregel:
+    \[
+    \text{Forkast } H_0 \text{ hvis } |t_{\text{obs}}| > t_{\alpha/2, n-2}
+    \]
+    
+    \end{minipage}
+    \begin{minipage}{\linewidth}
+    
+    \subsection*{5. Konfidensintervall for \(\beta\)}
+    \[
+    \hat{\beta} - t_{\alpha/2, n-2} \cdot SE(\hat{\beta}) < \beta < \hat{\beta} + t_{\alpha/2, n-2} \cdot SE(\hat{\beta})
+    \]
+    
+    \end{minipage}
+    \begin{minipage}{\linewidth}
+    
+    \subsection*{6. Fordeling av estimatene}
+    Fordeling av \(\hat{\beta}\):
+    \[
+    \hat{\beta} \sim N\left(\beta, \text{Var}(\hat{\beta})\right)
+    \]
+    Fordeling av \(\hat{\alpha}\):
+    \[
+    \hat{\alpha} \sim N\left(\alpha, \text{Var}(\hat{\alpha})\right)
+    \]
+    
+    
+    \end{minipage}
+    \begin{minipage}{\linewidth}
+    
+    \subsection*{7. Bruk av T-fordeling}
+    Når variansen \(\sigma^2\) ikke er kjent:
+    \[
+    t = \frac{\hat{\beta} - \beta}{SE(\hat{\beta})} \sim T_{n-2}
+    \]
+    
+    \end{minipage}
+    \begin{minipage}{\linewidth}
+    
+    \subsection*{8. Summasjonsregler}
+    Summasjonsregler for \(X_i\):
+    \[
+    \sum_{i=1}^n (X_i - \bar{X}) = 0, \quad \sum_{i=1}^n (X_i - \bar{X})^2 = \text{total varians i } X
+    \]
+    
+    \end{minipage}
+    \begin{minipage}{\linewidth}
+    
+    \subsection*{9. Linearitet av forventning}
+    Lineær kombinasjon av forventninger:
+    \[
+    E(aX + b) = aE(X) + b
+    \]
+    
+    \subsection*{10. Varians av lineær kombinasjon}
+    Varians av skalering:
+    \[
+    \text{Var}(aX) = a^2\text{Var}(X)
+    \]
+    Varians av summen av uavhengige variabler:
+    \[
+    \text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y) \quad \text{(hvis \(X\) og \(Y\) er uavhengige)}
+    \]
+\end{minipage}
+
+\subsection{Dumping av til kanskje brukbert senere}
+
+\(Y_i = \alpha + \beta X_i + \varepsilon_i\)\\
+\(E(\alpha) = E(Y_i - \beta X_i - \varepsilon_i)\)\\
+\(\mathbb{E} \left[ \hat{\beta}_0 \right] = \mathbb{E} \left[ \bar{Y} - \hat{\beta}_1 \bar{x} \right]\)\\
+
+
+\end{multicols}
+
 
 \newpage
 \section{Matriser}
@@ -659,6 +1084,10 @@ d & -b \\
 \(\text{Sirkel: } (x - x_0)^2 + (y - y_0)^2 = r^2\) 
 
 \newpage
+
+\begin{multicols}{2}
+    
+
 \section{Numeriske metoder}
 \subsection{Numerisk løsning av startverdiproblem}  
 
@@ -730,29 +1159,21 @@ der
 
 \( x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \)  
 
+\subsection{Finite Difference Approximation:}
+\[
+\ f'(x_i) \approx  \frac{f(x_{i+1}) - f(x_{i-1})}{2\Delta x}
+\]
+\[
+f''(x_i) \approx  \frac{f(x_{i+1}) - 2f(x_i) + f(x_{i-1})}{(\Delta x)^2}
+\]
+
+\end{multicols}
+
+
+
 
 
 \newpage
-
-\section{numpy}
-\verb|np.mean(data)| \\
-\verb|np.median(data)| \\
-\verb|np.std(data)| \\
-\verb|np.var(data)| \\
-\verb|np.percentile(data, 25)| \\
-\verb|np.corrcoef(data1, data2)| \\
-\verb|np.cov(data1, data2)| \\
-\verb|np.histogram(data)| \\
-\verb|np.histogram2d(data1, data2)| \\
-\verb|np.histogram_bin_edges(data)| \\
-\verb|np.histogramdd(data)| \\
-\verb|np.sqrt(data) 2rot| \\
-\verb|np.cbrt 3rot, 4rot potens++| \\
-\verb|np.exp(data)| \\
-\verb|np.log(data) 2,10 osv.. |\\
-\verb|np.sin(data) osv..| \\
-
-
 
 
 
