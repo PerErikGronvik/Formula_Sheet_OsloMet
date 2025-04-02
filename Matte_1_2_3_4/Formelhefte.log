@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.16)  10 MAR 2025 01:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.16)  31 MAR 2025 13:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -418,6 +418,272 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--215
 
 [1
 
-{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-!pdfTeX error: pdflatex.exe (file c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map): fflush() failed (Invalid argument)
- ==> Fatal error occurred, no output PDF file produced!
+{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 239--239
+|\T1/cmr/bx/n/12 Calculation rules com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--256
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--276
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 301--309
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--326
+\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 a \OMS/cmsy/m/n/9 ^^A \OML/cmm/m/it/9 b\OT1/cmr/m/n/9 ) = \OML/cmm/m/it/9 E\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 a\OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9 ^^A
+ []
+
+
+Overfull \hbox (60.26697pt too wide) in paragraph at lines 316--326
+[]\OML/cmm/m/it/9 f[]\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 x\OT1/cmr/m/n/9 )[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--326
+\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 g\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 a\OT1/cmr/m/n/9 )) = [][] \OML/cmm/m/it/9 g\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 x\OT1/cmr/m/n/9 )\OML/cmm/m/it/9 P\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 a \OT1/cmr/m/n/9 =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 351--361
+[] \OT1/cmr/m/n/9 = [] \OMS/cmsy/m/n/9 ^^A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--380
+[][] \OML/cmm/m/it/9 c \OMS/cmsy/m/n/9 ^^A \OML/cmm/m/it/9 a[] \OT1/cmr/m/n/9 = \OML/cmm/m/it/9 c \OMS/cmsy/m/n/9 ^^A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--380
+[][]\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 a[] \OMS/cmsy/m/n/9 ^^A \OML/cmm/m/it/9 b[]\OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9 6\OT1/cmr/m/n/9 = [] \OMS/cmsy/m/n/9 ^^A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--380
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--399
+
+ []
+
+
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 411--417
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 419--427
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--439
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--453
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 456--458
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 462--464
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--468
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 470--471
+
+ []
+
+
+
+[3]
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 565--586
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 591--607
+
+ []
+
+c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex:670: Missing $ inserted.
+<inserted text> 
+                $
+l.670 $(e^
+          x)$'$
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex:677: Missing $ inserted.
+<inserted text> 
+                $
+l.677 $(a^
+          x)$'$
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex:684: Missing $ inserted.
+<inserted text> 
+                $
+l.684 $(\ln
+           (x))$'$
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex:691: Missing $ inserted.
+<inserted text> 
+                $
+l.691 $(\log
+            _a(x))$'$
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex:698: Missing $ inserted.
+<inserted text> 
+                $
+l.698 $(\sin
+            (x))$'$
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex:705: Missing $ inserted.
+<inserted text> 
+                $
+l.705 $(\cos
+            (x))$'$
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex:712: Missing $ inserted.
+<inserted text> 
+                $
+l.712 $(\tan
+            (x))$'$
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex:719: Missing $ inserted.
+<inserted text> 
+                $
+l.719 $(\cot
+            (x))$'$
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex:726: Missing $ inserted.
+<inserted text> 
+                $
+l.726 $(\sec
+            (x))$'$
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex:733: Missing $ inserted.
+<inserted text> 
+                $
+l.733 $(\csc
+            (x))$'$
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/PerEr/Documents/Github/Formula_Sheet_OsloMet/Matte_1_2_3_4/Formelhefte.tex:740: Missing $ inserted.
+<inserted text> 
+                $
+l.740 $(\arcsin
+               (x))$'$
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 774--779
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 782--789
+
+ []
+
+
+
+[6]
+Overfull \hbox (94.7648pt too wide) in paragraph at lines 888--897
+\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 g\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 a\OT1/cmr/m/n/9 )) = [][] \OML/cmm/m/it/9 g\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 x\OT1/cmr/m/n/9 )\OML/cmm/m/it/9 f[]\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 x\OT1/cmr/m/n/9 ) \OML/cmm/m/it/9 dx;  []f[]\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 x\OT1/cmr/m/n/9 )[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 888--897
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 1041--1044
+
+ []
+
+
+
+[8]
+
+[9]
+
+[10]
+
+[11]
+
+[12]
+
+[13]
+
+[14] (./Formelhefte.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 4772 strings out of 473201
+ 68835 string characters out of 5720299
+ 702161 words of memory out of 5000000
+ 27988 multiletter control sequences out of 15000+600000
+ 574849 words of font info for 73 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,14n,65p,295b,462s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx0500.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb>
+Output written on Formelhefte.pdf (14 pages, 346035 bytes).
+PDF statistics:
+ 160 PDF objects out of 1000 (max. 8388607)
+ 100 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
