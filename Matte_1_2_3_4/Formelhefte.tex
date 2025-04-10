@@ -459,7 +459,7 @@ subsection{Important integrals}\\
 
 \begin{minipage}{\linewidth}
 \subsection*{Inverse trigonometriske funksjoner}
-\(\int \frac{1}{\sqrt{a^2 - x^2}} \, dx = \arcsin\left(\frac{x}{a}\right) + C\) \\
+\(\int \frac{1}{\sqrt{a^2 - x^2}} \, dx = \frac{1}{|a|} \arcsin \left( \frac{x}{a} \right) + C\) \\
 \(\int \frac{1}{1 + x^2} \, dx = \arctan(x) + C\) \\
 
 \subsection*{Logaritmiske funksjoner}
@@ -609,149 +609,173 @@ u & u & \sin u & \cos u & \tan u \\
 \end{minipage}
 \end{multicols}
 
+\newpage
+
+
 \[
-\begin{array}{cccccc}
-\text{Formel} 
+\begin{array}{lllllll}
+\text{nr}
+& \text{Formel} 
 & \text{Derivert} 
 & \frac{d}{dx} \text{ Formel} 
 & \frac{d}{dx} \text{ Derivert} 
 & \text{Alt Formel} 
 & \text{Alt Derivert} \\
 
-$c'$
+1
+& c'
 & 0 
 & \frac{d}{dx} (c) 
 & 0 
 & C' 
 & 0 \\
 
-$x'$ 
+2
+& x' 
 & 1 
 & \frac{d}{dx} (x) 
 & 1 
 & X' 
 & 1 \\
 
-$(x + v)'$ 
+2
+& (x + v)' 
 & x' + v' 
 & \frac{d}{dx} (x + v) 
 & \frac{d}{dx} + \frac{d}{dv} 
 & (X(x) + V(x))' 
 & X'(x) + V'(x) \\
 
-$cx'$ 
+3
+& cx' 
 & cx' 
 & \frac{d}{dx} (cx) 
 & c \frac{d}{dx} 
 & (cX(x))' 
 & cX'(x) \\
 
-$(UV)'$
+4
+& (UV)'
 & U'V + V'U 
 & \frac{d}{dx} (UV) 
 & \frac{d}{dx}(U) \cdot V + \frac{d}{dx}(V) \cdot U 
 & X(x) \cdot V(x) 
 & X'(x) V(x) + X(x) V'(x) \\
 
-\frac{x}{v}$'$
+5 
+& \left( \frac{x}{v} \right)' 
 & \frac{x'v - xv'}{v^2} 
 & \frac{d}{dx} \left( \frac{x}{v} \right) 
-& \frac{\frac{d}{dx} \cdot v - \frac{d}{dv} \cdot x}{v^2} 
+& \frac{\frac{d}{dx}(x)v - x\frac{d}{dx}(v)}{v^2} 
 & \frac{X(x)}{V(x)} 
 & \frac{X'(x) V(x) - X(x) V'(x)}{V(x)^2} \\
 
-(x^n)$'$ 
+
+6
+& (x^n)' 
 & nx^{n-1} x' 
 & \frac{d}{dx} (x^n) 
 & n x^{n-1} 
 & X(x)^n 
 & nX(x)^{n-1} X'(x) \\
 
-$(e^x)$'$ 
+7
+& (e^x)' 
 & x' e^x 
 & \frac{d}{dx} (e^x) 
 & e^x 
 & e^{X(x)} 
 & X'(x) e^{X(x)} \\
 
-$(a^x)$'$ 
+8
+& (a^x)' 
 & x' a^x \ln(a) 
 & \frac{d}{dx} (a^x) 
 & a^x \ln(a) 
 & a^{X(x)} 
 & X'(x) a^{X(x)} \ln(a) \\
 
-$(\ln(x))$'$ 
+9
+& (\ln(x))' 
 & \frac{x'}{x} 
 & \frac{d}{dx} (\ln(x)) 
 & \frac{1}{x} 
 & \ln(X(x)) 
 & \frac{X'(x)}{X(x)} \\
-
-$(\log_a(x))$'$ 
+10
+& (\log_a(x))' 
 & \frac{x'}{x \ln(a)} 
 & \frac{d}{dx} (\log_a(x)) 
 & \frac{1}{x \ln(a)} 
 & \log_a(X(x)) 
 & \frac{X'(x)}{X(x) \ln(a)} \\
 
-$(\sin(x))$'$
+11
+& (\sin(x))'
 & x' \cos(x) 
 & \frac{d}{dx} (\sin(x)) 
 & \cos(x) 
 & \sin(X(x)) 
 & X'(x) \cos(X(x)) \\
 
-$(\cos(x))$'$
+12
+& (\cos(x))'
 & -x' \sin(x) 
 & \frac{d}{dx} (\cos(x)) 
 & -\sin(x) 
 & \cos(X(x)) 
 & -X'(x) \sin(X(x)) \\
 
-$(\tan(x))$'$
+13
+& (\tan(x))'
 & x' \sec^2(x) 
 & \frac{d}{dx} (\tan(x)) 
 & \sec^2(x) 
 & \tan(X(x)) 
 & X'(x) \sec^2(X(x)) \\
 
-$(\cot(x))$'$
+14
+& (\cot(x))'
 & -x' \csc^2(x) 
 & \frac{d}{dx} (\cot(x)) 
 & -\csc^2(x) 
 & \cot(X(x)) 
 & -X'(x) \csc^2(X(x)) \\
 
-$(\sec(x))$'$
+15
+& (\sec(x))'
 & x' \sec(x) \tan(x) 
 & \frac{d}{dx} (\sec(x)) 
 & \sec(x) \tan(x) 
 & \sec(X(x)) 
 & X'(x) \sec(X(x)) \tan(X(x)) \\
 
-$(\csc(x))$'$
+16
+& (\csc(x))'
 & -x' \csc(x) \cot(x) 
 & \frac{d}{dx} (\csc(x)) 
 & -\csc(x) \cot(x) 
 & \csc(X(x)) 
 & -X'(x) \csc(X(x)) \cot(X(x)) \\
 
-$(\arcsin(x))$'$ 
+17
+& (\arcsin(x))' 
 & \frac{x'}{\sqrt{1 - x^2}} 
 & \frac{d}{dx} (\arcsin(x)) 
 & \frac{1}{\sqrt{1 - x^2}} 
 & \arcsin(X(x)) 
 & \frac{X'(x)}{\sqrt{1 - X(x)^2}} \\
 
-(\arccos(x))$'$
+18
+& (\arccos(x))'
 & -\frac{x'}{\sqrt{1 - x^2}} 
 & \frac{d}{dx} (\arccos(x)) 
 & -\frac{1}{\sqrt{1 - x^2}} 
 & \arccos(X(x)) 
 & -\frac{X'(x)}{\sqrt{1 - X(x)^2}} \\
 
-(\arctan(x))$'$
+19
+& (\arctan(x))'
 & \frac{x'}{1 + x^2} 
 & \frac{d}{dx} (\arctan(x)) 
 & \frac{1}{1 + x^2} 
@@ -760,9 +784,6 @@ $(\arcsin(x))$'$
 
 \end{array}
 \]
-
-
-
 
 \newpage
 
