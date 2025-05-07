@@ -1196,6 +1196,129 @@ f''(x_i) \approx  \frac{f(x_{i+1}) - 2f(x_i) + f(x_{i-1})}{(\Delta x)^2}
 
 \newpage
 
+\section{Løsning av en lineær 1. ordens differensiallikning med integrerende faktor}
+
+Vi starter med en differensiallikning på standard form:
+\[
+\frac{dy}{dx} + P(x)\, y = Q(x)
+\]
+
+Vi skal finne en integrerende faktor $\mu(x)$ slik at venstresiden \(\frac{dy}{dx} + P(x)\, y\) kan skrives som den deriverte av et produkt \(\mu(x) \cdot Q(x)\). Dette gjøres i tre trinn:
+\vspace{0.5cm}
+
+1. Finn den integrerende faktoren. Den integrerende faktoren $\mu(x)$ er gitt ved:
+\[
+\mu(x) = e^{\int P(x)\,dx}
+\]
+
+2. Multipliser hele likningen med $\mu(x)$
+
+\[
+\mu(x) \cdot \frac{dy}{dx} + \mu(x) \cdot P(x) \cdot y = \mu(x) \cdot Q(x)
+\]
+
+Venstresiden kan nå skrives som den deriverte av et produkt:
+\[
+\frac{d}{dx} \left( \mu(x) \cdot y \right) = \mu(x) \cdot Q(x)
+\]
+
+3. Integrer begge sider
+
+\[
+\int \frac{d}{dx} \left( \mu(x) \cdot y \right)\,dx = \int \mu(x) \cdot Q(x)\,dx
+\]
+
+\[
+\mu(x) \cdot y = \int \mu(x) \cdot Q(x)\,dx + C
+\]
+
+4. Nå kan du løse for $y(x)$
+
+\[
+y(x) = \frac{1}{\mu(x)} \left( \int \mu(x) \cdot Q(x)\,dx + C \right)
+\]
+
+Dette er den generelle løsningen.
+
+
+\section{Eksempel}
+
+Vi løser differensiallikningen
+\[
+\frac{dy}{dx} + P(x)\,y = Q(x)
+\]
+med 
+\[
+P(x) = \frac{1}{2x}, \quad Q(x) = \frac{1}{2}
+\]
+
+1. Finn den integrerende faktoren, Den integrerende faktoren er
+\[
+\mu(x) =e^{\int P(x)\, dx} = e^{\int \frac{1}{2x}\, dx} = e^{\frac{1}{2} \ln |x|} = |x|^{1/2}
+\]
+
+Vi antar \(x > 0\), så:
+\[
+\mu(x) = x^{1/2}
+\]
+
+2. Multipliser hele likningen med $\mu(x)$
+
+\[
+\mu(x) \cdot \left( \frac{dy}{dx} + P(x)\,y \right) = \mu(x) \cdot Q(x)
+\]
+
+Siden \(\mu(x) \cdot \left( \frac{du}{dx} + P(x)\,u \right) = \frac{d}{dx} \left( \mu(x) \cdot u \right)\), kan vi skrive:
+\[
+\frac{d}{dx} \left( \mu(x) \cdot u \right) = \mu(x) \cdot Q(x)
+\] 
+
+3. Integrer begge sider
+\[
+\int \frac{d}{dx} \left( \mu(x) \cdot y \right)\, dx = \int \mu(x) \cdot Q(x)\, dx
+\]
+
+\[
+\mu(x) \cdot y = \int \mu(x) \cdot Q(x)\, dx + C
+\]
+
+4. Løser for $y(x)$
+
+\[
+y(x) = \frac{1}{\mu(x)} \left( \int \mu(x) \cdot Q(x)\, dx + C \right)
+\]
+
+5. Sett inn de opprinnelige uttrykkene for $P(x)$ og $Q(x)$
+
+Vi har:
+\[
+\mu(x) = x^{1/2}, \quad Q(x) = \frac{1}{2}
+\]
+
+Sett dette inn i løsningen:
+\[
+y(x) = \frac{1}{x^{1/2}} \left( \int x^{1/2} \cdot \frac{1}{2}\, dx + C \right)
+\]
+
+Integralet:
+\[
+\int \frac{1}{2} x^{1/2}\, dx = \frac{1}{3} x^{3/2}
+\]
+
+Så:
+\[
+y(x) = \frac{1}{x^{1/2}} \left( \frac{1}{3} x^{3/2} + C \right)
+= \frac{1}{3} x + C x^{-1/2}
+\]
+
+
+
+
+
+
+
+\newpage
+
 
 
 \end{document}
